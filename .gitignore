@@ -1,0 +1,28 @@
+# --- Date Proiect ---
+texts/
+*.txt.gz
+*.db
+*.pkl
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# --- .NET / Blazor ---
+bin/
+obj/
+appsettings.Development.json
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.user
+
+# --- Log-uri ---
+*.log

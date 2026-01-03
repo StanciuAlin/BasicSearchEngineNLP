@@ -6,3 +6,4 @@ class Document:
     doc_id: int
     title: str
     content: str
+    path: str = ""
