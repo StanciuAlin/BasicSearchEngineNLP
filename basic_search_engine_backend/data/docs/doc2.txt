@@ -1,0 +1,2 @@
+A search engine indexes documents and ranks them using tf idf and cosine similarity.
+Term frequency and inverse document frequency are core concepts in information retrieval.

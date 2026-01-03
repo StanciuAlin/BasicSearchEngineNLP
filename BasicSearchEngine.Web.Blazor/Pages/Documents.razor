@@ -1,0 +1,82 @@
+@page "/documents"
+@inject IHttpClientFactory ClientFactory
+
+<h1>Documents</h1>
+
+<div class="docs-layout">
+    <section class="docs-list">
+        <h2>All documents</h2>
+        @if (documents is null)
+        {
+            <p>Loading...</p>
+        }
+        else if (documents.Count == 0)
+        {
+            <p>No documents.</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var d in documents)
+                {
+                    <li>
+                        <button class="doc-link" @onclick="() => LoadDocument(d.doc_id)">
+                            @d.title
+                        </button>
+                    </li>
+                }
+            </ul>
+        }
+    </section>
+
+    <section class="doc-detail">
+        <h2>Content</h2>
+        @if (selectedDoc is null)
+        {
+            <p class="meta">Select a document to view its content.</p>
+        }
+        else
+        {
+            <h3>@selectedDoc.title</h3>
+            <pre>@selectedDoc.content</pre>
+        }
+    </section>
+</div>
+
+@code {
+    private List<DocumentHeaderDto>? documents;
+    private DocumentDto? selectedDoc;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient("SearchApi");
+        var resp = await client.GetAsync("documents");
+        if (resp.IsSuccessStatusCode)
+        {
+            documents = await resp.Content.ReadFromJsonAsync<List<DocumentHeaderDto>>();
+        }
+    }
+
+    private async Task LoadDocument(int docId)
+    {
+        var client = ClientFactory.CreateClient("SearchApi");
+        var resp = await client.GetAsync($"documents/{docId}");
+        if (resp.IsSuccessStatusCode)
+        {
+            selectedDoc = await resp.Content.ReadFromJsonAsync<DocumentDto>();
+        }
+    }
+
+    private class DocumentHeaderDto
+    {
+        public int doc_id { get; set; }
+        public string title { get; set; } = string.Empty;
+    }
+
+    private class DocumentDto
+    {
+        public int doc_id { get; set; }
+        public string title { get; set; } = string.Empty;
+        public string content { get; set; } = string.Empty;
+    }
+}

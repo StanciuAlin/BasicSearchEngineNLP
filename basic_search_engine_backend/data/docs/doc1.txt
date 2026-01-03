@@ -1,0 +1,2 @@
+Natural language processing is a branch of artificial intelligence.
+This document introduces basic search engines and inverted indexes.

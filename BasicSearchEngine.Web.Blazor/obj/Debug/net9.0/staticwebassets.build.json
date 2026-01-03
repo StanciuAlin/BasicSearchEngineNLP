@@ -1,0 +1,362 @@
+{
+  "Version": 1,
+  "Hash": "7LGZL+OgoY8TCltMVlGY7juXzs9gcv+02nKcACgn2sQ=",
+  "Source": "SearchEngine.Web",
+  "BasePath": "_content/SearchEngine.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SearchEngine.Web/wwwroot",
+      "Source": "SearchEngine.Web",
+      "ContentRoot": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/",
+      "BasePath": "_content/SearchEngine.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/bjhldpecyv-yjsziyi8ez.gz",
+      "SourceId": "SearchEngine.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/SearchEngine.Web",
+      "RelativePath": "css/site#[.{fingerprint=yjsziyi8ez}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/css/site.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2fwkf14yfo",
+      "Integrity": "HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/css/site.css",
+      "SourceId": "SearchEngine.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/",
+      "BasePath": "_content/SearchEngine.Web",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yjsziyi8ez",
+      "Integrity": "TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/bjhldpecyv-yjsziyi8ez.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001406469761"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "710"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/bjhldpecyv-yjsziyi8ez.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "710"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.yjsziyi8ez.css",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/bjhldpecyv-yjsziyi8ez.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001406469761"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "710"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yjsziyi8ez"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.yjsziyi8ez.css",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yjsziyi8ez"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TrXbG2nS1RkmWy17pdL6M/cvs87bTP6VGn35Hp0WWI8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.yjsziyi8ez.css.gz",
+      "AssetFile": "/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/compressed/bjhldpecyv-yjsziyi8ez.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "710"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Nov 2025 13:03:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yjsziyi8ez"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HrTJS8ArbdUYb/IbMcvvDZUWMNOb8kBY7ynMsNqnlPg="
+        }
+      ]
+    }
+  ]
+}

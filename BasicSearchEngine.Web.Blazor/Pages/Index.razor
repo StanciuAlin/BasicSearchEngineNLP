@@ -1,0 +1,93 @@
+@page "/"
+@inject IHttpClientFactory ClientFactory
+
+<h1>Search</h1>
+
+<div class="search-bar">
+    <input @bind="query" @bind:event="oninput" placeholder="Type your query..." />
+    <button @onclick="PerformSearch">Search</button>
+</div>
+
+@if (isLoading)
+{
+    <p>Searching...</p>
+}
+else if (results is not null && results.Count > 0)
+{
+    <p class="meta">Found @results.Count result(s) for <strong>@query</strong>.</p>
+    @foreach (var r in results)
+    {
+        <div class="result">
+            <h3>@r.title <span class="score">@r.score</span></h3>
+            <p>@((MarkupString)HighlightSnippet(r.snippet))</p>
+        </div>
+    }
+}
+else if (hasSearched)
+{
+    <p class="meta">No results for <strong>@query</strong>.</p>
+}
+
+@code {
+    private string query = string.Empty;
+    private bool isLoading = false;
+    private bool hasSearched = false;
+
+    private List<SearchResultDto>? results;
+
+    private async Task PerformSearch()
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return;
+
+        isLoading = true;
+        hasSearched = true;
+        results = null;
+
+        var client = ClientFactory.CreateClient("SearchApi");
+        var url = $"search?q={Uri.EscapeDataString(query)}&top_k=10";
+        var response = await client.GetAsync(url);
+        if (response.IsSuccessStatusCode)
+        {
+            var payload = await response.Content.ReadFromJsonAsync<SearchResponseDto>();
+            results = payload?.results ?? new List<SearchResultDto>();
+        }
+
+        isLoading = false;
+    }
+
+    private string HighlightSnippet(string snippet)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return snippet;
+
+        var highlighted = snippet;
+        var terms = query.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var t in terms)
+        {
+            var safe = System.Text.RegularExpressions.Regex.Escape(t.Trim());
+            highlighted = System.Text.RegularExpressions.Regex.Replace(
+                highlighted,
+                safe,
+                m => $"<mark>{m.Value}</mark>",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase
+            );
+        }
+        return highlighted;
+    }
+
+    private class SearchResponseDto
+    {
+        public string query { get; set; } = string.Empty;
+        public int count { get; set; }
+        public List<SearchResultDto> results { get; set; } = new();
+    }
+
+    private class SearchResultDto
+    {
+        public int doc_id { get; set; }
+        public string title { get; set; } = string.Empty;
+        public double score { get; set; }
+        public string snippet { get; set; } = string.Empty;
+    }
+}
