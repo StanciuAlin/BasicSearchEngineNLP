@@ -4,8 +4,8 @@ from ..utils.text_loader import load_documents_from_folder
 from ..indexing.document_store import DocumentStore
 from ..indexing.inverted_index import InvertedIndex
 from ..indexing.tfidf import TfIdfWeighter
-from ..preprocessing.normalizer import normalize
-from ..preprocessing.stemmer import simple_stem
+from ..preprocessing.factory import factory
+from ..indexing.sklearn_tfidf import SklearnTfIdf
 
 # TODO: Add caching for indexed corpora to speed up repeated indexing.
 #       Use TfidfVectorizer from sklearn for more efficient vectorization if needed
@@ -18,14 +18,14 @@ from ..preprocessing.stemmer import simple_stem
 # motorul de căutare pentru documente lungi versus documente scurte.
 
 # Analiza Query-urilor Multi-Cuvânt
-# În codul curent din engine.py, query-ul este deja tratat ca un set de termeni: 
+# În codul curent din engine.py, query-ul este deja tratat ca un set de termeni:
 # q_terms = [simple_stem(t) for t in normalize(query)].
 
-# Provocare: Trebuie să decizi dacă motorul de căutare trebuie să returneze 
+# Provocare: Trebuie să decizi dacă motorul de căutare trebuie să returneze
 # documente care conțin oricare din cuvinte(OR logic) sau toate(AND logic).
 
-# Implementarea actuală: Folosește produsul scalar în cosine_similarity, 
-# ceea ce înseamnă că documentele care conțin mai mulți termeni din query 
+# Implementarea actuală: Folosește produsul scalar în cosine_similarity,
+# ceea ce înseamnă că documentele care conțin mai mulți termeni din query
 # vor primi automat un scor mai mare.
 
 
@@ -34,13 +34,24 @@ class SearchEngine:
         self.doc_store: DocumentStore | None = None
         self.index = InvertedIndex()
         self.weighter: TfIdfWeighter | None = None
+        self.preprocessor = factory.get_preprocessor("custom")  # Default
+        self.sklearn_engine = SklearnTfIdf()
+
+    def set_mode(self, mode: str):
+        """Schimbă strategia de preprocesare în timpul rulării."""
+        self.preprocessor = factory.get_preprocessor(mode)
 
     def index_corpus(self, folder: str) -> None:
         documents = load_documents_from_folder(folder)
         self.doc_store = DocumentStore(documents)
+
+        # 1. Indexarea ta manuală (Educațională)
         self.index.build(documents)
         self.weighter = TfIdfWeighter(self.index)
         self.weighter.build_doc_vectors(documents)
+
+        # 2. Indexarea Sklearn (Profesională)
+        self.sklearn_engine.build_index(documents)
 
     def list_documents(self) -> List[Dict[str, Any]]:
         if not self.doc_store:
@@ -59,26 +70,64 @@ class SearchEngine:
             return None
         return {"doc_id": d.doc_id, "title": d.title, "content": d.content}
 
-    def search(self, query: str, top_k: int = 10) -> List[SearchResult]:
-        if not self.doc_store or not self.weighter:
+    def search(self, query: str, top_k: int = 10,
+               mode: str = "custom",
+               ranking_method: str = "cosine") -> List[SearchResult]:
+        if not self.doc_store:
             return []
-        q_terms = [simple_stem(t) for t in normalize(query)]
-        q_vec = self.weighter.make_query_vector(q_terms)
+
         results: List[SearchResult] = []
-        for doc in self.doc_store.documents:
-            doc_vec = self.weighter.doc_vectors.get(doc.doc_id, {})
-            score = self.weighter.cosine_similarity(q_vec, doc_vec)
-            if score <= 0:
-                continue
-            snippet = doc.content[:220].replace("\n", " ")
-            results.append(
-                SearchResult(
-                    doc_id=doc.doc_id,
-                    title=doc.title,
-                    score=round(score, 4),
-                    snippet=snippet +
-                    ("..." if len(doc.content) > 220 else ""),
-                )
-            )
+
+        # Modul Sklearn: Folosește motorul optimizat extern
+        if mode == "sklearn":
+            search_hits = self.sklearn_engine.search(query)
+            for doc_id, score in search_hits:
+                doc = self.doc_store.get(doc_id)
+                if doc:
+                    results.append(self._create_result(doc, score))
+        else:
+            # 1. Preprocesare query (o singură dată)
+            q_terms = self.preprocessor.process(query)
+
+            # OPTIMIZARE: Calculăm vectorul query-ului O SINGURĂ DATĂ înainte de buclă
+            q_vec = None
+            if ranking_method == "cosine":
+                q_vec = self.weighter.make_query_vector(q_terms)
+
+            # 2. Calcul scor bazat pe metoda aleasă
+            for doc in self.doc_store.documents:
+                score = 0.0
+                if ranking_method == "cosine":
+                    doc_vec = self.weighter.doc_vectors.get(doc.doc_id, {})
+                    score = self.weighter.cosine_similarity(q_vec, doc_vec)
+                elif ranking_method == "jaccard":
+                    score = self.weighter.jaccard_similarity(
+                        q_terms, doc.doc_id)
+
+                if score > 0:
+                    results.append(self._create_result(doc, score))
+
+        # 3. Sortare și returnare
         results.sort(key=lambda r: r.score, reverse=True)
         return results[:top_k]
+
+    def _create_result(self, doc, score):
+        snippet = doc.content[:220].replace("\n", " ")
+        return SearchResult(
+            doc_id=doc.doc_id,
+            title=doc.title,
+            score=round(score, 4),
+            snippet=snippet + ("..." if len(doc.content) > 220 else "")
+        )
+
+
+'''Notes:
+De ce este importantă această clasă separată?
+
+1. Performanță: SklearnTfIdf folosește matrici rare (sparse matrices) din scipy, ceea ce înseamnă 
+că ocupă mult mai puțină memorie decât dicționarele de vectori din Python.
+2. Modularitate: Dacă vrei să schimbi ceva la modul de calcul profesional 
+(de exemplu, să adaugi n-grame), modifici doar în sklearn_tfidf.py, fără să strici logica educațională.
+3. Corectitudinea Importurilor: Această structură previne erorile de import circular, 
+deoarece engine.py este singurul care coordonează fluxul.
+'''

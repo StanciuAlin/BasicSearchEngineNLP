@@ -5,6 +5,18 @@
 
 <div class="search-bar">
     <input @bind="query" @bind:event="oninput" placeholder="Type your query..." />
+
+    <select @bind="selectedMode" class="form-select" style="width: auto; display: inline-block;">
+        <option value="custom">Educational (Custom)</option>
+        <option value="pro">Professional (NLTK)</option>
+        <option value="sklearn">Performance (Sklearn)</option>
+    </select>
+
+    <select @bind="selectedRanking" class="form-select" style="width: auto; display: inline-block;">
+        <option value="cosine">Cosine (TF-IDF)</option>
+        <option value="jaccard">Jaccard (Set Based)</option>
+    </select>
+
     <button @onclick="PerformSearch">Search</button>
 </div>
 
@@ -30,6 +42,8 @@ else if (hasSearched)
 
 @code {
     private string query = string.Empty;
+    private string selectedMode = "custom"; // Legat de <select @bind="selectedMode">
+    private string selectedRanking = "cosine"; // Legat de <select @bind="selectedRanking">
     private bool isLoading = false;
     private bool hasSearched = false;
 
@@ -45,15 +59,21 @@ else if (hasSearched)
         results = null;
 
         var client = ClientFactory.CreateClient("SearchApi");
-        var url = $"search?q={Uri.EscapeDataString(query)}&top_k=10";
-        var response = await client.GetAsync(url);
-        if (response.IsSuccessStatusCode)
-        {
-            var payload = await response.Content.ReadFromJsonAsync<SearchResponseDto>();
-            results = payload?.results ?? new List<SearchResultDto>();
-        }
+        var url = $"search?q={Uri.EscapeDataString(query)}&top_k=10&mode={selectedMode}&ranking={selectedRanking}";
 
-        isLoading = false;
+        try
+        {
+            var response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                var payload = await response.Content.ReadFromJsonAsync<SearchResponseDto>();
+                results = payload?.results ?? new List<SearchResultDto>();
+            }
+        }
+        finally
+        {
+            isLoading = false;
+        }
     }
 
     private string HighlightSnippet(string snippet)
@@ -67,10 +87,10 @@ else if (hasSearched)
         {
             var safe = System.Text.RegularExpressions.Regex.Escape(t.Trim());
             highlighted = System.Text.RegularExpressions.Regex.Replace(
-                highlighted,
-                safe,
-                m => $"<mark>{m.Value}</mark>",
-                System.Text.RegularExpressions.RegexOptions.IgnoreCase
+            highlighted,
+            safe,
+            m => $"<mark>{m.Value}</mark>",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase
             );
         }
         return highlighted;

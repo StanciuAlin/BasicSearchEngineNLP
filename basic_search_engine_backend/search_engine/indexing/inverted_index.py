@@ -3,8 +3,8 @@ from collections import defaultdict
 from typing import Dict, List
 from ..models.document import Document
 from ..models.posting import Posting
-from ..preprocessing.normalizer import normalize
-from ..preprocessing.stemmer import simple_stem
+from ..preprocessing.core.normalizer import normalize
+from ..preprocessing.core.stemmer import simple_stem
 
 
 class InvertedIndex:

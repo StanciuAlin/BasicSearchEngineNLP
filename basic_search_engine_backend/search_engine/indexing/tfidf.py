@@ -1,9 +1,12 @@
 import math
-from typing import Dict
+from typing import Dict, List
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity as sklearn_cosine
 from .inverted_index import InvertedIndex
 from ..models.document import Document
 
 # TODO: Add Jaccard or Okapi BM25 weighting schemes later.
+
 
 class TfIdfWeighter:
     def __init__(self, index: InvertedIndex):
@@ -35,14 +38,34 @@ class TfIdfWeighter:
             return 0.0
         return dot / (qn * dn)
 
-    def make_query_vector(self, terms: list[str]) -> Dict[str, float]:
+    def jaccard_similarity(self, query_terms: List[str], doc_id: int) -> float:
+        """
+        Calculează Jaccard Similarity: |A ∩ B| / |A ∪ B|
+        A = set termeni query, B = set termeni document
+        """
+        query_set = set(query_terms)
+
+        # Extragem toți termenii documentului din indexul inversat
+        doc_terms = set()
+        for term, postings in self.index.index.items():
+            if any(p.doc_id == doc_id for p in postings):
+                doc_terms.add(term)
+
+        if not query_set or not doc_terms:
+            return 0.0
+
+        intersection = query_set.intersection(doc_terms)
+        union = query_set.union(doc_terms)
+
+        return len(intersection) / len(union)
+
+    def make_query_vector(self, terms: List[str]) -> Dict[str, float]:
         tf_map: Dict[str, int] = {}
         for t in terms:
             tf_map[t] = tf_map.get(t, 0) + 1
         q_vec: Dict[str, float] = {}
         for t, tf in tf_map.items():
             idf = self.index.idf(t)
-            if idf == 0:
-                continue
-            q_vec[t] = (1 + math.log(tf)) * idf
+            if idf > 0:
+                q_vec[t] = (1 + math.log(tf)) * idf
         return q_vec

@@ -58,3 +58,4 @@
 /Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/SearchEngine.Web.pdb
 /Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/SearchEngine.Web.genruntimeconfig.cache
 /Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/ref/SearchEngine.Web.dll
+/Users/alinstanciu/Library/Mobile Documents/com~apple~CloudDocs/AIAC/Cursuri/2_NLP and Text Mining/Project/BasicSearchEngineNLP/BasicSearchEngine.Web.Blazor/obj/Debug/net9.0/SearchEngine.Web.sourcelink.json

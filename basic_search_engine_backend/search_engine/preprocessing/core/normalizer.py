@@ -2,8 +2,10 @@
 # Second step in text preprocessing: normalization.
 # Combines lowercasing, tokenization, and stopword removal.
 
+# preprocessing/core/normalizer.py
 from .tokenizer import tokenize
 from .stopwords import STOPWORDS
+
 
 # TODO: Extend the actual regex or use string.punctuation for more advanced normalization
 
