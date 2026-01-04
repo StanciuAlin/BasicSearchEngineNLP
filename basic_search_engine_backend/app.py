@@ -36,19 +36,25 @@ def document(doc_id: int):
 
 
 @app.get("/search")
-def search(q: str = Query(..., min_length=1), top_k: int = 10, mode: str = "custom", ranking: str = "cosine"):
-    engine.set_mode(mode)
-    results = engine.search(q, top_k=top_k, ranking_method=ranking)
+def search(q: str = Query(..., min_length=1),
+           page: int = 1,
+           page_size: int = 10,
+           mode: str = "custom",
+           ranking: str = "cosine"):
+    data = engine.search(q, page=page, page_size=page_size,
+                         mode=mode, ranking_method=ranking)
 
+    # Mapăm rezultatele pentru a menține compatibilitatea cu DTO-ul de SearchResult
     return {
         "query": q,
-        "count": len(results),
+        "total": data["total"],
+        "page": data["page"],
         "results": [
             {
                 "doc_id": r.doc_id,
                 "title": r.title,
                 "score": r.score,
                 "snippet": r.snippet
-            } for r in results
+            } for r in data["results"]
         ],
     }

@@ -5,70 +5,64 @@
 
 <div class="search-bar">
     <input @bind="query" @bind:event="oninput" placeholder="Type your query..." />
-
     <select @bind="selectedMode" class="form-select" style="width: auto; display: inline-block;">
         <option value="custom">Educational (Custom)</option>
         <option value="pro">Professional (NLTK)</option>
         <option value="sklearn">Performance (Sklearn)</option>
     </select>
-
     <select @bind="selectedRanking" class="form-select" style="width: auto; display: inline-block;">
         <option value="cosine">Cosine (TF-IDF)</option>
         <option value="jaccard">Jaccard (Set Based)</option>
     </select>
-
-    <button @onclick="PerformSearch">Search</button>
+    <button @onclick="() => PerformSearch(1)">Search</button>
 </div>
 
 @if (isLoading)
 {
     <p>Searching...</p>
 }
-else if (results is not null && results.Count > 0)
+else if (searchResponse?.results?.Count > 0)
 {
-    <p class="meta">Found @results.Count result(s) for <strong>@query</strong>.</p>
-    @foreach (var r in results)
+    <p class="meta">Found @searchResponse.total result(s) for <strong>@query</strong>.</p>
+    @foreach (var r in searchResponse.results)
     {
         <div class="result">
             <h3>@r.title <span class="score">@r.score</span></h3>
             <p>@((MarkupString)HighlightSnippet(r.snippet))</p>
         </div>
     }
-}
-else if (hasSearched)
-{
-    <p class="meta">No results for <strong>@query</strong>.</p>
+
+    <div class="pagination" style="margin-top: 20px;">
+        <button disabled="@(currentPage == 1)" @onclick="() => PerformSearch(currentPage - 1)">Previous</button>
+        <span style="margin: 0 15px;">Page @currentPage of @TotalPages</span>
+        <button disabled="@(currentPage >= TotalPages)" @onclick="() => PerformSearch(currentPage + 1)">Next</button>
+    </div>
 }
 
 @code {
     private string query = string.Empty;
-    private string selectedMode = "custom"; // Legat de <select @bind="selectedMode">
-    private string selectedRanking = "cosine"; // Legat de <select @bind="selectedRanking">
+    private string selectedMode = "custom"; // <select @bind="selectedMode">
+    private string selectedRanking = "cosine"; // <select @bind="selectedRanking">
     private bool isLoading = false;
-    private bool hasSearched = false;
+    private int currentPage = 1;
+    private int pageSize = 10;
+    private SearchResponseDto? searchResponse;
 
-    private List<SearchResultDto>? results;
+    private int TotalPages => searchResponse != null ? (int)Math.Ceiling((double)searchResponse.total / pageSize) : 0;
 
-    private async Task PerformSearch()
+    private async Task PerformSearch(int page)
     {
-        if (string.IsNullOrWhiteSpace(query))
-            return;
+        if (string.IsNullOrWhiteSpace(query)) return;
 
         isLoading = true;
-        hasSearched = true;
-        results = null;
-
+        currentPage = page;
         var client = ClientFactory.CreateClient("SearchApi");
-        var url = $"search?q={Uri.EscapeDataString(query)}&top_k=10&mode={selectedMode}&ranking={selectedRanking}";
+        var url =
+        $"search?q={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}&ranking={selectedRanking}";
 
         try
         {
-            var response = await client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                var payload = await response.Content.ReadFromJsonAsync<SearchResponseDto>();
-                results = payload?.results ?? new List<SearchResultDto>();
-            }
+            searchResponse = await client.GetFromJsonAsync<SearchResponseDto>(url);
         }
         finally
         {
@@ -99,7 +93,7 @@ else if (hasSearched)
     private class SearchResponseDto
     {
         public string query { get; set; } = string.Empty;
-        public int count { get; set; }
+        public int total { get; set; }
         public List<SearchResultDto> results { get; set; } = new();
     }
 

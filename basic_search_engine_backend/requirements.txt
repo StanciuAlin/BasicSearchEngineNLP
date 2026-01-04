@@ -3,3 +3,5 @@ nltk
 fastapi
 uvicorn
 pydantic
+
+python3 -m scripts.fetch_library

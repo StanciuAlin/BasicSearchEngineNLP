@@ -43,23 +43,23 @@ class SearchEngine:
         if not self.sklearn_engine.load_index():
             self.sklearn_engine.build_index(all_docs)
 
-    def search(self, query: str, top_k: int = 10, mode: str = "custom", ranking_method: str = "cosine") -> List[SearchResult]:
+    def search(self, query: str,
+               page: int = 1,
+               page_size: int = 10,
+               mode: str = "custom",
+               ranking_method: str = "cosine") -> dict:
         self.set_mode(mode)
         q_terms = self.preprocessor.process(query)
 
         if not q_terms:
-            return []
+            return {"total": 0, "results": []}
 
-        results: List[SearchResult] = []
+        all_hits = []
 
         if mode == "sklearn":
-            # Folosește motorul Sklearn
-            hits = self.sklearn_engine.search(query)
-            for doc_id, score in hits[:top_k]:
-                doc = self.doc_store.get(doc_id)
-                results.append(self._create_result(doc, score))
+            # Sklearn returnează deja o listă sortată de (doc_id, score)
+            all_hits = self.sklearn_engine.search(query)
         else:
-            # Modurile educaționale (Custom/NLTK) folosind TfIdfWeighter
             q_vec = self.weighter.make_query_vector(q_terms)
             metadata = self.doc_store.get_metadata_list()
 
@@ -73,11 +73,29 @@ class SearchEngine:
                     score = self.weighter.jaccard_similarity(q_terms, doc_id)
 
                 if score > 0:
-                    doc = self.doc_store.get(doc_id)
-                    results.append(self._create_result(doc, score))
+                    all_hits.append((doc_id, score))
 
-        results.sort(key=lambda r: r.score, reverse=True)
-        return results[:top_k]
+            # Sortăm rezultatele educaționale după scor
+            all_hits.sort(key=lambda x: x[1], reverse=True)
+
+        total_results = len(all_hits)
+
+        # Calculăm slice-ul pentru pagină
+        start = (page - 1) * page_size
+        end = start + page_size
+        paged_hits = all_hits[start:end]
+
+        results = []
+        for doc_id, score in paged_hits:
+            doc = self.doc_store.get(doc_id)
+            results.append(self._create_result(doc, score))
+
+        return {
+            "total": total_results,
+            "page": page,
+            "page_size": page_size,
+            "results": results
+        }
 
     def set_mode(self, mode: str):
         self.preprocessor = factory.get_preprocessor(mode)
