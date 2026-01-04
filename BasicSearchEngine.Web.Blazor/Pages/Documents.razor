@@ -1,11 +1,13 @@
 @page "/documents"
 @inject IHttpClientFactory ClientFactory
 
-<h1>Documents</h1>
+<div class="title-docs-page">
+    <h2>Documents</h2>
+</div>
 
 <div class="docs-layout">
     <section class="docs-list">
-        <h2>All documents</h2>
+        <h4 class="title-docs-page">Books</h4>
         @if (documents is null)
         {
             <p>Loading...</p>
@@ -30,14 +32,14 @@
     </section>
 
     <section class="doc-detail">
-        <h2>Content</h2>
+        @* <h4>Content</h4> *@
         @if (selectedDoc is null)
         {
             <p class="meta">Select a document to view its content.</p>
         }
         else
         {
-            <h3>@selectedDoc.title</h3>
+            <h4 class="title-docs-page">@selectedDoc.title</h4>
             <pre>@selectedDoc.content</pre>
         }
     </section>

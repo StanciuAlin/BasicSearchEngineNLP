@@ -1,61 +1,137 @@
 @page "/"
+@using System.Net.Http.Json
 @inject IHttpClientFactory ClientFactory
 
-<h1>Search</h1>
+<div class="search-dashboard">
+    <div>
+        <h2 class="title-docs-page">Search</h2>
+    </div>
 
-<div class="search-bar">
-    <input @bind="query" @bind:event="oninput" placeholder="Type your query..." />
-    <select @bind="selectedMode" class="form-select" style="width: auto; display: inline-block;">
-        <option value="custom">Educational (Custom)</option>
-        <option value="pro">Professional (NLTK)</option>
-        <option value="sklearn">Performance (Sklearn)</option>
-    </select>
-    <select @bind="selectedRanking" class="form-select" style="width: auto; display: inline-block;">
-        <option value="cosine">Cosine (TF-IDF)</option>
-        <option value="jaccard">Jaccard (Set Based)</option>
-    </select>
-    <button @onclick="() => PerformSearch(1)">Search</button>
-</div>
+    <div class="filter-panel shadow-sm">
+        <div class="row mb-4">
+            <div class="col-12">
+                @* <label class="form-label small fw-bold text-uppercase tracking-wider">Query</label> *@
+                <div class="input-group input-group-lg search-input-group">
+                    <input @bind="query" @bind:event="oninput" @onkeyup="HandleKeyUp" class="form-control"
+                        placeholder="Enter query..." />
+                    <button class="btn btn-success btn-search fw-bold btn-lg" @onclick="() => PerformSearch(1)">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
 
-@if (isLoading)
-{
-    <p>Searching...</p>
-}
-else if (searchResponse?.results?.Count > 0)
-{
-    <p class="meta">Found @searchResponse.total result(s) for <strong>@query</strong>.</p>
-    @foreach (var r in searchResponse.results)
+        <div class="row mb-4">
+            <div class="col-md-7">
+                <div class="mb-4 filter-item">
+                    <label class="form-label small fw-bold text-uppercase">Processing Mode</label>
+                    @*  value="@selectedMode" - nu este nevoie de value *@
+                    <select class="form-select form-select-lg select-filter-item" @onchange="OnModeChanged">
+                        <option value="custom">Educational</option>
+                        <option value="pro">Professional</option>
+                        <option value="sklearn">Sklearn</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label class="form-label small fw-bold text-uppercase">Similarity Metric</label>
+                    @* value="@selectedRanking" - nu este nevoie de value *@
+                    <select class="form-select form-select-lg select-filter-item" @onchange="OnMetricChanged">
+                        <option value="cosine">Cosine Similarity</option>
+                        <option value="jaccard">Jaccard Index</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex gap-5">
+                <div class="legend-item">
+                    <div class="legend-square square-cosine"></div>
+                    <span class="text-muted">Cosine Metric</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-square square-jaccard"></div>
+                    <span class="text-muted">Jaccard Metric</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Secțiunea de rezultate și paginare rămâne neschimbată *@
+    @if (isLoading)
     {
-        <div class="result">
-            <h3>@r.title <span class="score">@r.score</span></h3>
-            <p>@((MarkupString)HighlightSnippet(r.snippet))</p>
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary"></div>
+            <p class="mt-2 text-muted">Scanning Library...</p>
         </div>
     }
+    else if (searchResponse?.results?.Count > 0)
+    {
+        <div class="results-container">
+            <p class="text-muted small">Showing @searchResponse.results.Count of @searchResponse.total results</p>
+            @foreach (var r in searchResponse.results)
+            {
+                <div class="card result-card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title text-primary fw-bold">@r.title</h4>
+                            <span class="metric-badge @(selectedRanking == "cosine" ? "badge-cosine" : "badge-jaccard")">
+                                @r.score.ToString("F4")
+                            </span>
+                        </div>
+                        <p class="card-text text-secondary">@((MarkupString)HighlightSnippet(r.snippet))</p>
+                    </div>
+                </div>
+            }
+        </div>
 
-    <div class="pagination" style="margin-top: 20px;">
-        <button disabled="@(currentPage == 1)" @onclick="() => PerformSearch(currentPage - 1)">Previous</button>
-        <span style="margin: 0 15px;">Page @currentPage of @TotalPages</span>
-        <button disabled="@(currentPage >= TotalPages)" @onclick="() => PerformSearch(currentPage + 1)">Next</button>
-    </div>
-}
+        <div class="pagination-wrap mt-5 mb-5">
+            <button class="btn btn-outline-secondary btn-pagination" disabled="@(currentPage == 1)"
+                @onclick="() => PerformSearch(currentPage - 1)">&lt;&lt;</button>
+            <div class="page-info fw-bold mx-3">Page @currentPage of @TotalPages</div>
+            <button class="btn btn-outline-secondary btn-pagination" disabled="@(currentPage >= TotalPages)"
+                @onclick="() => PerformSearch(currentPage + 1)">&gt;&gt;</button>
+        </div>
+    }
+    else
+    {
+        <div class="card result-card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title text-primary fw-bold">No result</h4>
+                </div>
+                <p class="card-text text-secondary">Enter a query to search for.</p>
+            </div>
+        </div>
+    }
+</div>
 
 @code {
     private string query = string.Empty;
-    private string selectedMode = "custom"; // <select @bind="selectedMode">
-    private string selectedRanking = "cosine"; // <select @bind="selectedRanking">
+    private string selectedMode = "custom";
+    private string selectedRanking = "cosine";
     private bool isLoading = false;
+    private bool hasSearched = false;
     private int currentPage = 1;
-    private int pageSize = 10;
+    private int pageSize = 5;
     private SearchResponseDto? searchResponse;
 
     private int TotalPages => searchResponse != null ? (int)Math.Ceiling((double)searchResponse.total / pageSize) : 0;
 
+    private async Task HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await PerformSearch(1);
+    }
+
+    // private string GetBadgeClass() => selectedRanking == "cosine" ? "bg-info text-dark" : "bg-warning text-dark";
+
     private async Task PerformSearch(int page)
     {
         if (string.IsNullOrWhiteSpace(query)) return;
-
         isLoading = true;
+        hasSearched = true;
         currentPage = page;
+
         var client = ClientFactory.CreateClient("SearchApi");
         var url =
         $"search?q={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}&ranking={selectedRanking}";
@@ -63,6 +139,10 @@ else if (searchResponse?.results?.Count > 0)
         try
         {
             searchResponse = await client.GetFromJsonAsync<SearchResponseDto>(url);
+        }
+        catch
+        {
+            searchResponse = new SearchResponseDto { results = new() };
         }
         finally
         {
@@ -72,27 +152,64 @@ else if (searchResponse?.results?.Count > 0)
 
     private string HighlightSnippet(string snippet)
     {
-        if (string.IsNullOrWhiteSpace(query))
-            return snippet;
-
+        if (string.IsNullOrWhiteSpace(query)) return snippet;
         var highlighted = snippet;
         var terms = query.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         foreach (var t in terms)
         {
             var safe = System.Text.RegularExpressions.Regex.Escape(t.Trim());
             highlighted = System.Text.RegularExpressions.Regex.Replace(
-            highlighted,
-            safe,
-            m => $"<mark>{m.Value}</mark>",
-            System.Text.RegularExpressions.RegexOptions.IgnoreCase
-            );
+            highlighted, safe, m => $"<mark>{m.Value}</mark>",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
         }
         return highlighted;
     }
 
+    private string GetBadgeClass()
+    {
+        if (selectedRanking == "cosine")
+        {
+            return "badge-cosine"; // Albastru deschis pentru Cosine
+        }
+        else if (selectedRanking == "jaccard")
+        {
+            return "badge-jaccard"; // Galben pentru Jaccard
+        }
+        return "bg-secondary"; // Implicit gri
+    }
+
+    private async Task OnModeChanged(ChangeEventArgs e)
+    {
+        selectedMode = e.Value?.ToString() ?? "custom";
+
+        // Dacă există deja un text în bară, declanșăm recăutarea automat
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            await PerformSearch(1);
+        }
+    }
+
+    private async Task OnMetricChanged(ChangeEventArgs e)
+    {
+        selectedRanking = e.Value?.ToString() ?? "cosine";
+
+        // Recăutăm automat cu noua metrică selectată
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            await PerformSearch(1);
+        }
+    }
+
+    @* private void ResetSearch()
+    {
+        query = string.Empty; // Șterge textul din search bar
+        searchResponse = null; // Resetează cardurile cu rezultate
+        hasSearched = false; // Resetează starea de căutare
+        currentPage = 1; // Resetează paginația
+    } *@
+
     private class SearchResponseDto
     {
-        public string query { get; set; } = string.Empty;
         public int total { get; set; }
         public List<SearchResultDto> results { get; set; } = new();
     }

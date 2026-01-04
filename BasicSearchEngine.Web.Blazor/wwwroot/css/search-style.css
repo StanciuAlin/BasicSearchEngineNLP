@@ -1,0 +1,188 @@
+:root {
+    --primary-green: #cff7c1;
+    --primary-blue: #cce4ff;
+    --btn-green: #0fcd3b;
+    --btn-blue: #006ed5;
+    --cosine-color: #17a2b8;
+    /* Cyan */
+    --jaccard-color: #ffc107;
+    /* Yellow */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-margin: 1rem;
+    --card-padding: 0.5rem;
+    --transition-speed: 0.2s;
+    --section-spacing: 3rem;
+    --element-spacing: 1.5rem;
+    font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.title-docs-page {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Container principal */
+.search-dashboard {
+    max-width: 800px;
+    margin: var(--section-spacing) auto;
+    padding: 0 1rem;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Stiluri pentru Legendă */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 3px;
+    /* Spațiu între pătrat și text */
+}
+
+.legend-square {
+    width: 16px;
+    height: 16px;
+    border-radius: 12px;
+    /* Pătrat cu colțuri foarte ușor rotunjite */
+}
+
+.square-cosine {
+    background-color: var(--cosine-color);
+}
+
+.square-jaccard {
+    background-color: var(--jaccard-color);
+}
+
+/* Ajustări pentru panoul de filtre */
+.filter-panel {
+    margin-bottom: var(--section-spacing);
+    padding: var(--card-padding);
+    /* Mai mult spațiu în interiorul cardului de control */
+    background: #ecffe6;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    min-width: 35rem;
+    max-width: 35rem;
+    height: 10rem;
+}
+
+.filter-panel .row {
+    margin-bottom: var(--element-spacing);
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 3px;
+}
+
+.select-filter-item {
+    width: 150px;
+    height: 23px;
+}
+
+.results-container {
+    margin-top: var(--section-spacing);
+}
+
+/* Badge-uri rezultate */
+.metric-badge {
+    padding: 0.4em 1em;
+    border-radius: 12px;
+    /* Formă rectangulară similară legendei */
+    font-weight: bold;
+    font-size: 0.80rem;
+}
+
+.badge-cosine {
+    background-color: var(--cosine-color);
+    color: white;
+}
+
+.badge-jaccard {
+    background-color: var(--jaccard-color);
+    color: #212529;
+}
+
+/* Cardurile de rezultate */
+.result-card {
+    border: 1px solid var(--primary-green);
+    border-radius: 12px;
+    margin-bottom: var(--card-margin);
+    padding: var(--card-padding);
+    min-width: 35rem;
+    max-width: 35rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.result-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--primary-green);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+card-body {
+    height: 250px;
+    overflow: auto;
+}
+
+/* Paginare centrată */
+.pagination-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--section-spacing);
+    margin-bottom: var(--section-spacing);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--primary-green);
+}
+
+.page-info {
+    padding: 0.1rem 0.5rem;
+    background: white;
+    border: 1px solid var(--primary-green);
+    border-radius: 12px;
+}
+
+.btn-search {
+    height: 1.5rem;
+    border: 1px solid var(--primary-green);
+    border-radius: 12px;
+    background-color: var(--btn-green);
+    color: white;
+    font-weight: bold;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-search:hover {
+    background-color: #0aa32a;
+}
+
+.btn-pagination {
+    height: 1.2rem;
+    border: 1px solid var(--primary-blue);
+    border-radius: 12px;
+    background-color: white;
+    color: var(--btn-blue);
+    font-weight: bold;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-pagination:hover {
+    background-color: var(--btn-blue);
+    color: white;
+}
