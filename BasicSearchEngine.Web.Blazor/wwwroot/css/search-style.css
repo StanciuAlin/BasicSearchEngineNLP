@@ -13,16 +13,9 @@
     --card-padding: 0.5rem;
     --transition-speed: 0.2s;
     --section-spacing: 3rem;
-    --element-spacing: 1.5rem;
+    --element-spacing: 1rem;
     font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
-}
-
-.title-docs-page {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    color: #111827;
 }
 
 /* Container principal */
@@ -78,7 +71,7 @@
 }
 
 .filter-panel .row {
-    margin-bottom: var(--element-spacing);
+    margin-bottom: 1rem;
 }
 
 .filter-item {
