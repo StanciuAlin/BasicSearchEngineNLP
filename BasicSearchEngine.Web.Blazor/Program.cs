@@ -7,7 +7,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient("SearchApi", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:8000/");
+    // client.BaseAddress = new Uri("http://localhost:8000/");
+    client.BaseAddress = new Uri("http://backend:8000/"); // Use this line when running with Docker
 });
 
 var app = builder.Build();

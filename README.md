@@ -18,6 +18,8 @@ uvicorn app:app --reload --port 8000
 
 De adaugat: pip install gutenbergpy
 
+python3 -m scripts.fetch_library
+
 ---
 
 ---
@@ -27,6 +29,8 @@ De adaugat: pip install gutenbergpy
 Trebuie să creez baza de date înainte?
 
     Nu, nu trebuie să creezi manual fișierul sau tabelele. Totuși, trebuie să parcurgi un pas inițial pentru a o popula cu date:
+
+Comanda: python3 -m scripts.fetch_library
 
 Baza de date va fi goală inițial. Trebuie să rulezi scriptul fetch_library.py (sau populate_library) o singură dată.
 Scriptul fetch_library.py va descărca textele de pe Gutenberg, va crea obiectele Document și le va salva în baza de date folosind metoda add_documents.
@@ -61,3 +65,20 @@ Note despre implementare:
 
 1. Eficiență: Căutarea se realizează pe toate documentele din baza de date SQLite, dar în memorie sunt procesate doar ID-urile și scorurile. Textele complete sunt încărcate din baza de date doar pentru cele 10 rezultate care trebuie afișate pe pagina curentă.
 2. Navigare: Butoanele de paginare apelează funcția PerformSearch cu noul index al paginii, actualizând interfața fără a reîncărca întreaga pagină.
+
+---
+
+---
+
+# Docker Compose
+
+Comenzi:
+## Oprește și șterge containerele/rețelele vechi
+docker-compose down
+
+## Șterge cache-ul de build pentru a fi sigur că ia noul port
+docker builder prune -f
+
+## Pornește din nou
+docker-compose up --build
+---

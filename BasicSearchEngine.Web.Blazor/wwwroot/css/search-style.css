@@ -1,9 +1,10 @@
 :root {
-    --primary-green: #cff7c1;
-    --primary-blue: #cce4ff;
     --btn-green: #0fcd3b;
+    --primary-green: #befaa8;
+    --panel-green: #e8fbe2;
     --btn-blue: #006ed5;
     --cosine-color: #17a2b8;
+    --primary-blue: #cce4ff;
     /* Cyan */
     --jaccard-color: #ffc107;
     /* Yellow */
@@ -44,6 +45,7 @@
     gap: 10px;
     padding-bottom: 3px;
     /* Spațiu între pătrat și text */
+    font-style: italic;
 }
 
 .legend-square {
@@ -66,8 +68,9 @@
     margin-bottom: var(--section-spacing);
     padding: var(--card-padding);
     /* Mai mult spațiu în interiorul cardului de control */
-    background: #ecffe6;
+    background: var(--panel-green);
     border-radius: 16px;
+    border: 1px solid var(--btn-green);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     min-width: 35rem;
     max-width: 35rem;
@@ -115,19 +118,20 @@
 
 /* Cardurile de rezultate */
 .result-card {
-    border: 1px solid var(--primary-green);
+    border: 1px solid var(--btn-green);
     border-radius: 12px;
     margin-bottom: var(--card-margin);
     padding: var(--card-padding);
     min-width: 35rem;
     max-width: 35rem;
+    background: var(--panel-green);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .result-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--card-shadow);
-    border-color: var(--primary-green);
+    border-color: var(--btn-green);
 }
 
 .card-title {
@@ -148,41 +152,49 @@ card-body {
     margin-top: var(--section-spacing);
     margin-bottom: var(--section-spacing);
     padding-top: 1.5rem;
-    border-top: 1px solid var(--primary-green);
+    border-top: 1px solid var(--btn-green);
 }
 
 .page-info {
     padding: 0.1rem 0.5rem;
     background: white;
-    border: 1px solid var(--primary-green);
+    border: 1px solid var(--btn-green);
     border-radius: 12px;
 }
 
 .btn-search {
-    height: 1.5rem;
-    border: 1px solid var(--primary-green);
+    height: 2rem;
+    width: 6rem;
+    border: 1px solid var(--btn-green);
     border-radius: 12px;
-    background-color: var(--btn-green);
-    color: white;
+    background-color: var(--primary-green);
+    color: black;
     font-weight: bold;
+    font-size: 1.2rem;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .btn-search:hover {
-    background-color: #0aa32a;
+    background-color: var(--btn-green);
 }
 
 .btn-pagination {
-    height: 1.2rem;
+    height: 1.3rem;
     border: 1px solid var(--primary-blue);
     border-radius: 12px;
     background-color: white;
-    color: var(--btn-blue);
+    color: var(--btn-green);
     font-weight: bold;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .btn-pagination:hover {
-    background-color: var(--btn-blue);
-    color: white;
+    background-color: var(--btn-green);
+    color: black;
+}
+
+.form-control {
+    width: 25rem;
+    height: 23px;
+    font-size: 1.2rem;
 }
