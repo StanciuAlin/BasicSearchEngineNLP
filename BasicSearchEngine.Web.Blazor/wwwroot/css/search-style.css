@@ -2,9 +2,12 @@
     --btn-green: #0fcd3b;
     --primary-green: #befaa8;
     --panel-green: #e8fbe2;
-    --btn-blue: #006ed5;
-    --cosine-color: #17a2b8;
+
+    --btn-blue: #58afff;
     --primary-blue: #cce4ff;
+
+    --cosine-color: #17a2b8;
+
     /* Cyan */
     --jaccard-color: #ffc107;
     /* Yellow */
@@ -67,7 +70,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     min-width: 35rem;
     max-width: 35rem;
-    height: 10rem;
+    /* height: 10rem; */
 }
 
 .filter-panel .row {
@@ -159,7 +162,7 @@ card-body {
     height: 2rem;
     width: 6rem;
     border: 1px solid var(--btn-green);
-    border-radius: 12px;
+    border-radius: 16px;
     background-color: var(--primary-green);
     color: black;
     font-weight: bold;
@@ -190,4 +193,90 @@ card-body {
     width: 25rem;
     height: 23px;
     font-size: 1.2rem;
+}
+
+#btn-apply-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: 9rem;
+}
+
+#title-bm25 {
+    text-align: left;
+    margin: 0rem 0 0.5rem 1.6rem;
+    font-weight: 700;
+    font-size: 1rem;
+    color: black;
+}
+
+.bm25-control-panel {
+    border-left: 4px solid #198754 !important;
+    color: black;
+    font-weight: 500;
+    padding: var(--card-padding);
+    /* Accent verde */
+    transition: all 0.3s ease;
+}
+
+.param-input-group {
+    width: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+.param-input-group label {
+    margin-bottom: 2px;
+}
+
+.form-control-bm25 {
+    width: 50px;
+    height: 20px;
+    font-size: 1rem;
+}
+
+.btn-apply {
+    height: 1.5rem;
+    width: 6rem;
+    border: 1px solid var(--btn-blue);
+    border-radius: 14px;
+    background-color: var(--primary-blue);
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-apply:hover {
+    background-color: var(--btn-blue);
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.badge-cosine {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.badge-jaccard {
+    background-color: #ffc107;
+    color: black;
 }

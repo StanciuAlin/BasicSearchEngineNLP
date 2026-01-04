@@ -22,24 +22,50 @@
         </div>
 
         <div class="row mb-4">
-            <div class="col-md-7">
-                <div class="mb-4 filter-item">
-                    <label class="form-label small fw-bold text-uppercase">Processing Mode</label>
-                    @*  value="@selectedMode" - nu este nevoie de value *@
-                    <select class="form-select form-select-lg select-filter-item" @onchange="OnModeChanged">
+            <div class="col-md-12 d-flex flex-wrap gap-3 align-items-end">
+                <div class="filter-item flex-grow-1" style="min-width: 200px;">
+                    <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
+                    <select class="form-select form-select-lg select-filter-item" @bind="selectedMode"
+                        @bind:after="OnFilterChanged">
                         <option value="custom">Educational</option>
                         <option value="pro">Professional</option>
                         <option value="sklearn">Sklearn</option>
                     </select>
                 </div>
-                <div class="filter-item">
-                    <label class="form-label small fw-bold text-uppercase">Similarity Metric</label>
-                    @* value="@selectedRanking" - nu este nevoie de value *@
-                    <select class="form-select form-select-lg select-filter-item" @onchange="OnMetricChanged">
+
+                <div class="filter-item flex-grow-1" style="min-width: 200px;">
+                    <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
+                    <select class="form-select form-select-lg select-filter-item" @bind="selectedRanking"
+                        @bind:after="OnFilterChanged">
                         <option value="cosine">Cosine Similarity</option>
+                        <option value="bm25">BM25 Ranking</option>
                         <option value="jaccard">Jaccard Index</option>
                     </select>
                 </div>
+
+                @if (selectedRanking == "bm25")
+                {
+                    <div class="bm25-control-panel d-flex gap-2 p-2 border rounded bg-light shadow-sm animate-fade-in">
+                        <div>
+                            <h2 id="title-bm25">BM25 Params</h2>
+                        </div>
+                        <div class="param-input-group">
+                            <label class="small fw-bold text-primary">K1</label>
+                            <input type="number" step="0.1" @bind="bm25K1"
+                                class="form-control form-control-sm form-control-bm25" />
+                        </div>
+                        <div class="param-input-group">
+                            <label class="small fw-bold text-primary">B</label>
+                            <input type="number" step="0.05" @bind="bm25B"
+                                class="form-control form-control-sm form-control-bm25" />
+                        </div>
+                        <div id="btn-apply-container" class="d-flex align-items-end">
+                            <button class="btn btn-sm btn-primary btn-apply align-self-end"
+                                @onclick="() => PerformSearch(1)" title="Apply Parameters">Apply
+                            </button>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
 
@@ -110,6 +136,9 @@
     private string query = string.Empty;
     private string selectedMode = "custom";
     private string selectedRanking = "cosine";
+    // Parametri noi pentru BM25
+    private double bm25K1 = 1.5;
+    private double bm25B = 0.75;
     private bool isLoading = false;
     private bool hasSearched = false;
     private int currentPage = 1;
@@ -125,6 +154,14 @@
 
     // private string GetBadgeClass() => selectedRanking == "cosine" ? "bg-info text-dark" : "bg-warning text-dark";
 
+    private async Task OnFilterChanged()
+    {
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            await PerformSearch(1);
+        }
+    }
+
     private async Task PerformSearch(int page)
     {
         if (string.IsNullOrWhiteSpace(query)) return;
@@ -133,8 +170,15 @@
         currentPage = page;
 
         var client = ClientFactory.CreateClient("SearchApi");
-        var url =
-        $"search?q={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}&ranking={selectedRanking}";
+
+        // Adăugăm k1 și b în URL
+        var url = $"search?query={Uri.EscapeDataString(query)}" +
+        $"&page={currentPage}" +
+        $"&page_size={pageSize}" +
+        $"&mode={selectedMode}" +
+        $"&ranking_method={selectedRanking}" +
+        $"&k1={bm25K1}" +
+        $"&b={bm25B}";
 
         try
         {
@@ -165,17 +209,15 @@
         return highlighted;
     }
 
-    private string GetBadgeClass()
+    private string GetBadgeClass(double score)
     {
-        if (selectedRanking == "cosine")
+        return selectedRanking switch
         {
-            return "badge-cosine"; // Albastru deschis pentru Cosine
-        }
-        else if (selectedRanking == "jaccard")
-        {
-            return "badge-jaccard"; // Galben pentru Jaccard
-        }
-        return "bg-secondary"; // Implicit gri
+            "cosine" => "badge-cosine",
+            "jaccard" => "badge-jaccard",
+            "bm25" => "bg-success text-white", // Culoare nouă pentru BM25
+            _ => "bg-secondary"
+        };
     }
 
     private async Task OnModeChanged(ChangeEventArgs e)

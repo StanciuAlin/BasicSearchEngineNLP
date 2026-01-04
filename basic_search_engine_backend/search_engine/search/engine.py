@@ -5,6 +5,7 @@ from ..indexing.document_store import DocumentStore
 from ..indexing.sklearn_tfidf import SklearnTfIdf
 from ..indexing.inverted_index import InvertedIndex
 from ..indexing.tfidf import TfIdfWeighter
+from ..indexing.bm25 import BM25Weighter
 from ..preprocessing.factory import factory
 
 
@@ -14,6 +15,7 @@ class SearchEngine:
         self.sklearn_engine = SklearnTfIdf()
         self.index = InvertedIndex()
         self.weighter = TfIdfWeighter(self.index)
+        self.bm25_weighter = BM25Weighter(self.index)  # Inițializare BM25
         self.preprocessor = factory.get_preprocessor("custom")
 
     def index_corpus(self, folder: str) -> None:
@@ -47,30 +49,42 @@ class SearchEngine:
                page: int = 1,
                page_size: int = 10,
                mode: str = "custom",
-               ranking_method: str = "cosine") -> dict:
+               ranking_method: str = "cosine",
+               k1: float = 1.5,
+               b: float = 0.75) -> dict:
         self.set_mode(mode)
+        
+        # Actualizăm parametrii BM25
+        self.bm25_weighter.k1 = k1
+        self.bm25_weighter.b = b
+        
         q_terms = self.preprocessor.process(query)
 
         if not q_terms:
             return {"total": 0, "results": []}
 
         all_hits = []
-
         if mode == "sklearn":
-            # Sklearn returnează deja o listă sortată de (doc_id, score)
             all_hits = self.sklearn_engine.search(query)
         else:
-            q_vec = self.weighter.make_query_vector(q_terms)
-            metadata = self.doc_store.get_metadata_list()
+            # Optimizare: Căutăm doar în documentele care conțin termenii din query
+            relevant_doc_ids = set()
+            for term in q_terms:
+                if term in self.index.index:
+                    relevant_doc_ids.update(
+                        p.doc_id for p in self.index.index[term])
 
-            for row in metadata:
-                doc_id = row[0]
+            for doc_id in relevant_doc_ids:
                 score = 0.0
                 if ranking_method == "cosine":
+                    q_vec = self.weighter.make_query_vector(q_terms)
                     doc_vec = self.weighter.doc_vectors.get(doc_id, {})
                     score = self.weighter.cosine_similarity(q_vec, doc_vec)
                 elif ranking_method == "jaccard":
                     score = self.weighter.jaccard_similarity(q_terms, doc_id)
+                elif ranking_method == "bm25":
+                    # Folosim noua metodă de ranking
+                    score = self.bm25_weighter.calculate_score(q_terms, doc_id)
 
                 if score > 0:
                     all_hits.append((doc_id, score))
