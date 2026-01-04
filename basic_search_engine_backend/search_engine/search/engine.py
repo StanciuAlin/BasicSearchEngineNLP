@@ -53,11 +53,11 @@ class SearchEngine:
                k1: float = 1.5,
                b: float = 0.75) -> dict:
         self.set_mode(mode)
-        
+
         # Actualizăm parametrii BM25
         self.bm25_weighter.k1 = k1
         self.bm25_weighter.b = b
-        
+
         q_terms = self.preprocessor.process(query)
 
         if not q_terms:

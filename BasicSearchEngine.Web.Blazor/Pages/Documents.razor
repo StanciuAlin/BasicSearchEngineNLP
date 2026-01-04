@@ -52,7 +52,7 @@
     protected override async Task OnInitializedAsync()
     {
         var client = ClientFactory.CreateClient("SearchApi");
-        var resp = await client.GetAsync("documents");
+        var resp = await client.GetAsync("/documents");
         if (resp.IsSuccessStatusCode)
         {
             documents = await resp.Content.ReadFromJsonAsync<List<DocumentHeaderDto>>();
@@ -62,7 +62,7 @@
     private async Task LoadDocument(int docId)
     {
         var client = ClientFactory.CreateClient("SearchApi");
-        var resp = await client.GetAsync($"documents/{docId}");
+        var resp = await client.GetAsync($"/documents/{docId}");
         if (resp.IsSuccessStatusCode)
         {
             selectedDoc = await resp.Content.ReadFromJsonAsync<DocumentDto>();

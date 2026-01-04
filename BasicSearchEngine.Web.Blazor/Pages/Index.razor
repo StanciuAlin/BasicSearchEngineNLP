@@ -52,16 +52,18 @@
                         <div class="param-input-group">
                             <label class="small fw-bold text-primary">K1</label>
                             <input type="number" step="0.1" @bind="bm25K1"
-                                class="form-control form-control-sm form-control-bm25" />
+                                class="form-control form-control-sm form-control-bm25" 
+                                title="Valori recomandate: [1.2, 2.0]. Controlează saturația frecvenței termenilor."/>
                         </div>
                         <div class="param-input-group">
                             <label class="small fw-bold text-primary">B</label>
                             <input type="number" step="0.05" @bind="bm25B"
-                                class="form-control form-control-sm form-control-bm25" />
+                                class="form-control form-control-sm form-control-bm25" 
+                                title="Valori recomandate: 0.75. Controlează normalizarea lungimii documentului (0 = fără normalizare, 1 = normalizare completă)." />
                         </div>
                         <div id="btn-apply-container" class="d-flex align-items-end">
                             <button class="btn btn-sm btn-primary btn-apply align-self-end"
-                                @onclick="() => PerformSearch(1)" title="Apply Parameters">Apply
+                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm">Apply
                             </button>
                         </div>
                     </div>
@@ -74,6 +76,10 @@
                 <div class="legend-item">
                     <div class="legend-square square-cosine"></div>
                     <span class="text-muted">Cosine Metric</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-square square-bm25"></div>
+                    <span class="text-muted">BM25 Metric</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-square square-jaccard"></div>
@@ -101,7 +107,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title text-primary fw-bold">@r.title</h4>
-                            <span class="metric-badge @(selectedRanking == "cosine" ? "badge-cosine" : "badge-jaccard")">
+                            <span class="metric-badge @GetBadgeClass()">
                                 @r.score.ToString("F4")
                             </span>
                         </div>
@@ -152,8 +158,6 @@
         if (e.Key == "Enter") await PerformSearch(1);
     }
 
-    // private string GetBadgeClass() => selectedRanking == "cosine" ? "bg-info text-dark" : "bg-warning text-dark";
-
     private async Task OnFilterChanged()
     {
         if (!string.IsNullOrWhiteSpace(query))
@@ -170,22 +174,25 @@
         currentPage = page;
 
         var client = ClientFactory.CreateClient("SearchApi");
+        
+        // Selectăm ruta corectă în funcție de selecția utilizatorului
+        string route = selectedRanking switch
+        {
+            "bm25" => $"search/bm25?k1={bm25K1}&b={bm25B}",
+            "jaccard" => "search/jaccard",
+            _ => selectedMode == "sklearn" ? "search/sklearn" : "search/tfidf"
+        };
 
-        // Adăugăm k1 și b în URL
-        var url = $"search?query={Uri.EscapeDataString(query)}" +
-        $"&page={currentPage}" +
-        $"&page_size={pageSize}" +
-        $"&mode={selectedMode}" +
-        $"&ranking_method={selectedRanking}" +
-        $"&k1={bm25K1}" +
-        $"&b={bm25B}";
+        // Construim URL-ul final cu parametrii comuni
+        var url = $"{route}{(route.Contains("?") ? "&" : "?")}query={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}";
 
         try
         {
             searchResponse = await client.GetFromJsonAsync<SearchResponseDto>(url);
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Search error: {ex.Message}");
             searchResponse = new SearchResponseDto { results = new() };
         }
         finally
@@ -209,13 +216,13 @@
         return highlighted;
     }
 
-    private string GetBadgeClass(double score)
+    private string GetBadgeClass()
     {
         return selectedRanking switch
         {
             "cosine" => "badge-cosine",
+            "bm25" => "badge-bm25",
             "jaccard" => "badge-jaccard",
-            "bm25" => "bg-success text-white", // Culoare nouă pentru BM25
             _ => "bg-secondary"
         };
     }

@@ -6,14 +6,13 @@
     --btn-blue: #58afff;
     --primary-blue: #cce4ff;
 
-    --cosine-color: #17a2b8;
+    --cosine-color: #1391a4;
+    --bm25-color: #c73947;
+    --jaccard-color: #f5b906;
 
-    /* Cyan */
-    --jaccard-color: #ffc107;
-    /* Yellow */
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --card-margin: 1rem;
-    --card-padding: 0.5rem;
+    --card-padding: 1rem;
     --transition-speed: 0.2s;
     --section-spacing: 3rem;
     --element-spacing: 1rem;
@@ -59,10 +58,15 @@
     background-color: var(--jaccard-color);
 }
 
+.square-bm25 {
+    background-color: var(--bm25-color);
+}
+
 /* Ajustări pentru panoul de filtre */
 .filter-panel {
     margin-bottom: var(--section-spacing);
     padding: var(--card-padding);
+    padding-bottom: 0px;
     /* Mai mult spațiu în interiorul cardului de control */
     background: var(--panel-green);
     border-radius: 16px;
@@ -81,7 +85,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 3px;
+    padding-bottom: 0.5rem;
 }
 
 .select-filter-item {
@@ -109,7 +113,12 @@
 
 .badge-jaccard {
     background-color: var(--jaccard-color);
-    color: #212529;
+    color: white;
+}
+
+.badge-bm25 {
+    background-color: var(--bm25-color);
+    color: white;
 }
 
 /* Cardurile de rezultate */
@@ -224,7 +233,7 @@ card-body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3px;
+    margin-bottom: 0.5rem;
     padding-left: 10px;
     font-size: 1rem;
 }
