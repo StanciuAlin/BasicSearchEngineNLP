@@ -1,5 +1,7 @@
 @page "/documents"
 @inject IHttpClientFactory ClientFactory
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 
 <div class="title-docs-page">
     <h2>Documents</h2>
@@ -43,16 +45,46 @@
             <pre>@selectedDoc.content</pre>
         }
     </section>
+
+    @if (selectedDoc != null)
+    {
+        @* Butonul flotant *@
+        <button class="btn btn-gold btn-floating shadow" @onclick="ScrollToTop" title="Back to Top">
+            <i class="bi bi-arrow-up-short"></i>
+        </button>
+    }
 </div>
 
 @code {
     private List<DocumentHeaderDto>? documents;
     private DocumentDto? selectedDoc;
 
+    private async Task ScrollToTop()
+    {
+        // Această linie apelează funcția nativă a browserului pentru scroll
+        await JS.InvokeVoidAsync("window.scrollTo", 0, 0);
+    }
+
     protected override async Task OnInitializedAsync()
     {
+        // 1. Încărcăm lista normală de cărți
+        await LoadAllDocuments();
+
+        // 2. Verificăm dacă URL-ul conține un ID (ex: /documents?id=15)
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("id", out var docIdStr))
+        {
+            if (int.TryParse(docIdStr, out var docId))
+            {
+                await LoadDocument(docId);
+            }
+        }
+    }
+
+    private async Task LoadAllDocuments()
+    {
         var client = ClientFactory.CreateClient("SearchApi");
-        var resp = await client.GetAsync("/documents");
+        var resp = await client.GetAsync("documents");
         if (resp.IsSuccessStatusCode)
         {
             documents = await resp.Content.ReadFromJsonAsync<List<DocumentHeaderDto>>();
@@ -62,10 +94,13 @@
     private async Task LoadDocument(int docId)
     {
         var client = ClientFactory.CreateClient("SearchApi");
-        var resp = await client.GetAsync($"/documents/{docId}");
+        var resp = await client.GetAsync($"documents/{docId}");
         if (resp.IsSuccessStatusCode)
         {
             selectedDoc = await resp.Content.ReadFromJsonAsync<DocumentDto>();
+
+            // Pentru scroll automat la deschidere
+            await ScrollToTop();
         }
     }
 

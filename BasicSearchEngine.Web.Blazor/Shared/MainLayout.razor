@@ -3,10 +3,17 @@
 <div class="page">
     <header class="topbar">
         <div class="logo">Basic Search Engine</div>
-        <nav class="topnav">
-            <a href="/">Search</a>
-            <a href="/documents">Documents</a>
-        </nav>
+        <div class="nav-links">
+            @* Link pentru Search *@
+            <a href="/" class="nav-item">
+                <i class="bi bi-search me-1"></i> Search
+            </a>
+
+            @* Link pentru Documents *@
+            <a href="/documents" class="nav-item">
+                <i class="bi bi-book-half me-1"></i> Documents
+            </a>
+        </div>
     </header>
     <main>
         @Body

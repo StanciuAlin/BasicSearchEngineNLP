@@ -18,6 +18,7 @@
     --element-spacing: 1rem;
     font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
+    scroll-behavior: smooth;
 }
 
 /* Container principal */
@@ -116,10 +117,11 @@
     background: linear-gradient(180deg, #fffdf5 0%, var(--panel-green) 100%) !important;
 }
 
-.best-badge {
-    background-color: #ffd700 !important;
-    color: #000 !important;
-    border: 1px solid #d4af37;
+.star-card-title {
+    color: #f5be3f;
+    font-size: 1.1rem;
+    vertical-align: middle;
+    margin: 5px;
 }
 
 .badge-cosine {
@@ -159,6 +161,15 @@
     font-weight: bold;
 }
 
+.card-title a {
+    transition: color 0.2s ease-in-out;
+}
+
+.card-title a:hover {
+    text-decoration: underline !important;
+    color: var(--btn-blue) !important;
+}
+
 card-body {
     height: 250px;
     overflow: auto;
@@ -185,7 +196,7 @@ card-body {
 
 .btn-search {
     height: 2rem;
-    width: 6rem;
+    width: 9.4rem;
     border: 1px solid var(--btn-green);
     border-radius: 16px;
     background-color: var(--primary-green);
@@ -215,7 +226,7 @@ card-body {
 }
 
 .form-control {
-    width: 25rem;
+    width: 23rem;
     height: 23px;
     font-size: 1.2rem;
 }
@@ -229,10 +240,17 @@ card-body {
 
 #title-bm25 {
     text-align: left;
-    margin: 0rem 0 0.5rem 1.6rem;
+    margin: 0rem 0 0.5rem 0.8rem;
     font-weight: 700;
     font-size: 1rem;
     color: black;
+}
+
+#title-bm25 i {
+    font-size: 1rem;
+    /* Face pictograma puțin mai mare decât textul */
+    margin-right: 5px;
+    /* Spațiu între pictogramă și text */
 }
 
 .bm25-control-panel {
@@ -265,8 +283,8 @@ card-body {
 }
 
 .btn-apply {
-    height: 1.5rem;
-    width: 6rem;
+    height: 1.7rem;
+    width: 7rem;
     border: 1px solid var(--btn-blue);
     border-radius: 14px;
     background-color: var(--primary-blue);

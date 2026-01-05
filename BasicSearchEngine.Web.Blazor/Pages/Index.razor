@@ -15,7 +15,7 @@
                     <input @bind="query" @bind:event="oninput" @onkeyup="HandleKeyUp" class="form-control"
                         placeholder="Enter query..." />
                     <button class="btn btn-success btn-search fw-bold btn-lg" @onclick="() => PerformSearch(1)">
-                        Search
+                        <i class="bi bi-lightning-charge-fill me-2"></i> Search
                     </button>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 {
                     <div class="bm25-control-panel d-flex gap-2 p-2 border rounded bg-light shadow-sm animate-fade-in">
                         <div>
-                            <h2 id="title-bm25">BM25 Params</h2>
+                            <h2 id="title-bm25"><i class="bi bi-gear me-1"></i>BM25 Params</h2>
                         </div>
                         <div class="param-input-group">
                             <label class="small fw-bold text-primary">K1</label>
@@ -63,7 +63,8 @@
                         </div>
                         <div id="btn-apply-container" class="d-flex align-items-end">
                             <button class="btn btn-sm btn-primary btn-apply align-self-end"
-                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm">Apply
+                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm">
+                                <i class="bi bi-check-circle-fill me-2"></i> Apply
                             </button>
                         </div>
                     </div>
@@ -110,7 +111,13 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title text-primary fw-bold">
-                                @r.title @(isBest ? " ⭐" : "")
+                                <a href="/documents?id=@r.doc_id" class="text-decoration-none text-primary">
+                                    @r.title 
+                                    @if (isBest)
+                                    {
+                                        <i class="bi bi-star-fill star-card-title ms-1"></i>
+                                    }
+                                </a>
                             </h4>
                             <span class="metric-badge @GetBadgeClass()">
                                 @r.score.ToString("F4")

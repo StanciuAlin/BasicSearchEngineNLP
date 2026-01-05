@@ -119,3 +119,23 @@ MAP
 nDCG@5
 
 Precision@5 (P@5). Această metrică îți va spune, în medie, câte dintre primele 5 rezultate returnate de motorul tău sunt cu adevărat relevante. Dacă P@5 este 0.8, înseamnă că 4 din cele 5 rezultate de pe prima pagină sunt corecte.
+
+---
+
+Pictograme
+
+<button class="btn btn-outline-secondary btn-sm" @onclick="ResetFilters">
+<i class="bi bi-arrow-counterclockwise"></i> Reset
+</button>
+
+<div class="text-muted mb-3">
+    <i class="bi bi-file-earmark-text me-1"></i> Found @searchResponse.totalResults results
+</div>
+
+bi-gear-fill: Pentru setările de parametri (k1, b).
+
+bi-info-circle: Lângă titlurile algoritmilor (ex: BM25) pentru a oferi explicații la hover.
+
+bi-book: În header-ul paginii lângă titlul "Library Search".
+
+bi-sort-numeric-down: Pentru zona unde alegi ordonarea rezultatelor.

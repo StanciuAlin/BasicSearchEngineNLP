@@ -69,18 +69,32 @@ body {
     font-size: 1.5rem;
 }
 
-.topnav {
+.nav-links {
     font-weight: 500;
+    display: flex;
+    align-items: center;
 }
 
-.topnav a {
-    margin-left: 1rem;
+.nav-links a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #374151;
+    /* sau culoarea meniului tău */
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
 }
 
-.topnav a:hover {
+.nav-links a i {
+    font-size: 1.1rem;
+    /* Face pictograma puțin mai mare decât textul */
+    margin-right: 8px;
+    /* Spațiu între pictogramă și text */
+}
+
+.nav-links a:hover {
     color: #0fcd3b;
+    /* Efect gold la hover peste tot elementul */
 }
 
 main {
