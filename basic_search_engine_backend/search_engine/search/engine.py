@@ -51,7 +51,8 @@ class SearchEngine:
                mode: str = "custom",
                ranking_method: str = "cosine",
                k1: float = 1.5,
-               b: float = 0.75) -> dict:
+               b: float = 0.75,
+               search_logic: str = "OR") -> dict:
         self.set_mode(mode)
 
         # Actualizăm parametrii BM25
@@ -63,19 +64,38 @@ class SearchEngine:
         if not q_terms:
             return {"total": 0, "results": []}
 
-        all_hits = []
         if mode == "sklearn":
             all_hits = self.sklearn_engine.search(query)
         else:
-            # Optimizare: Căutăm doar în documentele care conțin termenii din query
-            relevant_doc_ids = set()
+            # Obținem postings pentru fiecare termen separat
+            term_sets = []
             for term in q_terms:
                 if term in self.index.index:
-                    relevant_doc_ids.update(
-                        p.doc_id for p in self.index.index[term])
+                    term_sets.append(
+                        {p.doc_id for p in self.index.index[term]})
+                else:
+                    term_sets.append(set())
 
+            # Aplicăm logica booleană pentru a determina documentele relevante
+            if search_logic == "AND":
+                relevant_doc_ids = set.intersection(
+                    *term_sets) if term_sets else set()
+            elif search_logic == "OR":
+                relevant_doc_ids = set.union(
+                    *term_sets) if term_sets else set()
+            else:  # HYBRID (Logică de Boost)
+                relevant_doc_ids = set.union(
+                    *term_sets) if term_sets else set()
+                # Documentele care conțin toți termenii primesc un identificator de relevanță (opțional)
+
+            all_hits = []
             for doc_id in relevant_doc_ids:
                 score = 0.0
+                # Calculăm câți termeni din query se află în acest document
+                matches_count = sum(
+                    1 for term_set in term_sets if doc_id in term_set)
+                matches_info = f"{matches_count}/{len(q_terms)}"
+                # Calculăm scorul folosind metodele existente
                 if ranking_method == "cosine":
                     q_vec = self.weighter.make_query_vector(q_terms)
                     doc_vec = self.weighter.doc_vectors.get(doc_id, {})
@@ -83,13 +103,16 @@ class SearchEngine:
                 elif ranking_method == "jaccard":
                     score = self.weighter.jaccard_similarity(q_terms, doc_id)
                 elif ranking_method == "bm25":
-                    # Folosim noua metodă de ranking
                     score = self.bm25_weighter.calculate_score(q_terms, doc_id)
 
-                if score > 0:
-                    all_hits.append((doc_id, score))
+                # Bonus Hibrid: dacă documentul conține toți termenii (AND), mărim scorul
+                if search_logic == "HYBRID" and term_sets:
+                    if doc_id in set.intersection(*term_sets):
+                        score *= 1.5  # Boost de 50% pentru potrivire completă
 
-            # Sortăm rezultatele educaționale după scor
+                if score > 0:
+                    all_hits.append((doc_id, score, matches_info))
+
             all_hits.sort(key=lambda x: x[1], reverse=True)
 
         total_results = len(all_hits)
@@ -100,9 +123,11 @@ class SearchEngine:
         paged_hits = all_hits[start:end]
 
         results = []
-        for doc_id, score in paged_hits:
+        for hit in paged_hits:
+            doc_id, score, matches_info = hit  # Despachetăm cele 3 valori
             doc = self.doc_store.get(doc_id)
-            results.append(self._create_result(doc, score))
+            # Trimitem matches_info către _create_result
+            results.append(self._create_result(doc, score, matches_info))
 
         return {
             "total": total_results,
@@ -124,11 +149,14 @@ class SearchEngine:
         except:
             return None
 
-    def _create_result(self, doc, score):
+    def _create_result(self, doc, score, matches_info=""):
         snippet = doc.content[:220].replace("\n", " ")
-        return SearchResult(
+        result = SearchResult(
             doc_id=doc.doc_id,
             title=doc.title,
             score=round(float(score), 4),
             snippet=snippet + ("..." if len(doc.content) > 220 else "")
         )
+        # Adăugăm proprietatea dinamic, sau o definim în clasa SearchResult
+        result.matches = matches_info
+        return result

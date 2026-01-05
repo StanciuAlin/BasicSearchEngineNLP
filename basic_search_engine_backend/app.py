@@ -43,14 +43,16 @@ async def search_tfidf(
     query: str,
     page: int = 1,
     page_size: int = 5,
-    mode: str = "custom"
+    mode: str = "custom",
+    logic: str = "OR"
 ):
     return engine.search(
         query=query,
         page=page,
         page_size=page_size,
         mode=mode,
-        ranking_method="cosine"
+        ranking_method="cosine",
+        search_logic=logic
     )
 
 # Endpoint pentru BM25 (Parametri specifici obligatorii)
@@ -63,7 +65,8 @@ async def search_bm25(
     b: float = 0.75,
     page: int = 1,
     page_size: int = 5,
-    mode: str = "custom"
+    mode: str = "custom",
+    logic: str = "OR"
 ):
     return engine.search(
         query=query,
@@ -72,7 +75,8 @@ async def search_bm25(
         mode=mode,
         ranking_method="bm25",
         k1=k1,
-        b=b
+        b=b,
+        search_logic=logic
     )
 
 # Endpoint pentru Jaccard
@@ -83,14 +87,16 @@ async def search_jaccard(
     query: str,
     page: int = 1,
     page_size: int = 5,
-    mode: str = "custom"
+    mode: str = "custom",
+    logic: str = "OR"
 ):
     return engine.search(
         query=query,
         page=page,
         page_size=page_size,
         mode=mode,
-        ranking_method="jaccard"
+        ranking_method="jaccard",
+        search_logic=logic
     )
 
 # Endpoint pentru Sklearn (Mod separat)
@@ -100,13 +106,15 @@ async def search_jaccard(
 async def search_sklearn(
     query: str,
     page: int = 1,
-    page_size: int = 5
+    page_size: int = 5,
+    logic: str = "OR"
 ):
     return engine.search(
         query=query,
         page=page,
         page_size=page_size,
-        mode="sklearn"
+        mode="sklearn",
+        search_logic=logic
     )
 
 
@@ -117,7 +125,8 @@ async def search_compare(
     b: float = 0.75,
     page: int = 1,
     page_size: int = 5,
-    mode: str = "custom"
+    mode: str = "custom",
+    logic: str = "OR"
 ):
     # Executăm căutarea principală (returnează un dicționar cu o listă de obiecte SearchResult)
     base_results = engine.search(
@@ -127,7 +136,8 @@ async def search_compare(
         mode=mode,
         ranking_method="bm25",
         k1=k1,
-        b=b
+        b=b,
+        search_logic=logic
     )
 
     # Preprocesăm query-ul o singură dată

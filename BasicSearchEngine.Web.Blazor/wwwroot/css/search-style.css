@@ -9,6 +9,7 @@
     --cosine-color: #0d6efd;
     --bm25-color: #c73947;
     --jaccard-color: #eeb406;
+    --combined-color: #6610f2;
 
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --card-margin: 1rem;
@@ -76,6 +77,10 @@ select:disabled {
 
 .square-bm25 {
     background-color: var(--bm25-color);
+}
+
+.square-combined {
+    background-color: var(--combined-color);
 }
 
 /* Ajustări pentru panoul de filtre */
@@ -151,12 +156,18 @@ select:disabled {
     background-color: var(--bm25-color);
 }
 
+.badge-combined {
+    background-color: var(--combined-color);
+}
+
 /* Badge-uri mai mari pentru Compare Mode */
 .badge-bm25,
 .badge-cosine,
-.badge-jaccard {
+.badge-jaccard,
+.badge-combined {
     letter-spacing: 0.5px;
     color: white;
+    margin: 0 10px 0 0;
 }
 
 /* Cardurile de rezultate */
@@ -229,6 +240,10 @@ card-body {
     font-size: 1.2rem;
 }
 
+.form-control-group-dropdowns {
+    width: 24.5rem;
+}
+
 #btn-apply-container {
     display: flex;
     justify-content: center;
@@ -260,8 +275,31 @@ card-body {
     transition: all 0.3s ease;
 }
 
+.form-control-bm25 {
+    width: 50px;
+    height: 20px;
+    font-size: 1rem;
+    margin: 0px 30px;
+}
+
+#bm25-k1-label {
+    padding-left: 2px;
+}
+
+#bm25-b-label {
+    padding-right: 8px;
+    padding-left: 2px;
+}
+
+.bm25-badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-style: italic;
+    padding: 0rem 0.4rem;
+}
+
 .param-input-group {
-    width: 9rem;
+    width: 23rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -274,10 +312,8 @@ card-body {
     margin-bottom: 2px;
 }
 
-.form-control-bm25 {
-    width: 50px;
-    height: 20px;
-    font-size: 1rem;
+.bm25-form-check-input {
+    padding-bottom: 0.1rem;
 }
 
 .animate-fade-in {
@@ -402,4 +438,29 @@ card-body {
 .btn-pagination:hover {
     background-color: var(--btn-green);
     color: black;
+}
+
+.bg-indigo {
+    background-color: #6610f2 !important;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.bg-indigo-light {
+    background-color: #f1f0ff;
+    padding: 3px 0px;
+    margin: 5px 0px;
+}
+
+.border-indigo {
+    border-color: #6610f2 !important;
+}
+
+.text-indigo {
+    color: #6610f2;
+}
+
+.x-small {
+    font-size: 0.75rem;
 }

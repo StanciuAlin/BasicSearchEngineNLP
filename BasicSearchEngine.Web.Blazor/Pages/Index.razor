@@ -21,56 +21,109 @@
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="col-md-12 d-flex flex-wrap gap-3 align-items-end">
-                <div class="filter-item flex-grow-1" style="min-width: 200px;">
-                    <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
-                    <select class="form-select form-select-lg select-filter-item" @bind="selectedMode"
-                        @bind:after="OnFilterChanged" disabled="@isCompareMode">
-                        <option value="custom">Educational</option>
-                        <option value="pro">Professional</option>
-                        <option value="sklearn">Sklearn</option>
-                    </select>
-                </div>
-
-                <div class="filter-item flex-grow-1" style="min-width: 200px;">
-                    <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
-                    <select class="form-select form-select-lg select-filter-item" @bind="selectedRanking"
-                        @bind:after="OnFilterChanged" disabled="@isCompareMode">
-                        <option value="bm25">BM25 Ranking</option>
-                        <option value="cosine">Cosine Similarity</option>
-                        <option value="jaccard">Jaccard Index</option>
-                    </select>
-                </div>
-
-                @if (selectedRanking == "bm25")
-                {
-                    <div class="bm25-control-panel d-flex gap-2 p-2 border rounded bg-light shadow-sm animate-fade-in">
+        <div class="search-settings-container p-3 border rounded bg-light shadow-sm mb-4 @(isCompareMode ? "compare-locked" : "")">
+            <div class="row">
+                <div class="col-md-6 border-end">
+                    <div class="form-control-group-dropdowns mb-4">
                         <div>
-                            <h2 id="title-bm25"><i class="bi bi-gear me-1"></i>BM25 Params</h2>
+                            <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-sliders2 me-1"></i>Algoritm & Mod</h3>
                         </div>
-                        <div class="param-input-group">
-                            <label class="small fw-bold text-primary">K1</label>
-                            <input type="number" step="0.1" @bind="bm25K1"
-                                class="form-control form-control-sm form-control-bm25" 
-                                title="Valori recomandate: [1.2, 2.0]. Controlează saturația frecvenței termenilor."
-                                disabled="@isCompareMode" />
+                    
+                        <div class="filter-item mb-3">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
+                            <select class="form-select form-select-sm" @bind="selectedMode" disabled="@isCompareMode">
+                                <option value="custom">Educational</option>
+                                <option value="nltk">NLTK Strategy</option>
+                                <option value="sklearn">Sklearn Strategy</option>
+                            </select>
                         </div>
-                        <div class="param-input-group">
-                            <label class="small fw-bold text-primary">B</label>
-                            <input type="number" step="0.05" @bind="bm25B"
-                                class="form-control form-control-sm form-control-bm25" 
-                                title="Valori recomandate: 0.75. Controlează normalizarea lungimii documentului (0 = fără normalizare, 1 = normalizare completă)." 
-                                disabled="@isCompareMode" />
-                        </div>
-                        <div id="btn-apply-container" class="d-flex align-items-end">
-                            <button class="btn btn-sm btn-primary btn-apply align-self-end"
-                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm" disabled="@isCompareMode">
-                                <i class="bi bi-check-circle-fill me-2"></i> Apply
-                            </button>
+
+                        <div class="filter-item mb-3">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
+                            <select class="form-select form-select-sm" @bind="selectedRanking" disabled="@isCompareMode">
+                                <option value="bm25">BM25 Ranking</option>
+                                <option value="cosine">Cosine Similarity</option>
+                                <option value="jaccard">Jaccard Index</option>
+                            </select>
                         </div>
                     </div>
-                }
+
+                    @* Panoul de parametri BM25 integrat în coloana 1 *@
+                    @if (selectedRanking == "bm25")
+                    {
+                        <div class="bm25-control-panel p-2 border rounded bg-white animate-fade-in">
+                            <div>
+                                <h3 id="title-bm25"><i class="bi bi-gear-fill me-1"></i>BM25 Params</h3>
+                            </div>
+                            <div class="param-input-group d-flex align-items-center gap-2 mb-2">
+                                <div class="flex-grow-1">
+                                    <label id="bm25-k1-label" class="small text-muted">K1</label>
+                                    <input type="number" step="0.1" @bind="bm25K1" @bind:event="oninput"
+                                        class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                </div>
+                                <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[1.2 - 2.0]</span>
+                            </div>
+
+                            <div class="param-input-group d-flex align-items-center gap-2 mb-2">
+                                <div class="flex-grow-1">
+                                    <label id="bm25-b-label" class="small text-muted">B</label>
+                                    <input type="number" step="0.05" @bind="bm25B" @bind:event="oninput"
+                                        class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                </div>
+                                <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideal 0.75</span>
+                            </div>
+
+                            <div id="btn-apply-container" class="d-flex align-items-end">
+                                <button class="btn btn-sm btn-primary btn-apply align-self-end"
+                                    @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm" disabled="@isCompareMode">
+                                    <i class="bi bi-check-circle-fill me-2"></i> Apply
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-6 ps-4">
+                    <div>
+                        <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-gear-fill me-1"></i>Multi-term search</h3>
+                    </div>                    
+                    <div class="search-logic-group d-flex flex-column gap-3">
+                        <div class="form-check custom-radio-indigo">
+                            <input class="form-check-input bm25-form-check-input" type="radio" name="searchLogic" id="logicOr" 
+                                value="OR" @onchange="@(() => searchLogic = "OR")" 
+                                checked="@(searchLogic == "OR")" disabled="@isCompareMode">
+                            <label class="form-check-label" for="logicOr">
+                                <strong>OR</strong> - Cel puțin un cuvânt prezent
+                            </label>
+                        </div>
+
+                        <div class="form-check custom-radio-indigo">
+                            <input class="form-check-input" type="radio" name="searchLogic" id="logicAnd" 
+                                value="AND" @onchange="@(() => searchLogic = "AND")" 
+                                checked="@(searchLogic == "AND")" disabled="@isCompareMode">
+                            <label class="form-check-label" for="logicAnd">
+                                <strong>AND</strong> - Toate cuvintele prezente
+                            </label>
+                        </div>
+
+                        <div class="form-check custom-radio-indigo">
+                            <input class="form-check-input" type="radio" name="searchLogic" id="logicHybrid" 
+                                value="HYBRID" @onchange="@(() => searchLogic = "HYBRID")" 
+                                checked="@(searchLogic == "HYBRID")" disabled="@isCompareMode">
+                            <label class="form-check-label" for="logicHybrid">
+                                <strong>Hibrid</strong> - Prioritizează potrivirile multiple
+                            </label>
+                        </div>
+                    </div>
+
+                    @if (query.Trim().Contains(" "))
+                    {
+                        <div class="mt-4 p-2 rounded bg-indigo-light text-indigo border border-indigo animate-fade-in">
+                            <i class="bi bi-intersect me-2"></i>
+                            <strong>Combined Search Active:</strong> Folosind logica <u>@searchLogic</u> pentru termenii detectați.
+                        </div>
+                    }
+                </div>
             </div>
         </div>
 
@@ -78,15 +131,19 @@
             <div class="col-12 d-flex gap-5">
                 <div class="legend-item">
                     <div class="legend-square square-bm25"></div>
-                    <span class="text-muted">BM25</span>
+                    <span class="text-muted">BM25 metric</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-square square-cosine"></div>
-                    <span class="text-muted">Cosine</span>
+                    <span class="text-muted">Cosine metric</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-square square-jaccard"></div>
-                    <span class="text-muted">Jaccard</span>
+                    <span class="text-muted">Jaccard metric</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-square square-combined"></div>
+                    <span class="text-muted">Combined search</span>
                 </div>
             </div>
         </div>
@@ -142,15 +199,23 @@
                             <div class="d-flex flex-wrap gap-2 mt-2 mb-3">
                                 @if (isCompareMode)
                                 {
-                                    <span class="badge badge-bm25 shadow-sm p-2">@(r.bm25_score?.ToString("F4") ?? "0.0000")</span>
-                                    <span class="badge badge-cosine shadow-sm p-2">@(r.cosine_score?.ToString("F4") ?? "0.0000")</span>
-                                    <span class="badge badge-jaccard shadow-sm p-2">@(r.jaccard_score?.ToString("F4") ?? "0.0000")</span>
+                                    <span class="metric-badge badge-bm25 shadow-sm p-2">@(r.bm25_score?.ToString("F4") ?? "0.0000")</span>
+                                    <span class="metric-badge badge-cosine shadow-sm p-2">@(r.cosine_score?.ToString("F4") ?? "0.0000")</span>
+                                    <span class="metric-badge badge-jaccard shadow-sm p-2">@(r.jaccard_score?.ToString("F4") ?? "0.0000")</span>
                                 }
                                 else
                                 {
                                     <span class="metric-badge @GetBadgeClass()">
                                         @r.score.ToString("F4")
                                     </span>
+                                    @if (query.Trim().Contains(" "))
+                                    {
+                                        <span class="metric-badge bg-indigo p-2 shadow-sm animate-fade-in" 
+                                            title="Logica @searchLogic: @r.matches termeni găsiți">
+                                            <i class="bi bi-intersect me-1"></i> 
+                                            @r.matches Match (@searchLogic)
+                                        </span>
+                                    }
                                 }
                             </div>
                         </div>
@@ -183,6 +248,7 @@
 
 @code {
     private string query = string.Empty;
+    private string searchLogic = "OR";
     private string selectedMode = "custom";
     private string selectedRanking = "bm25";
     // Parametri noi pentru BM25
@@ -223,9 +289,9 @@
         // Selectăm ruta corectă în funcție de selecția utilizatorului
         string route = selectedRanking switch
         {
-            "bm25" => $"search/bm25?k1={bm25K1}&b={bm25B}",
-            "jaccard" => "search/jaccard",
-            _ => selectedMode == "sklearn" ? "search/sklearn" : "search/tfidf"
+            "bm25" => $"search/bm25?k1={bm25K1}&b={bm25B}&logic={searchLogic}",
+            "jaccard" => $"search/jaccard?logic={searchLogic}",
+            _ => selectedMode == "sklearn" ? "search/sklearn" : $"search/tfidf?logic={searchLogic}"
         };
 
         // Construim URL-ul final cu parametrii comuni
@@ -325,9 +391,11 @@
         
         // 2. Resetăm valorile de căutare și parametri
         query = "";
+        searchLogic = "OR";
         selectedRanking = "bm25"; // sau default-ul tău
         bm25K1 = 1.5;
         bm25B = 0.75;
+        currentPage = 1;
         
         // 3. Resetăm rezultatele (golim lista)
         searchResponse = new SearchResponseDto { 
@@ -335,8 +403,6 @@
             total = 0
         };
         
-        currentPage = 1;
-
         // 4. Forțăm UI-ul să se actualizeze
         StateHasChanged();
     }
@@ -352,6 +418,7 @@
         public int doc_id { get; set; }
         public string title { get; set; } = string.Empty;
         public string snippet { get; set; } = string.Empty;
+        public string matches { get; set; } = "";
         public double score { get; set; } // BM25 implicit
         public double? bm25_score { get; set; }
         public double? cosine_score { get; set; }
