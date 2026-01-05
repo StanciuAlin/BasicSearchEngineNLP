@@ -74,4 +74,4 @@ def populate_library(count=1000):
 if __name__ == "__main__":
     # Poți modifica numărul de cărți aici (ex: count=100 pentru un test rapid)
     # aici am redus la 10 pentru testare rapidă, dar trebuie 1000+
-    populate_library(count=100)
+    populate_library(count=300)

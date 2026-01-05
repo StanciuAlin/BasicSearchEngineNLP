@@ -1,0 +1,8002 @@
+[
+  {
+    "id": 1,
+    "query": "What is the vessel of the uncharted captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 2,
+    "query": "frozen mighty island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 3,
+    "query": "ruthless savage mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 4,
+    "query": "What is the coast of the infinite harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 5,
+    "query": "Storm in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 6,
+    "query": "Captain Queequeg surviving the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 7,
+    "query": "majestic golden vessel",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 8,
+    "query": "What is the marine of the giant whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 9,
+    "query": "dark white storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 10,
+    "query": "hunting the stormy waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 11,
+    "query": "lone ruthless discovery",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 12,
+    "query": "Captain Jim conquering the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 13,
+    "query": "Captain Tashtego navigating the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 14,
+    "query": "describing the dangerous waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 15,
+    "query": "What is the storm of the calm ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 16,
+    "query": "ancient mysterious map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 17,
+    "query": "What is the vessel of the infinite waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 18,
+    "query": "mighty savage tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 19,
+    "query": "escaping the calm adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 20,
+    "query": "savage golden shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 21,
+    "query": "lone dark deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 22,
+    "query": "Captain Boone describing the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 23,
+    "query": "Vessel in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 24,
+    "query": "Captain Jim describing the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 25,
+    "query": "calm forgotten sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 26,
+    "query": "What is the sea of the furious voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 27,
+    "query": "ancient savage mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 28,
+    "query": "forgotten mysterious navigation",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 29,
+    "query": "Depths in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 30,
+    "query": "Discovery in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 31,
+    "query": "What is the whale of the tropical lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 32,
+    "query": "savage infinite harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 33,
+    "query": "Captain Pip exploring the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 34,
+    "query": "searching the calm coast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 35,
+    "query": "ruthless dark legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 36,
+    "query": "challenging the ancient harpoon",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 37,
+    "query": "Discovery in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 38,
+    "query": "lone frozen lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 39,
+    "query": "searching the tropical crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 40,
+    "query": "Captain Pip navigating the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 41,
+    "query": "Island in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 42,
+    "query": "Anchor in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 43,
+    "query": "Captain Boone fighting the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 44,
+    "query": "Captain Kurtz fighting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 45,
+    "query": "describing the savage crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 46,
+    "query": "What is the navigation of the dark sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 47,
+    "query": "Captain Pip tracking the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 48,
+    "query": "Map in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 49,
+    "query": "terrible mysterious waves",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 50,
+    "query": "What is the mast of the ancient marine?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 51,
+    "query": "recounting the silent vessel",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 52,
+    "query": "mysterious white lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 53,
+    "query": "Adventure in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 54,
+    "query": "Treasure in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 55,
+    "query": "What is the myth of the broken tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 56,
+    "query": "What is the crew of the terrible discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 57,
+    "query": "mapping the majestic island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 58,
+    "query": "What is the whaleboat of the lone depths?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 59,
+    "query": "What is the mast of the white voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 60,
+    "query": "Captain Mapple escaping the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 61,
+    "query": "majestic dangerous tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 62,
+    "query": "uncharted infinite legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 63,
+    "query": "describing the frozen treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 64,
+    "query": "Sea in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 65,
+    "query": "Treasure in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 66,
+    "query": "frozen silent whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 67,
+    "query": "infinite dark ship",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 68,
+    "query": "What is the adventure of the ruthless voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 69,
+    "query": "describing the stormy treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 70,
+    "query": "silent lone storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 71,
+    "query": "Captain Crusoe challenging the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 72,
+    "query": "Discovery in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 73,
+    "query": "Captain Crusoe escaping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 74,
+    "query": "What is the compass of the ruthless myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 75,
+    "query": "Captain Stubb searching the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 76,
+    "query": "forgotten silent vessel",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 77,
+    "query": "exploring the dark sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 78,
+    "query": "white silent myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 79,
+    "query": "What is the treasure of the lone whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 80,
+    "query": "Captain Tashtego surviving the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 81,
+    "query": "Whale in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 82,
+    "query": "sailing the broken lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 83,
+    "query": "Storm in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 84,
+    "query": "spectral infinite tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 85,
+    "query": "escaping the dangerous ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 86,
+    "query": "ancient lone vessel",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 87,
+    "query": "Captain Crusoe sailing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 88,
+    "query": "infinite calm voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 89,
+    "query": "What is the harpoon of the uncharted harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 90,
+    "query": "dark calm adventure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 91,
+    "query": "Lighthouse in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 92,
+    "query": "What is the island of the calm deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 93,
+    "query": "Discovery in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 94,
+    "query": "Captain Stubb observing the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 95,
+    "query": "Captain Peleg studying the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 96,
+    "query": "What is the lighthouse of the majestic lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 97,
+    "query": "uncharted stormy crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 98,
+    "query": "furious mighty ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 99,
+    "query": "Captain Ishmael recounting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 100,
+    "query": "Captain Tashtego sailing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 101,
+    "query": "What is the voyage of the lone shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 102,
+    "query": "Horizon in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 103,
+    "query": "dangerous mighty myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 104,
+    "query": "tropical silent shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 105,
+    "query": "Captain Ishmael exploring the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 106,
+    "query": "describing the mysterious marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 107,
+    "query": "tracking the dark ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 108,
+    "query": "surviving the white monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 109,
+    "query": "Captain Ahab challenging the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 110,
+    "query": "Horizon in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 111,
+    "query": "lone savage treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 112,
+    "query": "tracking the dark captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 113,
+    "query": "describing the infinite island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 114,
+    "query": "ruthless golden ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 115,
+    "query": "Monster in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 116,
+    "query": "escaping the golden captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 117,
+    "query": "broken broken sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 118,
+    "query": "Captain Pip escaping the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 119,
+    "query": "Harpoon in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 120,
+    "query": "Crew in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 121,
+    "query": "tropical golden legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 122,
+    "query": "Treasure in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 123,
+    "query": "white silent compass",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 124,
+    "query": "mighty silent horizon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 125,
+    "query": "What is the horizon of the stormy shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 126,
+    "query": "What is the map of the tropical whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 127,
+    "query": "Lighthouse in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 128,
+    "query": "Captain Ahab escaping the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 129,
+    "query": "tracking the golden discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 130,
+    "query": "Lighthouse in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 131,
+    "query": "What is the expedition of the ancient navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 132,
+    "query": "Captain Marlow sailing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 133,
+    "query": "challenging the mysterious treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 134,
+    "query": "exploring the spectral depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 135,
+    "query": "Captain Flask hunting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 136,
+    "query": "conquering the mighty sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 137,
+    "query": "forgotten calm whaleboat",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 138,
+    "query": "What is the horizon of the furious vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 139,
+    "query": "terrible white whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 140,
+    "query": "escaping the broken marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 141,
+    "query": "sailing the terrible anchor",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 142,
+    "query": "What is the deck of the lone adventure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 143,
+    "query": "mapping the white legend",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 144,
+    "query": "golden golden harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 145,
+    "query": "What is the shore of the savage tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 146,
+    "query": "Ocean in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 147,
+    "query": "tracking the tropical lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 148,
+    "query": "Whale in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 149,
+    "query": "Captain Starbuck escaping the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 150,
+    "query": "Ship in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 151,
+    "query": "Captain Fedallah surviving the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 152,
+    "query": "Legend in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 153,
+    "query": "searching the infinite deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 154,
+    "query": "What is the whale of the giant waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 155,
+    "query": "dark frozen anchor",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 156,
+    "query": "Whaleboat in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 157,
+    "query": "dangerous uncharted mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 158,
+    "query": "Captain Mapple exploring the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 159,
+    "query": "Shore in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 160,
+    "query": "sailing the spectral horizon",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 161,
+    "query": "What is the ocean of the silent myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 162,
+    "query": "What is the discovery of the tropical tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 163,
+    "query": "mighty mysterious captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 164,
+    "query": "Shore in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 165,
+    "query": "Captain Gulliver observing the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 166,
+    "query": "Captain Queequeg searching the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 167,
+    "query": "spectral tropical harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 168,
+    "query": "Captain Peleg observing the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 169,
+    "query": "What is the depths of the spectral sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 170,
+    "query": "What is the ocean of the stormy monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 171,
+    "query": "navigating the calm marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 172,
+    "query": "What is the navigation of the furious whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 173,
+    "query": "Captain Gulliver surviving the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 174,
+    "query": "mysterious terrible crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 175,
+    "query": "Captain Daggoo recounting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 176,
+    "query": "escaping the savage deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 177,
+    "query": "Tide in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 178,
+    "query": "Lighthouse in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 179,
+    "query": "Captain Daggoo fighting the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 180,
+    "query": "Expedition in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 181,
+    "query": "Captain Crusoe navigating the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 182,
+    "query": "What is the navigation of the lone monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 183,
+    "query": "Expedition in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 184,
+    "query": "lone calm myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 185,
+    "query": "surviving the ruthless monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 186,
+    "query": "What is the anchor of the giant crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 187,
+    "query": "Captain Fedallah mapping the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 188,
+    "query": "recounting the silent tide",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 189,
+    "query": "What is the discovery of the furious expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 190,
+    "query": "Harpoon in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 191,
+    "query": "Captain Ishmael fighting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 192,
+    "query": "calm mighty treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 193,
+    "query": "Captain Queequeg describing the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 194,
+    "query": "What is the storm of the mighty crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 195,
+    "query": "Captain Silver navigating the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 196,
+    "query": "conquering the forgotten marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 197,
+    "query": "Sail in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 198,
+    "query": "recounting the mighty island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 199,
+    "query": "mighty giant mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 200,
+    "query": "majestic lone deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 201,
+    "query": "What is the captain of the golden crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 202,
+    "query": "What is the myth of the terrible waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 203,
+    "query": "Crew in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 204,
+    "query": "What is the crew of the furious lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 205,
+    "query": "What is the deck of the golden map?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 206,
+    "query": "What is the adventure of the infinite ship?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 207,
+    "query": "Captain Pip fighting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 208,
+    "query": "white infinite whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 209,
+    "query": "navigating the giant legend",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 210,
+    "query": "Marine in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 211,
+    "query": "silent broken deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 212,
+    "query": "terrible forgotten harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 213,
+    "query": "Depths in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 214,
+    "query": "broken uncharted waves",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 215,
+    "query": "searching the majestic depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 216,
+    "query": "mapping the dark sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 217,
+    "query": "What is the ocean of the spectral ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 218,
+    "query": "What is the voyage of the infinite whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 219,
+    "query": "Captain in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 220,
+    "query": "tracking the frozen compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 221,
+    "query": "Captain Nemo searching the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 222,
+    "query": "majestic spectral coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 223,
+    "query": "Whaleboat in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 224,
+    "query": "Captain Pip challenging the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 225,
+    "query": "Captain Marlow searching the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 226,
+    "query": "hunting the forgotten depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 227,
+    "query": "What is the mast of the dangerous expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 228,
+    "query": "studying the white depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 229,
+    "query": "What is the monster of the giant horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 230,
+    "query": "recounting the terrible lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 231,
+    "query": "What is the coast of the calm captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 232,
+    "query": "tracking the mighty captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 233,
+    "query": "mapping the furious anchor",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 234,
+    "query": "Storm in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 235,
+    "query": "silent ruthless legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 236,
+    "query": "surviving the golden marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 237,
+    "query": "tracking the silent captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 238,
+    "query": "Captain in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 239,
+    "query": "What is the vessel of the calm ship?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 240,
+    "query": "Captain Ahab sailing the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 241,
+    "query": "Captain Jim recounting the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 242,
+    "query": "What is the vessel of the broken anchor?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 243,
+    "query": "What is the legend of the tropical crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 244,
+    "query": "What is the whale of the ruthless whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 245,
+    "query": "challenging the silent discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 246,
+    "query": "observing the majestic tide",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 247,
+    "query": "Captain Silver describing the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 248,
+    "query": "Captain Mapple mapping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 249,
+    "query": "majestic lone captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 250,
+    "query": "ancient golden voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 251,
+    "query": "What is the horizon of the ruthless myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 252,
+    "query": "What is the storm of the broken vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 253,
+    "query": "exploring the mysterious treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 254,
+    "query": "Captain Marlow navigating the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 255,
+    "query": "Depths in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 256,
+    "query": "Treasure in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 257,
+    "query": "studying the terrible storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 258,
+    "query": "silent majestic sail",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 259,
+    "query": "What is the ship of the frozen myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 260,
+    "query": "Captain Gulliver conquering the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 261,
+    "query": "Legend in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 262,
+    "query": "Monster in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 263,
+    "query": "Captain Ahab observing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 264,
+    "query": "Captain Gulliver escaping the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 265,
+    "query": "describing the terrible treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 266,
+    "query": "Compass in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 267,
+    "query": "forgotten lone waves",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 268,
+    "query": "Captain Tashtego tracking the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 269,
+    "query": "Voyage in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 270,
+    "query": "What is the crew of the stormy storm?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 271,
+    "query": "Captain Queequeg fighting the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 272,
+    "query": "searching the terrible expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 273,
+    "query": "mighty savage tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 274,
+    "query": "Treasure in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 275,
+    "query": "What is the adventure of the furious map?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 276,
+    "query": "Captain in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 277,
+    "query": "mighty stormy coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 278,
+    "query": "Expedition in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 279,
+    "query": "forgotten lone shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 280,
+    "query": "Monster in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 281,
+    "query": "Captain Ahab mapping the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 282,
+    "query": "What is the horizon of the lone sail?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 283,
+    "query": "Map in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 284,
+    "query": "What is the whale of the tropical treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 285,
+    "query": "What is the voyage of the golden harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 286,
+    "query": "navigating the majestic adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 287,
+    "query": "frozen furious navigation",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 288,
+    "query": "conquering the broken whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 289,
+    "query": "Captain Peleg challenging the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 290,
+    "query": "searching the white compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 291,
+    "query": "ancient stormy map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 292,
+    "query": "mighty uncharted shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 293,
+    "query": "Island in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 294,
+    "query": "Captain Ishmael escaping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 295,
+    "query": "What is the map of the dangerous mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 296,
+    "query": "What is the navigation of the ancient coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 297,
+    "query": "mighty forgotten map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 298,
+    "query": "lone golden treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 299,
+    "query": "sailing the uncharted waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 300,
+    "query": "Captain Daggoo recounting the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 301,
+    "query": "Captain Tashtego searching the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 302,
+    "query": "hunting the frozen mast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 303,
+    "query": "Captain Flask studying the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 304,
+    "query": "Captain Peleg mapping the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 305,
+    "query": "What is the whale of the tropical treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 306,
+    "query": "majestic dangerous voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 307,
+    "query": "What is the crew of the dangerous navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 308,
+    "query": "Captain Ahab tracking the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 309,
+    "query": "What is the voyage of the ancient ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 310,
+    "query": "What is the adventure of the forgotten whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 311,
+    "query": "mighty savage legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 312,
+    "query": "Storm in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 313,
+    "query": "describing the forgotten deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 314,
+    "query": "What is the voyage of the spectral horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 315,
+    "query": "describing the golden discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 316,
+    "query": "broken infinite horizon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 317,
+    "query": "What is the monster of the ancient mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 318,
+    "query": "Adventure in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 319,
+    "query": "Tide in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 320,
+    "query": "Captain Boone exploring the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 321,
+    "query": "exploring the broken depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 322,
+    "query": "giant furious lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 323,
+    "query": "Captain Crusoe tracking the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 324,
+    "query": "forgotten furious marine",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 325,
+    "query": "sailing the majestic compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 326,
+    "query": "What is the treasure of the uncharted whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 327,
+    "query": "What is the coast of the forgotten shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 328,
+    "query": "terrible terrible mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 329,
+    "query": "infinite calm ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 330,
+    "query": "white white ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 331,
+    "query": "Captain Queequeg recounting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 332,
+    "query": "mysterious infinite discovery",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 333,
+    "query": "What is the harpoon of the broken vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 334,
+    "query": "tracking the calm crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 335,
+    "query": "Horizon in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 336,
+    "query": "Captain Tashtego exploring the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 337,
+    "query": "recounting the mysterious whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 338,
+    "query": "silent ancient myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 339,
+    "query": "Harpoon in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 340,
+    "query": "Whale in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 341,
+    "query": "conquering the forgotten whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 342,
+    "query": "Captain Marlow exploring the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 343,
+    "query": "What is the compass of the tropical depths?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 344,
+    "query": "Captain Pip exploring the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 345,
+    "query": "surviving the golden captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 346,
+    "query": "What is the discovery of the terrible waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 347,
+    "query": "Waves in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 348,
+    "query": "majestic mighty depths",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 349,
+    "query": "Expedition in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 350,
+    "query": "calm silent expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 351,
+    "query": "Horizon in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 352,
+    "query": "Whale in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 353,
+    "query": "Captain Pip studying the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 354,
+    "query": "Compass in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 355,
+    "query": "broken majestic storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 356,
+    "query": "exploring the spectral sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 357,
+    "query": "savage ruthless monster",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 358,
+    "query": "Mast in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 359,
+    "query": "Captain Tashtego conquering the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 360,
+    "query": "Mast in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 361,
+    "query": "exploring the stormy expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 362,
+    "query": "Captain Ahab conquering the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 363,
+    "query": "What is the captain of the lone treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 364,
+    "query": "Captain Gulliver surviving the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 365,
+    "query": "giant stormy captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 366,
+    "query": "Myth in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 367,
+    "query": "Captain Daggoo conquering the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 368,
+    "query": "What is the anchor of the frozen marine?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 369,
+    "query": "What is the crew of the tropical ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 370,
+    "query": "What is the discovery of the forgotten treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 371,
+    "query": "recounting the forgotten storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 372,
+    "query": "Discovery in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 373,
+    "query": "dark dark storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 374,
+    "query": "Harpoon in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 375,
+    "query": "What is the horizon of the stormy discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 376,
+    "query": "Captain Marlow fighting the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 377,
+    "query": "dark mysterious sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 378,
+    "query": "conquering the dark ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 379,
+    "query": "Shore in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 380,
+    "query": "Myth in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 381,
+    "query": "studying the furious expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 382,
+    "query": "lone broken deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 383,
+    "query": "dangerous golden tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 384,
+    "query": "hunting the silent ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 385,
+    "query": "silent stormy anchor",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 386,
+    "query": "mysterious white depths",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 387,
+    "query": "What is the shore of the ancient shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 388,
+    "query": "challenging the dangerous navigation",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 389,
+    "query": "navigating the majestic legend",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 390,
+    "query": "stormy infinite navigation",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 391,
+    "query": "What is the captain of the stormy discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 392,
+    "query": "surviving the terrible compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 393,
+    "query": "studying the uncharted monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 394,
+    "query": "Shore in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 395,
+    "query": "Island in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 396,
+    "query": "Expedition in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 397,
+    "query": "forgotten terrible harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 398,
+    "query": "Captain Pip fighting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 399,
+    "query": "tracking the frozen storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 400,
+    "query": "What is the voyage of the golden vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 401,
+    "query": "What is the vessel of the frozen ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 402,
+    "query": "escaping the forgotten legend",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 403,
+    "query": "studying the infinite ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 404,
+    "query": "infinite forgotten crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 405,
+    "query": "What is the depths of the dangerous captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 406,
+    "query": "silent ancient adventure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 407,
+    "query": "Captain Bildad observing the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 408,
+    "query": "fighting the broken lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 409,
+    "query": "Myth in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 410,
+    "query": "terrible mighty myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 411,
+    "query": "broken spectral crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 412,
+    "query": "Mast in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 413,
+    "query": "majestic majestic ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 414,
+    "query": "furious silent horizon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 415,
+    "query": "Captain Stubb escaping the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 416,
+    "query": "Harpoon in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 417,
+    "query": "What is the anchor of the silent harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 418,
+    "query": "challenging the forgotten discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 419,
+    "query": "fighting the stormy crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 420,
+    "query": "What is the compass of the stormy lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 421,
+    "query": "majestic stormy whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 422,
+    "query": "What is the sail of the infinite discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 423,
+    "query": "broken lone sail",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 424,
+    "query": "Captain Stubb searching the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 425,
+    "query": "What is the treasure of the stormy expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 426,
+    "query": "What is the ship of the calm monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 427,
+    "query": "Captain Queequeg hunting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 428,
+    "query": "Compass in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 429,
+    "query": "What is the depths of the frozen coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 430,
+    "query": "Captain Ahab observing the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 431,
+    "query": "calm spectral monster",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 432,
+    "query": "Sail in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 433,
+    "query": "Sail in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 434,
+    "query": "What is the whaleboat of the terrible whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 435,
+    "query": "What is the sail of the frozen whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 436,
+    "query": "Coast in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 437,
+    "query": "Coast in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 438,
+    "query": "Deck in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 439,
+    "query": "describing the forgotten depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 440,
+    "query": "mysterious infinite depths",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 441,
+    "query": "white spectral tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 442,
+    "query": "What is the marine of the lone deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 443,
+    "query": "What is the harpoon of the ancient horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 444,
+    "query": "What is the storm of the frozen sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 445,
+    "query": "mighty stormy ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 446,
+    "query": "What is the vessel of the tropical myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 447,
+    "query": "Captain Ishmael studying the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 448,
+    "query": "Captain Silver surviving the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 449,
+    "query": "Captain Daggoo conquering the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 450,
+    "query": "Captain Tashtego challenging the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 451,
+    "query": "Captain Marlow exploring the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 452,
+    "query": "searching the majestic island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 453,
+    "query": "What is the compass of the spectral voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 454,
+    "query": "uncharted uncharted storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 455,
+    "query": "lone furious deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 456,
+    "query": "What is the coast of the majestic anchor?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 457,
+    "query": "What is the adventure of the furious sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 458,
+    "query": "What is the treasure of the golden coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 459,
+    "query": "Captain Pip escaping the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 460,
+    "query": "What is the ship of the terrible navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 461,
+    "query": "dark ancient harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 462,
+    "query": "Captain Marlow recounting the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 463,
+    "query": "What is the myth of the ruthless mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 464,
+    "query": "golden calm lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 465,
+    "query": "What is the vessel of the white waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 466,
+    "query": "Compass in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 467,
+    "query": "What is the whaleboat of the lone monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 468,
+    "query": "What is the coast of the dark deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 469,
+    "query": "Captain Tashtego fighting the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 470,
+    "query": "mapping the lone coast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 471,
+    "query": "dangerous uncharted whaleboat",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 472,
+    "query": "frozen dark crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 473,
+    "query": "Sail in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 474,
+    "query": "fighting the stormy expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 475,
+    "query": "studying the golden deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 476,
+    "query": "tracking the lone compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 477,
+    "query": "Sail in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 478,
+    "query": "What is the captain of the spectral harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 479,
+    "query": "Captain Starbuck describing the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 480,
+    "query": "Captain Bildad searching the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 481,
+    "query": "Captain Boone searching the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 482,
+    "query": "observing the spectral discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 483,
+    "query": "terrible lone myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 484,
+    "query": "Captain Peleg navigating the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 485,
+    "query": "fighting the golden sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 486,
+    "query": "hunting the broken shore",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 487,
+    "query": "infinite majestic legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 488,
+    "query": "sailing the frozen monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 489,
+    "query": "frozen spectral voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 490,
+    "query": "What is the discovery of the ruthless island?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 491,
+    "query": "mysterious ancient crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 492,
+    "query": "studying the broken expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 493,
+    "query": "Whale in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 494,
+    "query": "Sea in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 495,
+    "query": "observing the white waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 496,
+    "query": "Captain Silver fighting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 497,
+    "query": "What is the compass of the majestic crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 498,
+    "query": "Treasure in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 499,
+    "query": "exploring the mysterious coast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 500,
+    "query": "forgotten tropical voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 501,
+    "query": "What is the marine of the golden adventure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 502,
+    "query": "Captain Peleg surviving the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 503,
+    "query": "What is the lighthouse of the stormy sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 504,
+    "query": "Legend in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 505,
+    "query": "escaping the mysterious treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 506,
+    "query": "Captain Jim recounting the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 507,
+    "query": "giant calm mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 508,
+    "query": "What is the expedition of the forgotten treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 509,
+    "query": "uncharted dangerous anchor",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 510,
+    "query": "Captain Crusoe fighting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 511,
+    "query": "searching the terrible shore",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 512,
+    "query": "tracking the frozen sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 513,
+    "query": "escaping the mysterious island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 514,
+    "query": "Waves in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 515,
+    "query": "What is the horizon of the uncharted horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 516,
+    "query": "What is the vessel of the lone coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 517,
+    "query": "Captain Tashtego fighting the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 518,
+    "query": "surviving the broken deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 519,
+    "query": "spectral furious treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 520,
+    "query": "What is the sail of the white harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 521,
+    "query": "forgotten mighty harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 522,
+    "query": "Captain Stubb searching the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 523,
+    "query": "tracking the mighty deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 524,
+    "query": "What is the storm of the frozen mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 525,
+    "query": "What is the coast of the majestic monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 526,
+    "query": "searching the forgotten ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 527,
+    "query": "escaping the white discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 528,
+    "query": "What is the monster of the spectral marine?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 529,
+    "query": "spectral frozen compass",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 530,
+    "query": "searching the silent sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 531,
+    "query": "calm uncharted sail",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 532,
+    "query": "terrible frozen voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 533,
+    "query": "Storm in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 534,
+    "query": "What is the waves of the terrible discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 535,
+    "query": "Mast in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 536,
+    "query": "conquering the dark anchor",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 537,
+    "query": "Captain Fedallah challenging the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 538,
+    "query": "Tide in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 539,
+    "query": "surviving the tropical waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 540,
+    "query": "What is the crew of the mysterious voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 541,
+    "query": "Waves in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 542,
+    "query": "Captain Fedallah exploring the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 543,
+    "query": "What is the crew of the frozen mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 544,
+    "query": "Captain Fedallah describing the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 545,
+    "query": "challenging the stormy expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 546,
+    "query": "What is the ship of the tropical deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 547,
+    "query": "Captain Fedallah recounting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 548,
+    "query": "calm mysterious harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 549,
+    "query": "What is the waves of the stormy anchor?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 550,
+    "query": "What is the map of the calm mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 551,
+    "query": "Anchor in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 552,
+    "query": "Captain Peleg hunting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 553,
+    "query": "Captain Flask conquering the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 554,
+    "query": "searching the ruthless lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 555,
+    "query": "tracking the ruthless marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 556,
+    "query": "escaping the calm whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 557,
+    "query": "mapping the uncharted sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 558,
+    "query": "Sea in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 559,
+    "query": "What is the whale of the ancient storm?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 560,
+    "query": "exploring the golden ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 561,
+    "query": "Captain Pip mapping the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 562,
+    "query": "savage uncharted tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 563,
+    "query": "exploring the frozen crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 564,
+    "query": "sailing the ancient ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 565,
+    "query": "Expedition in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 566,
+    "query": "Captain Marlow studying the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 567,
+    "query": "What is the waves of the ruthless crew?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 568,
+    "query": "describing the white whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 569,
+    "query": "Captain Mapple describing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 570,
+    "query": "Sail in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 571,
+    "query": "Captain Queequeg recounting the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 572,
+    "query": "What is the anchor of the furious deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 573,
+    "query": "Captain Fedallah searching the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 574,
+    "query": "conquering the dangerous island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 575,
+    "query": "hunting the furious treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 576,
+    "query": "What is the treasure of the dangerous captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 577,
+    "query": "ancient spectral waves",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 578,
+    "query": "Captain in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 579,
+    "query": "escaping the savage navigation",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 580,
+    "query": "What is the marine of the dangerous monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 581,
+    "query": "frozen forgotten sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 582,
+    "query": "mapping the ancient compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 583,
+    "query": "Captain Queequeg escaping the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 584,
+    "query": "Captain Crusoe fighting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 585,
+    "query": "escaping the tropical whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 586,
+    "query": "Harpoon in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 587,
+    "query": "Captain Ahab navigating the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 588,
+    "query": "Whale in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 589,
+    "query": "Captain Queequeg recounting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 590,
+    "query": "Captain Daggoo describing the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 591,
+    "query": "spectral white map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 592,
+    "query": "Captain Silver navigating the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 593,
+    "query": "Captain Stubb studying the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 594,
+    "query": "What is the storm of the forgotten discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 595,
+    "query": "What is the discovery of the mysterious coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 596,
+    "query": "infinite savage mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 597,
+    "query": "Harpoon in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 598,
+    "query": "What is the coast of the dangerous sail?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 599,
+    "query": "What is the sail of the white captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 600,
+    "query": "Captain Daggoo fighting the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 601,
+    "query": "Captain Tashtego tracking the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 602,
+    "query": "What is the sail of the stormy waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 603,
+    "query": "challenging the white lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 604,
+    "query": "lone ancient myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 605,
+    "query": "What is the island of the ruthless vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 606,
+    "query": "What is the ship of the giant lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 607,
+    "query": "recounting the mighty anchor",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 608,
+    "query": "What is the whale of the lone voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 609,
+    "query": "describing the broken coast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 610,
+    "query": "Deck in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 611,
+    "query": "What is the adventure of the infinite expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 612,
+    "query": "What is the harpoon of the ancient shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 613,
+    "query": "forgotten furious captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 614,
+    "query": "Captain Flask mapping the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 615,
+    "query": "fighting the ruthless legend",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 616,
+    "query": "Captain Starbuck escaping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 617,
+    "query": "What is the anchor of the infinite map?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 618,
+    "query": "observing the golden waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 619,
+    "query": "Lighthouse in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 620,
+    "query": "Captain Queequeg escaping the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 621,
+    "query": "What is the depths of the golden ship?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 622,
+    "query": "forgotten furious island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 623,
+    "query": "Captain Gulliver sailing the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 624,
+    "query": "broken stormy expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 625,
+    "query": "furious savage treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 626,
+    "query": "What is the horizon of the tropical legend?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 627,
+    "query": "Captain Fedallah describing the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 628,
+    "query": "Captain Stubb describing the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 629,
+    "query": "Expedition in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 630,
+    "query": "What is the sea of the mysterious voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 631,
+    "query": "What is the storm of the mysterious mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 632,
+    "query": "What is the legend of the mighty shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 633,
+    "query": "Shore in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 634,
+    "query": "Coast in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 635,
+    "query": "Whaleboat in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 636,
+    "query": "Captain Jim conquering the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 637,
+    "query": "Captain Peleg fighting the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 638,
+    "query": "What is the ship of the furious navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 639,
+    "query": "surviving the savage ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 640,
+    "query": "furious ancient vessel",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 641,
+    "query": "furious lone shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 642,
+    "query": "Whale in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 643,
+    "query": "Captain in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 644,
+    "query": "white uncharted waves",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 645,
+    "query": "majestic golden crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 646,
+    "query": "describing the giant sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 647,
+    "query": "What is the compass of the infinite whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 648,
+    "query": "Captain Mapple conquering the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 649,
+    "query": "Captain Stubb tracking the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 650,
+    "query": "What is the storm of the mighty captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 651,
+    "query": "Deck in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 652,
+    "query": "broken mysterious whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 653,
+    "query": "Captain Stubb sailing the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 654,
+    "query": "Deck in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 655,
+    "query": "savage uncharted discovery",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 656,
+    "query": "ancient mysterious coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 657,
+    "query": "Captain Peleg navigating the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 658,
+    "query": "fighting the frozen myth",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 659,
+    "query": "hunting the golden mast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 660,
+    "query": "What is the marine of the dangerous navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 661,
+    "query": "majestic lone sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 662,
+    "query": "challenging the dangerous compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 663,
+    "query": "Captain Stubb mapping the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 664,
+    "query": "uncharted ruthless voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 665,
+    "query": "golden frozen marine",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 666,
+    "query": "broken dangerous tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 667,
+    "query": "Legend in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 668,
+    "query": "mysterious lone captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 669,
+    "query": "Voyage in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 670,
+    "query": "Treasure in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 671,
+    "query": "mighty forgotten sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 672,
+    "query": "What is the depths of the ruthless ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 673,
+    "query": "observing the calm storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 674,
+    "query": "Ocean in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 675,
+    "query": "Legend in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 676,
+    "query": "What is the whale of the mysterious sail?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 677,
+    "query": "Captain Pip observing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 678,
+    "query": "Legend in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 679,
+    "query": "conquering the dark deck",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 680,
+    "query": "Voyage in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 681,
+    "query": "Captain Daggoo escaping the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 682,
+    "query": "Coast in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 683,
+    "query": "Captain Bildad sailing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 684,
+    "query": "Captain Daggoo observing the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 685,
+    "query": "terrible frozen storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 686,
+    "query": "Captain Daggoo sailing the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 687,
+    "query": "mighty white voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 688,
+    "query": "Captain Mapple describing the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 689,
+    "query": "Ship in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 690,
+    "query": "What is the whale of the mysterious horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 691,
+    "query": "tropical frozen legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 692,
+    "query": "Deck in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 693,
+    "query": "giant white map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 694,
+    "query": "What is the captain of the ancient navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 695,
+    "query": "What is the tide of the furious whaleboat?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 696,
+    "query": "conquering the ruthless monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 697,
+    "query": "sailing the silent island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 698,
+    "query": "conquering the silent map",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 699,
+    "query": "Mast in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 700,
+    "query": "Ship in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 701,
+    "query": "What is the expedition of the white tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 702,
+    "query": "hunting the mighty compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 703,
+    "query": "Captain Crusoe hunting the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 704,
+    "query": "Captain Boone recounting the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 705,
+    "query": "What is the myth of the infinite whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 706,
+    "query": "majestic forgotten voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 707,
+    "query": "lone lone myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 708,
+    "query": "Whale in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 709,
+    "query": "mysterious tropical harpoon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 710,
+    "query": "Crew in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 711,
+    "query": "navigating the calm voyage",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 712,
+    "query": "What is the vessel of the golden coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 713,
+    "query": "recounting the lone navigation",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 714,
+    "query": "majestic dark storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 715,
+    "query": "Sea in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 716,
+    "query": "Mast in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 717,
+    "query": "describing the spectral crew",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 718,
+    "query": "Captain Marlow observing the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 719,
+    "query": "Depths in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 720,
+    "query": "What is the shore of the infinite expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 721,
+    "query": "What is the navigation of the silent coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 722,
+    "query": "stormy dark voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 723,
+    "query": "frozen savage map",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 724,
+    "query": "What is the monster of the dangerous discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 725,
+    "query": "What is the shore of the ancient storm?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 726,
+    "query": "Captain Kurtz hunting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 727,
+    "query": "dangerous forgotten sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 728,
+    "query": "What is the sail of the infinite ship?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 729,
+    "query": "savage mighty ship",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 730,
+    "query": "golden infinite mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 731,
+    "query": "Treasure in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 732,
+    "query": "uncharted majestic monster",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 733,
+    "query": "exploring the ancient vessel",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 734,
+    "query": "dangerous dark mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 735,
+    "query": "hunting the mysterious whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 736,
+    "query": "Captain Peleg escaping the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 737,
+    "query": "What is the monster of the lone vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 738,
+    "query": "hunting the white treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 739,
+    "query": "Adventure in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 740,
+    "query": "challenging the lone depths",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 741,
+    "query": "golden dangerous storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 742,
+    "query": "ancient forgotten whaleboat",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 743,
+    "query": "Captain Queequeg searching the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 744,
+    "query": "What is the whale of the dangerous expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 745,
+    "query": "escaping the uncharted whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 746,
+    "query": "exploring the white whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 747,
+    "query": "surviving the furious myth",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 748,
+    "query": "What is the lighthouse of the calm vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 749,
+    "query": "What is the marine of the calm harpoon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 750,
+    "query": "searching the ancient compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 751,
+    "query": "Captain Ishmael hunting the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 752,
+    "query": "Mast in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 753,
+    "query": "What is the map of the savage deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 754,
+    "query": "Captain Kurtz surviving the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 755,
+    "query": "challenging the dangerous whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 756,
+    "query": "hunting the white lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 757,
+    "query": "What is the horizon of the dark mast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 758,
+    "query": "calm broken monster",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 759,
+    "query": "savage broken depths",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 760,
+    "query": "What is the storm of the mysterious sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 761,
+    "query": "What is the mast of the infinite lighthouse?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 762,
+    "query": "What is the expedition of the ancient legend?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 763,
+    "query": "infinite giant shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 764,
+    "query": "uncharted stormy storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 765,
+    "query": "Captain Boone sailing the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 766,
+    "query": "Horizon in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 767,
+    "query": "What is the captain of the broken deck?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 768,
+    "query": "Shore in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 769,
+    "query": "terrible white whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 770,
+    "query": "ancient mysterious coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 771,
+    "query": "conquering the uncharted whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 772,
+    "query": "What is the discovery of the ancient sea?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 773,
+    "query": "ancient lone island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 774,
+    "query": "Map in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 775,
+    "query": "spectral silent storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 776,
+    "query": "observing the tropical adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 777,
+    "query": "What is the ocean of the stormy whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 778,
+    "query": "What is the expedition of the ruthless whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 779,
+    "query": "surviving the furious waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 780,
+    "query": "Tide in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 781,
+    "query": "white savage ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 782,
+    "query": "Captain Fedallah escaping the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 783,
+    "query": "What is the lighthouse of the dangerous tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 784,
+    "query": "What is the lighthouse of the dark whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 785,
+    "query": "escaping the majestic ocean",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 786,
+    "query": "What is the sea of the lone horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 787,
+    "query": "giant lone legend",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 788,
+    "query": "What is the sail of the spectral coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 789,
+    "query": "What is the adventure of the tropical depths?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 790,
+    "query": "mysterious ancient coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 791,
+    "query": "What is the navigation of the infinite map?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 792,
+    "query": "Captain Silver describing the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 793,
+    "query": "calm calm mast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 794,
+    "query": "What is the depths of the spectral marine?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 795,
+    "query": "dark forgotten lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 796,
+    "query": "Monster in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 797,
+    "query": "escaping the forgotten discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 798,
+    "query": "exploring the ruthless storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 799,
+    "query": "broken dark captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 800,
+    "query": "Voyage in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 801,
+    "query": "Captain Peleg exploring the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 802,
+    "query": "Captain Kurtz challenging the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 803,
+    "query": "mysterious dark shore",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 804,
+    "query": "Captain in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 805,
+    "query": "recounting the calm map",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 806,
+    "query": "ancient majestic captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 807,
+    "query": "studying the calm waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 808,
+    "query": "Ocean in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 809,
+    "query": "What is the myth of the stormy voyage?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 810,
+    "query": "What is the navigation of the terrible whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 811,
+    "query": "What is the ocean of the mysterious treasure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 812,
+    "query": "tracking the broken island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 813,
+    "query": "exploring the ruthless expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 814,
+    "query": "forgotten terrible deck",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 815,
+    "query": "exploring the majestic harpoon",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 816,
+    "query": "What is the vessel of the frozen adventure?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 817,
+    "query": "What is the mast of the ancient vessel?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 818,
+    "query": "Discovery in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 819,
+    "query": "Harpoon in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 820,
+    "query": "Captain Pip observing the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 821,
+    "query": "dark giant anchor",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 822,
+    "query": "What is the depths of the ancient captain?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 823,
+    "query": "spectral spectral expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 824,
+    "query": "recounting the forgotten compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 825,
+    "query": "Sail in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 826,
+    "query": "spectral dangerous vessel",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 827,
+    "query": "Captain Pip searching the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 828,
+    "query": "tropical infinite expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 829,
+    "query": "Captain Nemo surviving the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 830,
+    "query": "lone dangerous captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 831,
+    "query": "Captain Daggoo observing the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 832,
+    "query": "Captain Tashtego navigating the Pacific",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 833,
+    "query": "furious silent voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 834,
+    "query": "Captain Crusoe describing the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 835,
+    "query": "surviving the forgotten storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 836,
+    "query": "Captain in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 837,
+    "query": "silent infinite ship",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 838,
+    "query": "What is the monster of the broken navigation?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 839,
+    "query": "Captain Pip challenging the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 840,
+    "query": "mighty mighty island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 841,
+    "query": "ruthless majestic treasure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 842,
+    "query": "Captain Starbuck exploring the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 843,
+    "query": "What is the vessel of the uncharted expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 844,
+    "query": "Map in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 845,
+    "query": "Captain Bildad navigating the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 846,
+    "query": "studying the furious sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 847,
+    "query": "Deck in the Antarctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 848,
+    "query": "terrible dangerous lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 849,
+    "query": "Sail in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 850,
+    "query": "tropical mysterious expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 851,
+    "query": "Captain Crusoe sailing the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 852,
+    "query": "tropical furious compass",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 853,
+    "query": "silent dark navigation",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 854,
+    "query": "Captain Gulliver challenging the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 855,
+    "query": "Adventure in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 856,
+    "query": "terrible savage coast",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 857,
+    "query": "What is the sail of the white monster?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 858,
+    "query": "Mast in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 859,
+    "query": "What is the vessel of the spectral ship?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 860,
+    "query": "Captain Crusoe searching the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 861,
+    "query": "Island in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 862,
+    "query": "forgotten frozen monster",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 863,
+    "query": "hunting the ruthless map",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 864,
+    "query": "Captain Daggoo studying the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 865,
+    "query": "golden uncharted voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 866,
+    "query": "mapping the mighty lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 867,
+    "query": "What is the compass of the dangerous island?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 868,
+    "query": "Captain Flask tracking the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 869,
+    "query": "What is the adventure of the mysterious discovery?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 870,
+    "query": "Captain Ishmael fighting the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 871,
+    "query": "searching the tropical compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 872,
+    "query": "Captain Nemo navigating the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 873,
+    "query": "What is the ocean of the broken expedition?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 874,
+    "query": "infinite stormy adventure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 875,
+    "query": "spectral infinite sail",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 876,
+    "query": "studying the terrible lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 877,
+    "query": "What is the waves of the ruthless ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 878,
+    "query": "What is the crew of the ancient depths?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 879,
+    "query": "mapping the ancient anchor",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 880,
+    "query": "Storm in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 881,
+    "query": "furious calm expedition",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 882,
+    "query": "What is the myth of the ancient coast?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 883,
+    "query": "Sail in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 884,
+    "query": "conquering the mighty ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 885,
+    "query": "Captain Stubb fighting the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 886,
+    "query": "What is the captain of the forgotten map?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 887,
+    "query": "Deck in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 888,
+    "query": "describing the giant discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 889,
+    "query": "fighting the dangerous adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 890,
+    "query": "Captain Marlow challenging the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 891,
+    "query": "tracking the furious voyage",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 892,
+    "query": "surviving the broken voyage",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 893,
+    "query": "What is the ocean of the broken myth?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 894,
+    "query": "Shore in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 895,
+    "query": "forgotten silent whale",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 896,
+    "query": "What is the myth of the silent waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 897,
+    "query": "Captain Queequeg mapping the Antarctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 898,
+    "query": "sailing the spectral lighthouse",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 899,
+    "query": "Captain Tashtego describing the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 900,
+    "query": "Marine in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 901,
+    "query": "Mast in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 902,
+    "query": "escaping the savage island",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 903,
+    "query": "Captain Peleg hunting the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 904,
+    "query": "tropical silent compass",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 905,
+    "query": "escaping the forgotten mast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 906,
+    "query": "What is the marine of the uncharted island?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 907,
+    "query": "challenging the forgotten monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 908,
+    "query": "Captain Queequeg escaping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 909,
+    "query": "studying the spectral vessel",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 910,
+    "query": "Depths in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 911,
+    "query": "Captain Stubb mapping the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 912,
+    "query": "Mast in the Caribbean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 913,
+    "query": "exploring the ruthless myth",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 914,
+    "query": "What is the whaleboat of the forgotten compass?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 915,
+    "query": "Captain Silver surviving the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 916,
+    "query": "What is the crew of the calm tide?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 917,
+    "query": "Captain Gulliver escaping the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 918,
+    "query": "calm silent depths",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 919,
+    "query": "escaping the majestic captain",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 920,
+    "query": "lone spectral crew",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 921,
+    "query": "tropical dark horizon",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 922,
+    "query": "Coast in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 923,
+    "query": "Expedition in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 924,
+    "query": "Island in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 925,
+    "query": "What is the sea of the forgotten shore?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 926,
+    "query": "infinite calm sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 927,
+    "query": "Captain Boone searching the Nantucket",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 928,
+    "query": "exploring the lone whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 929,
+    "query": "mighty uncharted ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 930,
+    "query": "conquering the frozen marine",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 931,
+    "query": "Tide in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 932,
+    "query": "recounting the lone adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 933,
+    "query": "Myth in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 934,
+    "query": "Captain Marlow studying the Indian Ocean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 935,
+    "query": "Deck in the Pacific",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 936,
+    "query": "Captain Boone observing the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 937,
+    "query": "white white myth",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 938,
+    "query": "Captain Nemo studying the London",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 939,
+    "query": "Captain Queequeg escaping the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 940,
+    "query": "tropical silent marine",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 941,
+    "query": "hunting the lone discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 942,
+    "query": "Whale in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 943,
+    "query": "Captain Crusoe navigating the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 944,
+    "query": "Sea in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 945,
+    "query": "What is the waves of the mighty whale?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 946,
+    "query": "ruthless infinite adventure",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 947,
+    "query": "challenging the golden ship",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 948,
+    "query": "surviving the savage sail",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 949,
+    "query": "Treasure in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 950,
+    "query": "Depths in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 951,
+    "query": "broken mysterious island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 952,
+    "query": "challenging the calm coast",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 953,
+    "query": "broken dark captain",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 954,
+    "query": "exploring the lone monster",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 955,
+    "query": "Captain Starbuck observing the open water",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 956,
+    "query": "What is the lighthouse of the ancient sail?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 957,
+    "query": "surviving the spectral discovery",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 958,
+    "query": "fighting the infinite whale",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 959,
+    "query": "Marine in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 960,
+    "query": "conquering the silent map",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 961,
+    "query": "Captain Daggoo sailing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 962,
+    "query": "Captain Crusoe mapping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 963,
+    "query": "spectral mysterious lighthouse",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 964,
+    "query": "Compass in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 965,
+    "query": "Crew in the Indian Ocean",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 966,
+    "query": "infinite mighty storm",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 967,
+    "query": "conquering the mighty expedition",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 968,
+    "query": "What is the voyage of the majestic island?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 969,
+    "query": "studying the tropical adventure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 970,
+    "query": "savage frozen sea",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 971,
+    "query": "exploring the lone whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 972,
+    "query": "Crew in the South Seas",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 973,
+    "query": "golden uncharted ocean",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 974,
+    "query": "Voyage in the London",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 975,
+    "query": "Captain Queequeg mapping the Atlantic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 976,
+    "query": "tropical giant navigation",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 977,
+    "query": "mapping the white sea",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 978,
+    "query": "escaping the dangerous treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 979,
+    "query": "What is the crew of the golden horizon?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 980,
+    "query": "Voyage in the Atlantic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 981,
+    "query": "escaping the spectral shore",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 982,
+    "query": "recounting the ancient compass",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 983,
+    "query": "calm white tide",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 984,
+    "query": "Adventure in the open water",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 985,
+    "query": "Coast in the Nantucket",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 986,
+    "query": "Captain Nemo describing the Arctic",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 987,
+    "query": "What is the navigation of the spectral ocean?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 988,
+    "query": "ancient calm voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 989,
+    "query": "white mighty anchor",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 990,
+    "query": "Captain Mapple fighting the South Seas",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 991,
+    "query": "surviving the mysterious treasure",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 992,
+    "query": "exploring the golden storm",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 993,
+    "query": "infinite infinite discovery",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 994,
+    "query": "Discovery in the Arctic",
+    "type": "geographic",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 995,
+    "query": "infinite calm island",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 996,
+    "query": "challenging the mighty whaleboat",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 997,
+    "query": "What is the shore of the mighty waves?",
+    "type": "full_sentence",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 998,
+    "query": "mapping the savage waves",
+    "type": "description",
+    "metadata": {
+      "complexity": "high"
+    }
+  },
+  {
+    "id": 999,
+    "query": "silent frozen voyage",
+    "type": "keyword",
+    "metadata": {
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": 1000,
+    "query": "Captain Queequeg conquering the Caribbean",
+    "type": "person_action",
+    "metadata": {
+      "complexity": "high"
+    }
+  }
+]

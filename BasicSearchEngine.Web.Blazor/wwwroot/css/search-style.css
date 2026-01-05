@@ -6,19 +6,34 @@
     --btn-blue: #58afff;
     --primary-blue: #cce4ff;
 
-    --cosine-color: #1391a4;
+    --cosine-color: #0d6efd;
     --bm25-color: #c73947;
-    --jaccard-color: #f5b906;
+    --jaccard-color: #eeb406;
 
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --card-margin: 1rem;
     --card-padding: 1rem;
-    --transition-speed: 0.2s;
+    --transition-speed: 0.3s;
     --section-spacing: 3rem;
     --element-spacing: 1rem;
     font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     scroll-behavior: smooth;
+}
+
+.compare-active-bg {
+    background-color: #fbfbe6;
+    /* Un albastru-gri foarte deschis */
+    transition: background-color 0.5s ease;
+    border-radius: 16px;
+    border: 1px solid #e1e1ca;
+}
+
+/* Dezactivarea vizuală a elementelor */
+input:disabled,
+select:disabled {
+    background-color: #e9ecef !important;
+    cursor: not-allowed;
 }
 
 /* Container principal */
@@ -45,7 +60,7 @@
 }
 
 .legend-square {
-    width: 16px;
+    width: 32px;
     height: 16px;
     border-radius: 12px;
     /* Pătrat cu colțuri foarte ușor rotunjite */
@@ -100,11 +115,11 @@
 
 /* Badge-uri rezultate */
 .metric-badge {
-    padding: 0.4em 1em;
+    padding: 0.3em 0.6em;
     border-radius: 12px;
     /* Formă rectangulară similară legendei */
     font-weight: bold;
-    font-size: 0.80rem;
+    font-size: 0.8rem;
 }
 
 /* Cel mai relevant rezultat (Gold Highlight) */
@@ -126,16 +141,21 @@
 
 .badge-cosine {
     background-color: var(--cosine-color);
-    color: white;
 }
 
 .badge-jaccard {
     background-color: var(--jaccard-color);
-    color: white;
 }
 
 .badge-bm25 {
     background-color: var(--bm25-color);
+}
+
+/* Badge-uri mai mari pentru Compare Mode */
+.badge-bm25,
+.badge-cosine,
+.badge-jaccard {
+    letter-spacing: 0.5px;
     color: white;
 }
 
@@ -194,35 +214,13 @@ card-body {
     border-radius: 12px;
 }
 
-.btn-search {
-    height: 2rem;
-    width: 9.4rem;
-    border: 1px solid var(--btn-green);
-    border-radius: 16px;
-    background-color: var(--primary-green);
-    color: black;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
+.form-select {
+    height: 1.8rem;
+    font-size: 1rem;
 }
 
-.btn-search:hover {
-    background-color: var(--btn-green);
-}
-
-.btn-pagination {
-    height: 1.3rem;
-    border: 1px solid var(--primary-blue);
-    border-radius: 12px;
-    background-color: white;
-    color: var(--btn-green);
-    font-weight: bold;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.btn-pagination:hover {
-    background-color: var(--btn-green);
-    color: black;
+.form-label {
+    font-size: 1rem;
 }
 
 .form-control {
@@ -282,22 +280,6 @@ card-body {
     font-size: 1rem;
 }
 
-.btn-apply {
-    height: 1.7rem;
-    width: 7rem;
-    border: 1px solid var(--btn-blue);
-    border-radius: 14px;
-    background-color: var(--primary-blue);
-    color: black;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.btn-apply:hover {
-    background-color: var(--btn-blue);
-}
-
 .animate-fade-in {
     animation: fadeIn 0.4s;
 }
@@ -314,12 +296,110 @@ card-body {
     }
 }
 
-.badge-cosine {
-    background-color: #0d6efd;
-    color: white;
+.extra-buttons-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.badge-jaccard {
-    background-color: #ffc107;
+.btn-search {
+    /* 
+    width: 9.4rem; */
+    height: 2rem;
+    /* border: 1px solid var(--btn-green); */
+    border: none;
+    border-radius: 16px;
+    /* background-color: var(--primary-green); */
+    background: linear-gradient(45deg, #2c3e50, var(--btn-green));
+    color: white;
+    padding: 0px 20px;
+    transition: all var(--transition-speed) ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--btn-green); */
+}
+
+.btn-apply {
+    /* height: 1.7rem;
+    width: 7rem; */
+    height: 2rem;
+    /* border: 1px solid var(--btn-blue); */
+    border: none;
+    border-radius: 14px;
+    /* background-color: var(--primary-blue); */
+    background: linear-gradient(45deg, #2c3e50, var(--btn-green));
+    color: white;
+    padding: 0px 20px;
+    transition: all var(--transition-speed) ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--btn-blue); */
+}
+
+
+.btn-compare {
+    height: 2rem;
+    background: linear-gradient(45deg, #2c3e50, var(--btn-green));
+    /* Un gradient profesional */
+    /* border: 1px solid var(--btn-blue); */
+    border-radius: 14px;
+    color: white;
+    border: none;
+    padding: 0px 20px;
+    transition: all var(--transition-speed) ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-compare:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--btn-blue); */
+    /* color: #ffd700; /* Textul devine auriu la hover */
+}
+
+.btn-reset {
+    height: 2rem;
+    text-align: center;
+    /* border: 1px solid var(--btn-blue); */
+    border: none;
+    border-radius: 14px;
+    /* background-color: var(--primary-blue); */
+    background: linear-gradient(45deg, #2c3e50, var(--btn-blue));
+    color: white;
+    padding: 0px 20px;
+    transition: all var(--transition-speed) ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-reset:hover {
+    transform: translateY(-2px);
+    /* Un mic efect vizual de "reset" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--btn-blue); */
+}
+
+.btn-pagination {
+    height: 1.3rem;
+    border: 1px solid var(--primary-blue);
+    border-radius: 12px;
+    background-color: white;
+    color: var(--btn-green);
+    font-weight: bold;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-pagination:hover {
+    background-color: var(--btn-green);
     color: black;
 }

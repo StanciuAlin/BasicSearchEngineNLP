@@ -109,32 +109,56 @@ async def search_sklearn(
         mode="sklearn"
     )
 
-# @app.get("/search")
-# def search(query: str = Query(..., min_length=1),
-#            page: int = 1,
-#            page_size: int = 5,
-#            mode: str = "custom",
-#            ranking: str = "cosine",
-#            k1: float = 1.5,
-#            b: float = 0.75):
-#     data = engine.search(
-#         query=q,
-#         page=page,
-#         mode=mode,
-#         ranking_method=ranking,
-#         k1=k1,
-#         b=b
-#     )
 
-#     # Mapăm rezultatele pentru a menține compatibilitatea cu DTO-ul de SearchResult
-#     return {
-#         "total": data["total"],
-#         "results": [
-#             {
-#                 "doc_id": r.doc_id,
-#                 "title": r.title,
-#                 "score": r.score,
-#                 "snippet": r.snippet
-#             } for r in data["results"]
-#         ]
-#     }
+@app.get("/search/compare")
+async def search_compare(
+    query: str,
+    k1: float = 1.5,
+    b: float = 0.75,
+    page: int = 1,
+    page_size: int = 5,
+    mode: str = "custom"
+):
+    # Executăm căutarea principală (returnează un dicționar cu o listă de obiecte SearchResult)
+    base_results = engine.search(
+        query=query,
+        page=page,
+        page_size=page_size,
+        mode=mode,
+        ranking_method="bm25",
+        k1=k1,
+        b=b
+    )
+
+    # Preprocesăm query-ul o singură dată
+    query_terms = engine.preprocessor.process(query)
+    query_vector = engine.weighter.make_query_vector(query_terms)
+
+    compare_results = []
+    # base_results["results"] conține obiecte SearchResult, nu dicționare
+    for res in base_results["results"]:
+        # Accesăm atributele folosind punct (.)
+        doc_id = res.doc_id
+
+        # Calculăm restul scorurilor
+        doc_vector = engine.weighter.doc_vectors.get(doc_id, {})
+        cosine_val = engine.weighter.cosine_similarity(
+            query_vector, doc_vector)
+        jaccard_val = engine.weighter.jaccard_similarity(query_terms, doc_id)
+
+        compare_results.append({
+            "doc_id": doc_id,
+            "title": res.title,
+            "snippet": res.snippet,
+            "score": res.score,
+            "bm25_score": res.score,
+            "cosine_score": round(float(cosine_val), 4),
+            "jaccard_score": round(float(jaccard_val), 4)
+        })
+
+    return {
+        "total": base_results["total"],
+        "page": base_results["page"],
+        "page_size": base_results["page_size"],
+        "results": compare_results
+    }

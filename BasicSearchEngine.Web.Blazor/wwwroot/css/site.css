@@ -20,7 +20,7 @@
 
 /* Badge-uri rotunjite pentru scor */
 .badge {
-    padding: 0.5em 1em;
+    padding: 0.3em 0.7em;
     border-radius: 50rem;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -66,11 +66,11 @@ body {
 .logo {
     font-weight: 600;
     color: #000000;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .nav-links {
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
     align-items: center;
 }
@@ -79,6 +79,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
+    font-size: 1.2rem;
     color: #374151;
     /* sau culoarea meniului tău */
     padding: 0.5rem 1rem;
@@ -86,14 +87,15 @@ body {
 }
 
 .nav-links a i {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     /* Face pictograma puțin mai mare decât textul */
     margin-right: 8px;
     /* Spațiu între pictogramă și text */
 }
 
 .nav-links a:hover {
-    color: #0fcd3b;
+    transform: translateY(-2px);
+    color: #0dbb36;
     /* Efect gold la hover peste tot elementul */
 }
 

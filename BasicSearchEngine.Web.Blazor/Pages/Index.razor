@@ -2,7 +2,7 @@
 @using System.Net.Http.Json
 @inject IHttpClientFactory ClientFactory
 
-<div class="search-dashboard">
+<div class="search-dashboard container-fluid @(isCompareMode ? "compare-active-bg" : "")">
     <div>
         <h2 class="title-docs-page">Search</h2>
     </div>
@@ -12,9 +12,9 @@
             <div class="col-12">
                 @* <label class="form-label small fw-bold text-uppercase tracking-wider">Query</label> *@
                 <div class="input-group input-group-lg search-input-group">
-                    <input @bind="query" @bind:event="oninput" @onkeyup="HandleKeyUp" class="form-control"
+                    <input @bind="query" @bind:event="oninput" @onkeyup="HandleKeyUp" class="form-control" disabled="@isCompareMode"
                         placeholder="Enter query..." />
-                    <button class="btn btn-success btn-search fw-bold btn-lg" @onclick="() => PerformSearch(1)">
+                    <button class="btn btn-success btn-search fw-bold btn-lg" disabled="@isCompareMode" @onclick="() => PerformSearch(1)">
                         <i class="bi bi-lightning-charge-fill me-2"></i> Search
                     </button>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="filter-item flex-grow-1" style="min-width: 200px;">
                     <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
                     <select class="form-select form-select-lg select-filter-item" @bind="selectedMode"
-                        @bind:after="OnFilterChanged">
+                        @bind:after="OnFilterChanged" disabled="@isCompareMode">
                         <option value="custom">Educational</option>
                         <option value="pro">Professional</option>
                         <option value="sklearn">Sklearn</option>
@@ -36,9 +36,9 @@
                 <div class="filter-item flex-grow-1" style="min-width: 200px;">
                     <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
                     <select class="form-select form-select-lg select-filter-item" @bind="selectedRanking"
-                        @bind:after="OnFilterChanged">
-                        <option value="cosine">Cosine Similarity</option>
+                        @bind:after="OnFilterChanged" disabled="@isCompareMode">
                         <option value="bm25">BM25 Ranking</option>
+                        <option value="cosine">Cosine Similarity</option>
                         <option value="jaccard">Jaccard Index</option>
                     </select>
                 </div>
@@ -53,17 +53,19 @@
                             <label class="small fw-bold text-primary">K1</label>
                             <input type="number" step="0.1" @bind="bm25K1"
                                 class="form-control form-control-sm form-control-bm25" 
-                                title="Valori recomandate: [1.2, 2.0]. Controlează saturația frecvenței termenilor."/>
+                                title="Valori recomandate: [1.2, 2.0]. Controlează saturația frecvenței termenilor."
+                                disabled="@isCompareMode" />
                         </div>
                         <div class="param-input-group">
                             <label class="small fw-bold text-primary">B</label>
                             <input type="number" step="0.05" @bind="bm25B"
                                 class="form-control form-control-sm form-control-bm25" 
-                                title="Valori recomandate: 0.75. Controlează normalizarea lungimii documentului (0 = fără normalizare, 1 = normalizare completă)." />
+                                title="Valori recomandate: 0.75. Controlează normalizarea lungimii documentului (0 = fără normalizare, 1 = normalizare completă)." 
+                                disabled="@isCompareMode" />
                         </div>
                         <div id="btn-apply-container" class="d-flex align-items-end">
                             <button class="btn btn-sm btn-primary btn-apply align-self-end"
-                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm">
+                                @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm" disabled="@isCompareMode">
                                 <i class="bi bi-check-circle-fill me-2"></i> Apply
                             </button>
                         </div>
@@ -75,19 +77,37 @@
         <div class="row">
             <div class="col-12 d-flex gap-5">
                 <div class="legend-item">
-                    <div class="legend-square square-cosine"></div>
-                    <span class="text-muted">Cosine Metric</span>
+                    <div class="legend-square square-bm25"></div>
+                    <span class="text-muted">BM25</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-square square-bm25"></div>
-                    <span class="text-muted">BM25 Metric</span>
+                    <div class="legend-square square-cosine"></div>
+                    <span class="text-muted">Cosine</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-square square-jaccard"></div>
-                    <span class="text-muted">Jaccard Metric</span>
+                    <span class="text-muted">Jaccard</span>
                 </div>
             </div>
         </div>
+
+        <div class="row mt-3">
+            <div class="col-12 d-flex gap-2 extra-buttons-container">
+                @* Butonul Compare - se dezactivează dacă deja suntem în compare mode *@
+                <button class="btn btn-compare shadow-sm" 
+                        @onclick="ExecuteCompareSearch"
+                        disabled="@isCompareMode"
+                        title="Compare all 3 methods. Ranking is based on BM25.">
+                    <i class="bi bi-columns-gap me-2"></i> Compare Metrics
+                </button>
+
+                @* Butonul Reset - vizibil mereu sau doar în compare mode *@
+                <button class="btn btn-reset shadow-sm" @onclick="ResetToDefault">
+                    <i class="bi bi-arrow-counterclockwise me-2"></i> Reset
+                </button>
+            </div>
+        </div>
+
     </div>
 
     @* Secțiunea de rezultate și paginare rămâne neschimbată *@
@@ -119,9 +139,20 @@
                                     }
                                 </a>
                             </h4>
-                            <span class="metric-badge @GetBadgeClass()">
-                                @r.score.ToString("F4")
-                            </span>
+                            <div class="d-flex flex-wrap gap-2 mt-2 mb-3">
+                                @if (isCompareMode)
+                                {
+                                    <span class="badge badge-bm25 shadow-sm p-2">@(r.bm25_score?.ToString("F4") ?? "0.0000")</span>
+                                    <span class="badge badge-cosine shadow-sm p-2">@(r.cosine_score?.ToString("F4") ?? "0.0000")</span>
+                                    <span class="badge badge-jaccard shadow-sm p-2">@(r.jaccard_score?.ToString("F4") ?? "0.0000")</span>
+                                }
+                                else
+                                {
+                                    <span class="metric-badge @GetBadgeClass()">
+                                        @r.score.ToString("F4")
+                                    </span>
+                                }
+                            </div>
                         </div>
                         <p class="card-text text-secondary">@((MarkupString)HighlightSnippet(r.snippet))</p>
                     </div>
@@ -153,11 +184,12 @@
 @code {
     private string query = string.Empty;
     private string selectedMode = "custom";
-    private string selectedRanking = "cosine";
+    private string selectedRanking = "bm25";
     // Parametri noi pentru BM25
     private double bm25K1 = 1.5;
     private double bm25B = 0.75;
     private bool isLoading = false;
+    private bool isCompareMode = false;
     private bool hasSearched = false;
     private int currentPage = 1;
     private int pageSize = 5;
@@ -184,6 +216,7 @@
         isLoading = true;
         hasSearched = true;
         currentPage = page;
+        isCompareMode = false; // Resetăm modul de comparare la o nouă căutare standard
 
         var client = ClientFactory.CreateClient("SearchApi");
         
@@ -252,12 +285,28 @@
 
     private async Task OnMetricChanged(ChangeEventArgs e)
     {
-        selectedRanking = e.Value?.ToString() ?? "cosine";
+        selectedRanking = e.Value?.ToString() ?? "bm25";
 
         // Recăutăm automat cu noua metrică selectată
         if (!string.IsNullOrWhiteSpace(query))
         {
             await PerformSearch(1);
+        }
+    }
+
+    private async Task ExecuteCompareSearch()
+    {
+        if (string.IsNullOrWhiteSpace(query)) return;
+        
+        isCompareMode = true;
+        var client = ClientFactory.CreateClient("SearchApi");
+        // Apelăm noul endpoint
+        var response = await client.GetAsync($"search/compare?query={Uri.EscapeDataString(query)}&limit=10");
+        
+        if (response.IsSuccessStatusCode)
+        {
+            searchResponse = await response.Content.ReadFromJsonAsync<SearchResponseDto>();
+            StateHasChanged();
         }
     }
 
@@ -269,6 +318,29 @@
         currentPage = 1; // Resetează paginația
     } *@
 
+    private void ResetToDefault()
+    {
+        // 1. Resetăm stările de mod
+        isCompareMode = false;
+        
+        // 2. Resetăm valorile de căutare și parametri
+        query = "";
+        selectedRanking = "bm25"; // sau default-ul tău
+        bm25K1 = 1.5;
+        bm25B = 0.75;
+        
+        // 3. Resetăm rezultatele (golim lista)
+        searchResponse = new SearchResponseDto { 
+            results = new List<SearchResultDto>(),
+            total = 0
+        };
+        
+        currentPage = 1;
+
+        // 4. Forțăm UI-ul să se actualizeze
+        StateHasChanged();
+    }
+
     private class SearchResponseDto
     {
         public int total { get; set; }
@@ -279,7 +351,10 @@
     {
         public int doc_id { get; set; }
         public string title { get; set; } = string.Empty;
-        public double score { get; set; }
         public string snippet { get; set; } = string.Empty;
+        public double score { get; set; } // BM25 implicit
+        public double? bm25_score { get; set; }
+        public double? cosine_score { get; set; }
+        public double? jaccard_score { get; set; }
     }
 }
