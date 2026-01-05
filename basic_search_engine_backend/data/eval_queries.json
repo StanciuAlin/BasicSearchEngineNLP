@@ -1,0 +1,250 @@
+[
+    {
+        "query": "united states declaration of independence",
+        "relevant_map": {
+            "1": 3
+        }
+    },
+    {
+        "query": "bill of rights ten original amendments",
+        "relevant_map": {
+            "2": 3
+        }
+    },
+    {
+        "query": "jfk inaugural address ask not what your country can do",
+        "relevant_map": {
+            "3": 3
+        }
+    },
+    {
+        "query": "patrick henry give me liberty or give me death",
+        "relevant_map": {
+            "6": 3
+        }
+    },
+    {
+        "query": "mayflower compact november 1620",
+        "relevant_map": {
+            "7": 3
+        }
+    },
+    {
+        "query": "lincoln first inaugural address march 1861",
+        "relevant_map": {
+            "9": 3
+        }
+    },
+    {
+        "query": "old testament king james bible genesis",
+        "relevant_map": {
+            "10": 3,
+            "30": 2
+        }
+    },
+    {
+        "query": "alice adventures in wonderland rabbit hole",
+        "relevant_map": {
+            "11": 3,
+            "12": 1
+        }
+    },
+    {
+        "query": "through the looking glass mirror chess",
+        "relevant_map": {
+            "12": 3,
+            "11": 1
+        }
+    },
+    {
+        "query": "hunting of the snark lewis carroll",
+        "relevant_map": {
+            "13": 3
+        }
+    },
+    {
+        "query": "cia world factbook international data",
+        "relevant_map": {
+            "14": 3,
+            "25": 3
+        }
+    },
+    {
+        "query": "moby dick white whale captain ahab",
+        "relevant_map": {
+            "15": 3
+        }
+    },
+    {
+        "query": "peter pan wendy hook neverland",
+        "relevant_map": {
+            "16": 3
+        }
+    },
+    {
+        "query": "book of mormon joseph smith",
+        "relevant_map": {
+            "17": 3
+        }
+    },
+    {
+        "query": "federalist papers alexander hamilton james madison",
+        "relevant_map": {
+            "18": 3
+        }
+    },
+    {
+        "query": "song of hiawatha henry wadsworth longfellow",
+        "relevant_map": {
+            "19": 3
+        }
+    },
+    {
+        "query": "paradise lost john milton adam eve",
+        "relevant_map": {
+            "20": 3,
+            "26": 3,
+            "58": 1
+        }
+    },
+    {
+        "query": "aesop fables animals moral stories",
+        "relevant_map": {
+            "21": 3,
+            "28": 3
+        }
+    },
+    {
+        "query": "roget thesaurus english words phrases",
+        "relevant_map": {
+            "22": 3
+        }
+    },
+    {
+        "query": "narrative of the life of frederick douglass",
+        "relevant_map": {
+            "23": 3,
+            "99": 2
+        }
+    },
+    {
+        "query": "willa cather o pioneers alexandra bergson",
+        "relevant_map": {
+            "24": 3
+        }
+    },
+    {
+        "query": "oedipus trilogy sophocles antigone",
+        "relevant_map": {
+            "31": 3
+        }
+    },
+    {
+        "query": "herland charlotte Perkins Gilman utopian",
+        "relevant_map": {
+            "32": 3
+        }
+    },
+    {
+        "query": "scarlet letter hester prynne arthur dimmesdale",
+        "relevant_map": {
+            "33": 3
+        }
+    },
+    {
+        "query": "time machine future traveler hg wells",
+        "relevant_map": {
+            "35": 3
+        }
+    },
+    {
+        "query": "war of the worlds mars martian invasion",
+        "relevant_map": {
+            "36": 3
+        }
+    },
+    {
+        "query": "legend of sleepy hollow ichabod crane headless horseman",
+        "relevant_map": {
+            "41": 3
+        }
+    },
+    {
+        "query": "strange case of dr jekyll and mr hyde",
+        "relevant_map": {
+            "42": 3,
+            "43": 3
+        }
+    },
+    {
+        "query": "anne of green gables marilla gilbert blythe",
+        "relevant_map": {
+            "45": 3,
+            "47": 2,
+            "51": 1
+        }
+    },
+    {
+        "query": "christmas carol ebenezer scrooge tiny tim",
+        "relevant_map": {
+            "46": 3
+        }
+    },
+    {
+        "query": "marvelous land of oz frank baum",
+        "relevant_map": {
+            "54": 3,
+            "55": 2
+        }
+    },
+    {
+        "query": "communist manifesto karl marx friedrich engels",
+        "relevant_map": {
+            "61": 3
+        }
+    },
+    {
+        "query": "adventures of tom sawyer mark twain",
+        "relevant_map": {
+            "74": 3,
+            "76": 1,
+            "91": 1,
+            "93": 1
+        }
+    },
+    {
+        "query": "adventures of huckleberry finn jim raft",
+        "relevant_map": {
+            "76": 3,
+            "74": 1
+        }
+    },
+    {
+        "query": "tarzan of the apes edgar rice burroughs",
+        "relevant_map": {
+            "78": 3,
+            "81": 2,
+            "85": 2,
+            "90": 2,
+            "92": 2
+        }
+    },
+    {
+        "query": "frankenstein victor monster mary shelley",
+        "relevant_map": {
+            "84": 3
+        }
+    },
+    {
+        "query": "tale of two cities sydney carton charles darnay",
+        "relevant_map": {
+            "98": 3
+        }
+    },
+    {
+        "query": "complete works of william shakespeare hamlet macbeth",
+        "relevant_map": {
+            "100": 3
+        }
+    }
+]

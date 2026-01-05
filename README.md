@@ -73,12 +73,49 @@ Note despre implementare:
 # Docker Compose
 
 Comenzi:
+
 ## Oprește și șterge containerele/rețelele vechi
+
 docker-compose down
 
 ## Șterge cache-ul de build pentru a fi sigur că ia noul port
+
 docker builder prune -f
 
 ## Pornește din nou
+
 docker-compose up --build
+
+## Pentru benchmark:
+
+Varianta A (Recomandată - folosește numele serviciului):
+
+docker-compose exec backend python3 -m scripts.run_benchmark
+
+Varianta B (Dacă folosești numele containerului găsit la pasul 3):
+
+docker exec -it NUME_CONTAINER_AICI python3 -m scripts.run_benchmark
+
+## Inspect DB
+
+docker-compose exec backend python3 inspect_db.py
+
+Ce face acest script:
+
+SUBSTR(content, 1, 200): Aceasta este o funcție SQLite care extrage fragmentul de text direct la nivelul bazei de date, fiind mult mai rapidă decât încărcarea întregului text în memoria Python.
+
+Formatare tabelară: Aliniază coloanele pentru a putea identifica ușor ID-ul asociat fiecărei cărți (necesar pentru fișierul tău eval_queries.json).
+
+Curățare text: Elimină trecerile la rând nou din snippet-ul de conținut pentru a păstra fiecare document pe o singură linie în terminal.
+
 ---
+
+## Metrici:
+
+MRR
+
+MAP
+
+nDCG@5
+
+Precision@5 (P@5). Această metrică îți va spune, în medie, câte dintre primele 5 rezultate returnate de motorul tău sunt cu adevărat relevante. Dacă P@5 este 0.8, înseamnă că 4 din cele 5 rezultate de pe prima pagină sunt corecte.

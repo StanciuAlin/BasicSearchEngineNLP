@@ -38,25 +38,20 @@ class TfIdfWeighter:
             return 0.0
         return dot / (qn * dn)
 
-    def jaccard_similarity(self, query_terms: List[str], doc_id: int) -> float:
-        """
-        Calculează Jaccard Similarity: |A ∩ B| / |A ∪ B|
-        A = set termeni query, B = set termeni document
-        """
-        query_set = set(query_terms)
-
-        # Extragem toți termenii documentului din indexul inversat
+    def jaccard_similarity(self, query_terms, doc_id):
+        # Obținem termenii documentului din index (mult mai rapid)
         doc_terms = set()
         for term, postings in self.index.index.items():
             if any(p.doc_id == doc_id for p in postings):
                 doc_terms.add(term)
 
-        if not query_set or not doc_terms:
+        query_terms_set = set(query_terms)
+
+        intersection = query_terms_set.intersection(doc_terms)
+        union = query_terms_set.union(doc_terms)
+
+        if not union:
             return 0.0
-
-        intersection = query_set.intersection(doc_terms)
-        union = query_set.union(doc_terms)
-
         return len(intersection) / len(union)
 
     def make_query_vector(self, terms: List[str]) -> Dict[str, float]:

@@ -103,10 +103,15 @@
             <p class="text-muted small">Showing @searchResponse.results.Count of @searchResponse.total results</p>
             @foreach (var r in searchResponse.results)
             {
+                // Identificăm dacă este primul rezultat de pe prima pagină
+                bool isBest = (searchResponse.results.IndexOf(r) == 0 && currentPage == 1);
+
                 <div class="card result-card mb-3">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title text-primary fw-bold">@r.title</h4>
+                            <h4 class="card-title text-primary fw-bold">
+                                @r.title @(isBest ? " ⭐" : "")
+                            </h4>
                             <span class="metric-badge @GetBadgeClass()">
                                 @r.score.ToString("F4")
                             </span>

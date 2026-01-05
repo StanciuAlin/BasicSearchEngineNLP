@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build: ./basic_search_engine_backend
