@@ -6,10 +6,10 @@ from typing import List
 
 # Educational simple regex-based tokenizer.
 TOKEN_PATTERN = re.compile(r"[A-Za-z][A-Za-z0-9\-]*")
+
+
 def tokenize(text: str) -> List[str]:
     """Very simple regex tokenizer: extracts word-like tokens."""
-    return TOKEN_PATTERN.findall(text)
-
-
-# More efficient and sophisticated tokenizers can be integrated here.
-# TODO: Replace with a more sophisticated tokenizer if needed, e.g., NLTK, SpaCy, etc.
+    # \w+ extrage grupuri de caractere alfanumerice (cuvinte întregi)
+    # ignorând punctuația care le-ar putea lipi
+    return re.findall(r'\w+', text.lower())

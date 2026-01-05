@@ -150,13 +150,20 @@ class SearchEngine:
             return None
 
     def _create_result(self, doc, score, matches_info=""):
-        snippet = doc.content[:220].replace("\n", " ")
-        result = SearchResult(
+        # Găsim conținutul fără newline-uri
+        text = doc.content.replace("\n", " ")
+
+        # Limităm la 220 caractere, dar tăiem la ultimul spațiu pentru a nu fragmenta cuvinte
+        limit = 220
+        if len(text) <= limit:
+            snippet = text
+        else:
+            snippet = text[:limit].rsplit(' ', 1)[0] + "..."
+
+        return SearchResult(
             doc_id=doc.doc_id,
             title=doc.title,
             score=round(float(score), 4),
-            snippet=snippet + ("..." if len(doc.content) > 220 else "")
+            snippet=snippet,
+            matches=matches_info
         )
-        # Adăugăm proprietatea dinamic, sau o definim în clasa SearchResult
-        result.matches = matches_info
-        return result

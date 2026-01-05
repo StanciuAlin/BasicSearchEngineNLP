@@ -1,8 +1,10 @@
+import time
 from fastapi import FastAPI, Query
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from search_engine import SearchEngine
 from search_engine.preprocessing.factory import factory  # Importăm instanța globală
+
 
 app = FastAPI(title="Basic Search Engine API")
 
@@ -46,7 +48,8 @@ async def search_tfidf(
     mode: str = "custom",
     logic: str = "OR"
 ):
-    return engine.search(
+    start_time = time.perf_counter()  # Pornim cronometrul
+    results = engine.search(
         query=query,
         page=page,
         page_size=page_size,
@@ -54,6 +57,12 @@ async def search_tfidf(
         ranking_method="cosine",
         search_logic=logic
     )
+    end_time = time.perf_counter()
+    execution_time = (end_time - start_time) * 1000  # Convertim în milisecunde
+
+    results["execution_time_ms"] = round(
+        execution_time, 2)  # Adăugăm în răspunsul JSON
+    return results
 
 # Endpoint pentru BM25 (Parametri specifici obligatorii)
 
@@ -68,7 +77,9 @@ async def search_bm25(
     mode: str = "custom",
     logic: str = "OR"
 ):
-    return engine.search(
+    start_time = time.perf_counter()  # Pornim cronometrul
+
+    results = engine.search(
         query=query,
         page=page,
         page_size=page_size,
@@ -78,6 +89,14 @@ async def search_bm25(
         b=b,
         search_logic=logic
     )
+
+    end_time = time.perf_counter()
+    execution_time = (end_time - start_time) * 1000  # Convertim în milisecunde
+
+    results["execution_time_ms"] = round(
+        execution_time, 2)  # Adăugăm în răspunsul JSON
+    return results
+
 
 # Endpoint pentru Jaccard
 
@@ -90,7 +109,9 @@ async def search_jaccard(
     mode: str = "custom",
     logic: str = "OR"
 ):
-    return engine.search(
+    start_time = time.perf_counter()  # Pornim cronometrul
+
+    results = engine.search(
         query=query,
         page=page,
         page_size=page_size,
@@ -98,6 +119,13 @@ async def search_jaccard(
         ranking_method="jaccard",
         search_logic=logic
     )
+
+    end_time = time.perf_counter()
+    execution_time = (end_time - start_time) * 1000  # Convertim în milisecunde
+
+    results["execution_time_ms"] = round(
+        execution_time, 2)  # Adăugăm în răspunsul JSON
+    return results
 
 # Endpoint pentru Sklearn (Mod separat)
 
@@ -109,13 +137,22 @@ async def search_sklearn(
     page_size: int = 5,
     logic: str = "OR"
 ):
-    return engine.search(
+    start_time = time.perf_counter()  # Pornim cronometrul
+
+    results = engine.search(
         query=query,
         page=page,
         page_size=page_size,
         mode="sklearn",
         search_logic=logic
     )
+
+    end_time = time.perf_counter()
+    execution_time = (end_time - start_time) * 1000  # Convertim în milisecunde
+
+    results["execution_time_ms"] = round(
+        execution_time, 2)  # Adăugăm în răspunsul JSON
+    return results
 
 
 @app.get("/search/compare")
@@ -128,6 +165,8 @@ async def search_compare(
     mode: str = "custom",
     logic: str = "OR"
 ):
+    start_time = time.perf_counter()  # Pornim cronometrul
+
     # Executăm căutarea principală (returnează un dicționar cu o listă de obiecte SearchResult)
     base_results = engine.search(
         query=query,
@@ -163,12 +202,18 @@ async def search_compare(
             "score": res.score,
             "bm25_score": res.score,
             "cosine_score": round(float(cosine_val), 4),
-            "jaccard_score": round(float(jaccard_val), 4)
+            "jaccard_score": round(float(jaccard_val), 4),
+            "matches": res.matches  # Păstrăm informația despre potriviri
         })
+
+    end_time = time.perf_counter()
+    execution_time_ms = round((end_time - start_time)
+                              * 1000, 2)  # Calculăm durata în ms
 
     return {
         "total": base_results["total"],
         "page": base_results["page"],
         "page_size": base_results["page_size"],
+        "execution_time_ms": execution_time_ms,  # Trimitem timpul către frontend
         "results": compare_results
     }

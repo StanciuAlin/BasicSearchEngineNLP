@@ -5,7 +5,10 @@ from ..core.stemmer import simple_stem
 
 class CustomPreprocessor(Preprocessor):
     def process(self, text: str) -> list[str]:
-        # Folosește logica ta: lowercasing + regex + manual stopwords
+        # Obținem lista de cuvinte întregi deja izolate prin regex
         tokens = normalize(text)
-        # Aplică stemmer-ul de tip suffix stripping
-        return [simple_stem(t) for t in tokens]
+
+        # Aplicăm stemmer-ul pe fiecare cuvânt întreg.
+        # Deoarece indexul inversat folosește aceste chei, "car" și "carpet"
+        # vor fi mapate la chei diferite în dicționar.
+        return [simple_stem(t) for t in tokens if t]

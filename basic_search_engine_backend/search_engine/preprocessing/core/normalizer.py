@@ -3,14 +3,16 @@
 # Combines lowercasing, tokenization, and stopword removal.
 
 # preprocessing/core/normalizer.py
-from .tokenizer import tokenize
-from .stopwords import STOPWORDS
+import re
 
 
-# TODO: Extend the actual regex or use string.punctuation for more advanced normalization
+def normalize(text: str) -> list[str]:
+    # Pasul 1: Conversie la litere mici pentru uniformitate
+    text = text.lower()
 
+    # Pasul 2: Tokenizare strictă pentru cuvinte întregi.
+    # Folosim \b (word boundary) pentru a ne asigura că izolăm cuvântul de punctuație.
+    # re.findall(r'\b\w+\b', ...) extrage doar secvențele alfanumerice complete.
+    tokens = re.findall(r'\b\w+\b', text)
 
-def normalize(text: str):
-    # lowercase + tokenization + stopword removal
-    tokens = tokenize(text.lower())
-    return [t for t in tokens if t not in STOPWORDS]
+    return tokens
