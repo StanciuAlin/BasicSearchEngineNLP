@@ -1,6 +1,9 @@
 @page "/"
 @using System.Net.Http.Json
 @inject IHttpClientFactory ClientFactory
+@inject IJSRuntime JSRuntime
+
+<div id="particles-js"></div>
 
 <div class="search-dashboard container-fluid @(isCompareMode ? "compare-active-bg" : "")">
     <div>
@@ -17,8 +20,9 @@
                     <button class="btn btn-success btn-search fw-bold btn-lg" disabled="@isCompareMode" @onclick="() => PerformSearch(1)">
                         <i class="bi bi-lightning-charge-fill me-2"></i> Search
                     </button>
-                    <button class="btn btn-pagination btn-outline-secondary" @onclick="() => isSettingsExpanded = !isSettingsExpanded">
-                        <i class="bi @(isSettingsExpanded ? "bi-chevron-up" : "bi-gear")"></i>
+                    <button class="btn btn-pagination btn-outline-secondary" @onclick="ToggleSettings" title="Advanced settings">
+                        <i class="bi @(isSettingsExpanded ? "bi-chevron-up" : "bi-gear-fill")"></i>
+                        @* @(isSettingsExpanded ? " Hide settings" : " Filters") *@
                     </button>
                 </div>
             </div>
@@ -35,7 +39,10 @@
                         
                             <div class="filter-item mb-3">
                                 <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
-                                <select class="form-select form-select-sm" @bind="selectedMode" disabled="@isCompareMode">
+                                <select class="form-select form-select-sm" 
+                                        value="@selectedMode" 
+                                        disabled="@isCompareMode"
+                                        @onchange="@(async (e) => await SaveSetting(ModeKey, e.Value.ToString()))">
                                     <option value="custom">Educational</option>
                                     <option value="nltk">NLTK Strategy</option>
                                     <option value="sklearn">Sklearn Strategy</option>
@@ -44,7 +51,10 @@
 
                             <div class="filter-item mb-3">
                                 <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
-                                <select class="form-select form-select-sm" @bind="selectedRanking" disabled="@isCompareMode">
+                                <select class="form-select form-select-sm" 
+                                        value="@selectedRanking" 
+                                        disabled="@isCompareMode"
+                                        @onchange="@(async (e) => await SaveSetting(RankingKey, e.Value.ToString()))">
                                     <option value="bm25">BM25 Ranking</option>
                                     <option value="cosine">Cosine Similarity</option>
                                     <option value="jaccard">Jaccard Index</option>
@@ -62,8 +72,11 @@
                                 <div class="param-input-group d-flex align-items-center gap-2 mb-2">
                                     <div class="flex-grow-1">
                                         <label id="bm25-k1-label" class="small text-muted">K1</label>
-                                        <input type="number" step="0.1" @bind="bm25K1" @bind:event="oninput"
-                                            class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                        <input type="number" step="0.1" 
+                                            value="@bm25K1" 
+                                            class="form-control form-control-bm25 form-control-sm" 
+                                            disabled="@isCompareMode"
+                                            @oninput="@(async (e) => { if(double.TryParse(e.Value?.ToString(), out var val)) { bm25K1 = Math.Round(val, 1); await SaveSetting(K1Key, e.Value.ToString()); } })" />
                                     </div>
                                     <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[1.2 - 2.0]</span>
                                 </div>
@@ -71,8 +84,11 @@
                                 <div class="param-input-group d-flex align-items-center gap-2 mb-2">
                                     <div class="flex-grow-1">
                                         <label id="bm25-b-label" class="small text-muted">B</label>
-                                        <input type="number" step="0.05" @bind="bm25B" @bind:event="oninput"
-                                            class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                        <input type="number" step="0.05" 
+                                            value="@bm25B" 
+                                            class="form-control form-control-bm25 form-control-sm" 
+                                            disabled="@isCompareMode" 
+                                            @oninput="@(async (e) => { if(double.TryParse(e.Value?.ToString(), out var val)) { bm25B = Math.Round(val, 2); await SaveSetting(BKey, e.Value.ToString()); } })" />
                                     </div>
                                     <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideal 0.75</span>
                                 </div>
@@ -94,8 +110,9 @@
                         <div class="search-logic-group d-flex flex-column gap-3">
                             <div class="form-check custom-radio-indigo">
                                 <input class="form-check-input bm25-form-check-input" type="radio" name="searchLogic" id="logicOr" 
-                                    value="OR" @onchange="@(() => searchLogic = "OR")" 
-                                    checked="@(searchLogic == "OR")" disabled="@isCompareMode">
+                                    checked="@(searchLogic == "OR")"
+                                    disabled="@isCompareMode" 
+                                    @onchange="@(async (e) => { searchLogic = "OR"; await SaveSetting(LogicKey, "OR"); })" />
                                 <label class="form-check-label" for="logicOr">
                                     <strong>OR</strong> - Cel puțin un cuvânt prezent
                                 </label>
@@ -103,8 +120,9 @@
 
                             <div class="form-check custom-radio-indigo">
                                 <input class="form-check-input" type="radio" name="searchLogic" id="logicAnd" 
-                                    value="AND" @onchange="@(() => searchLogic = "AND")" 
-                                    checked="@(searchLogic == "AND")" disabled="@isCompareMode">
+                                    checked="@(searchLogic == "AND")" 
+                                    disabled="@isCompareMode" 
+                                    @onchange="@(async (e) => { searchLogic = "AND"; await SaveSetting(LogicKey, "AND"); })" />
                                 <label class="form-check-label" for="logicAnd">
                                     <strong>AND</strong> - Toate cuvintele prezente
                                 </label>
@@ -112,8 +130,9 @@
 
                             <div class="form-check custom-radio-indigo">
                                 <input class="form-check-input" type="radio" name="searchLogic" id="logicHybrid" 
-                                    value="HYBRID" @onchange="@(() => searchLogic = "HYBRID")" 
-                                    checked="@(searchLogic == "HYBRID")" disabled="@isCompareMode">
+                                    checked="@(searchLogic == "HYBRID")"
+                                    disabled="@isCompareMode"
+                                    @onchange="@(async (e) => { searchLogic = "HYBRID"; await SaveSetting(LogicKey, "HYBRID"); })" />
                                 <label class="form-check-label" for="logicHybrid">
                                     <strong>Hibrid</strong> - Prioritizează potrivirile multiple
                                 </label>
@@ -287,13 +306,83 @@
     private double bm25B = 0.75;
     private bool isLoading = false;
     private bool isCompareMode = false;
-    private bool isSettingsExpanded = false;
+    private bool isSettingsExpanded;
+    private const string StorageKey = "searchSettingsExpanded";
+    private const string SettingsExpandedKey = "search_settings_expanded";
+    private const string RankingKey = "search_method";
+    private const string ModeKey = "search_mode";
+    private const string LogicKey = "search_logic";
+    private const string K1Key = "search_bm25_k1";
+    private const string BKey = "search_bm25_b";
     private bool hasSearched = false;
     private int currentPage = 1;
     private int pageSize = 5;
     private SearchResponseDto? searchResponse;
 
     private int TotalPages => searchResponse != null ? (int)Math.Ceiling((double)searchResponse.total / pageSize) : 0;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        @* if (firstRender)
+        {
+            // Citim starea salvată la prima încărcare a paginii
+            var savedState = await JSRuntime.InvokeAsync<string>("localStorage.getItem", StorageKey);
+            
+            if (!string.IsNullOrEmpty(savedState))
+            {
+                isSettingsExpanded = bool.Parse(savedState);
+                StateHasChanged(); // Forțăm re-randarea pentru că suntem în OnAfterRender
+            }
+        } *@
+
+        if (firstRender)
+        {
+            // Această linie pornește fundalul abstract
+            await JSRuntime.InvokeVoidAsync("initParticles");
+
+            await LoadSettings();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadSettings()
+    {
+        // 1. Starea panoului (Expand/Collapse)
+        var expanded = await JSRuntime.InvokeAsync<string>("localStorage.getItem", SettingsExpandedKey);
+        if (!string.IsNullOrEmpty(expanded)) isSettingsExpanded = bool.Parse(expanded);
+
+        // 2. Metoda de Ranking (TF-IDF, BM25, etc.)
+        var ranking = await JSRuntime.InvokeAsync<string>("localStorage.getItem", RankingKey);
+        if (!string.IsNullOrEmpty(ranking)) selectedRanking = ranking;
+
+        // 3. Modul (Custom, NLTK, Sklearn)
+        var mode = await JSRuntime.InvokeAsync<string>("localStorage.getItem", ModeKey);
+        if (!string.IsNullOrEmpty(mode)) selectedMode = mode;
+
+        // 4. Logica Booleană (AND, OR, HYBRID)
+        var logic = await JSRuntime.InvokeAsync<string>("localStorage.getItem", LogicKey);
+        if (!string.IsNullOrEmpty(logic)) searchLogic = logic;
+
+        // 5. Parametrii BM25
+        var k1Value = await JSRuntime.InvokeAsync<string>("localStorage.getItem", K1Key);
+        if (!string.IsNullOrEmpty(k1Value)) bm25K1 = Math.Round(float.Parse(k1Value), 1);
+
+        var bValue = await JSRuntime.InvokeAsync<string>("localStorage.getItem", BKey);
+        if (!string.IsNullOrEmpty(bValue)) bm25B = Math.Round(float.Parse(bValue), 2);
+    }
+
+    // Metodă pentru a salva orice schimbare
+    private async Task SaveSetting(string key, string value)
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", key, value);
+    }
+
+    // Handler pentru toggle-ul panoului
+    private async Task ToggleSettings()
+    {
+        isSettingsExpanded = !isSettingsExpanded;
+        await SaveSetting(SettingsExpandedKey, isSettingsExpanded.ToString());
+    }
 
     private async Task HandleKeyUp(KeyboardEventArgs e)
     {
@@ -432,6 +521,7 @@
         bm25K1 = 1.5;
         bm25B = 0.75;
         currentPage = 1;
+        isSettingsExpanded = false;
         
         // 3. Resetăm rezultatele (golim lista)
         searchResponse = new SearchResponseDto { 

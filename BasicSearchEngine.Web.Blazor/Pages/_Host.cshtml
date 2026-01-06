@@ -22,6 +22,34 @@
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
     <script src="_framework/blazor.server.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Funcție pe care o vom apela din Blazor pentru a porni animația
+        window.initParticles = () => {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#6366f1" }, // O culoare indigo care se potrivește cu tema ta
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.3 },
+                    "size": { "value": 3 },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#6366f1",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": { "enable": true, "speed": 1.5 }
+                },
+                "interactivity": {
+                    "events": { "onhover": { "enable": true, "mode": "grab" } }
+                },
+                "retina_detect": true
+            });
+        };
+    </script>
 </body>
 
 </html>

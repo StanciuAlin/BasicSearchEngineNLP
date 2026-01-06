@@ -2,6 +2,7 @@
     --btn-green: #0fcd3b;
     --primary-green: #befaa8;
     --panel-green: #e8fbe2;
+    --panel-green-glass: rgba(232, 251, 226, 0.85);
 
     --btn-blue: #58afff;
     --primary-blue: #cce4ff;
@@ -89,7 +90,8 @@ select:disabled {
     padding: var(--card-padding);
     padding-bottom: 0px;
     /* Mai mult spațiu în interiorul cardului de control */
-    background: var(--panel-green);
+    background: var(--panel-green-glass) !important;
+    backdrop-filter: blur(8px);
     border-radius: 16px;
     border: 1px solid var(--btn-green);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -556,4 +558,38 @@ card-body {
 /* Stil pentru butonul de gear când este activ */
 .btn-outline-secondary i {
     transition: transform 0.3s ease;
+}
+
+.bi-gear-fill {
+    transition: transform 0.5s rotate;
+}
+
+.expanded+.search-main-row .bi-gear-fill {
+    transform: rotate(90deg);
+}
+
+.btn-outline-secondary.active-settings {
+    background-color: #6c757d;
+    color: white;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Trimite fundalul în spatele textului */
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+}
+
+.search-container {
+    background: rgba(255, 255, 255, 0.8);
+    /* Face panoul de căutare ușor transparent */
+    backdrop-filter: blur(10px);
+    /* Efect de sticlă înghețată */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
