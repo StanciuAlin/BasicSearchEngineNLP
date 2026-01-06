@@ -91,6 +91,7 @@ class SearchEngine:
                ranking_method: str = "cosine",
                k1: float = 1.5,
                b: float = 0.75,
+               sort_order: str = "desc",
                search_logic: str = "OR") -> dict:
         self.set_mode(mode)
 
@@ -152,7 +153,11 @@ class SearchEngine:
                 if score > 0:
                     all_hits.append((doc_id, score, matches_info))
 
-            all_hits.sort(key=lambda x: x[1], reverse=True)
+        # Sorting
+        # reverse=True for 'desc' to have highest scores first
+        # reverse=False for 'asc' to have lowest scores first
+        is_reverse = True if sort_order == "desc" else False
+        all_hits.sort(key=lambda x: x[1], reverse=is_reverse)
 
         total_results = len(all_hits)
 
@@ -172,7 +177,8 @@ class SearchEngine:
             "total": total_results,
             "page": page,
             "page_size": page_size,
-            "results": results
+            "results": results,
+            "sort_order": sort_order
         }
 
     def set_mode(self, mode: str):

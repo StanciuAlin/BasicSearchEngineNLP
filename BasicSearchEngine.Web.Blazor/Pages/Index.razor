@@ -179,13 +179,30 @@
     {
         <div class="results-container">
             <div class="container-cron d-flex justify-content-between align-items-center mb-3">
-                <p class="text-muted small m-0">
+                <p id="show-results-text" class="text-muted small m-0">
                     Showing @searchResponse.results.Count of @searchResponse.total results
                 </p>
                 <span id="cron" class="badge bg-light text-dark border shadow-sm p-2">
                     <i class="bi bi-stopwatch me-1 text-primary"></i> 
                     <strong>@searchResponse.execution_time_ms ms</strong>
                 </span>
+                @* Butonul de Toggle pentru Sortare *@
+                <div class="sort-controls">
+                    <button class="sort-toggle-btn @(currentSortOrder == "asc" ? "sort-active-asc" : "")" 
+                            @onclick="ToggleSortOrder" 
+                            title="Schimbă ordinea sortării după scor">
+                        @if (currentSortOrder == "desc")
+                        {
+                            <i class="bi bi-sort-numeric-down-alt"></i>
+                            <span>Score</span>
+                        }
+                        else
+                        {
+                            <i class="bi bi-sort-numeric-up"></i>
+                            <span>Score</span>
+                        }
+                    </button>
+                </div>
             </div>
             @* <p class="text-muted small">Showing @searchResponse.results.Count of @searchResponse.total results</p> *@
             @foreach (var r in searchResponse.results)
@@ -260,7 +277,7 @@
     private string searchLogic = "OR";
     private string selectedMode = "custom";
     private string selectedRanking = "bm25";
-    // Parametri noi pentru BM25
+    private string currentSortOrder = "desc"; // Implicitly descendent
     private double bm25K1 = 1.5;
     private double bm25B = 0.75;
     private bool isLoading = false;
@@ -304,7 +321,7 @@
         };
 
         // Construim URL-ul final cu parametrii comuni
-        var url = $"{route}{(route.Contains("?") ? "&" : "?")}query={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}";
+        var url = $"{route}{(route.Contains("?") ? "&" : "?")}query={Uri.EscapeDataString(query)}&page={currentPage}&page_size={pageSize}&mode={selectedMode}&sort_order={currentSortOrder}";
 
         try
         {
@@ -385,13 +402,17 @@
         }
     }
 
-    @* private void ResetSearch()
+    private async Task ToggleSortOrder()
     {
-        query = string.Empty; // Șterge textul din search bar
-        searchResponse = null; // Resetează cardurile cu rezultate
-        hasSearched = false; // Resetează starea de căutare
-        currentPage = 1; // Resetează paginația
-    } *@
+        // Change sort order
+        currentSortOrder = (currentSortOrder == "desc") ? "asc" : "desc";
+        
+        // If we have already searched, perform search again with new sort order
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            await PerformSearch(1);
+        }
+    }
 
     private void ResetToDefault()
     {

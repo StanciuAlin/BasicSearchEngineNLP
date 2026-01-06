@@ -46,7 +46,8 @@ async def search_tfidf(
     page: int = 1,
     page_size: int = 5,
     mode: str = "custom",
-    logic: str = "OR"
+    logic: str = "OR",
+    sort_order: str = "desc"
 ):
     start_time = time.perf_counter()  # Pornim cronometrul
     results = engine.search(
@@ -55,7 +56,8 @@ async def search_tfidf(
         page_size=page_size,
         mode=mode,
         ranking_method="cosine",
-        search_logic=logic
+        search_logic=logic,
+        sort_order=sort_order
     )
     end_time = time.perf_counter()
     execution_time = (end_time - start_time) * 1000  # Convertim în milisecunde
@@ -75,7 +77,8 @@ async def search_bm25(
     page: int = 1,
     page_size: int = 5,
     mode: str = "custom",
-    logic: str = "OR"
+    logic: str = "OR",
+    sort_order: str = "desc"
 ):
     start_time = time.perf_counter()  # Pornim cronometrul
 
@@ -87,7 +90,8 @@ async def search_bm25(
         ranking_method="bm25",
         k1=k1,
         b=b,
-        search_logic=logic
+        search_logic=logic,
+        sort_order=sort_order
     )
 
     end_time = time.perf_counter()
@@ -107,7 +111,8 @@ async def search_jaccard(
     page: int = 1,
     page_size: int = 5,
     mode: str = "custom",
-    logic: str = "OR"
+    logic: str = "OR",
+    sort_order: str = "desc"
 ):
     start_time = time.perf_counter()  # Pornim cronometrul
 
@@ -117,7 +122,8 @@ async def search_jaccard(
         page_size=page_size,
         mode=mode,
         ranking_method="jaccard",
-        search_logic=logic
+        search_logic=logic,
+        sort_order=sort_order
     )
 
     end_time = time.perf_counter()
@@ -135,7 +141,8 @@ async def search_sklearn(
     query: str,
     page: int = 1,
     page_size: int = 5,
-    logic: str = "OR"
+    logic: str = "OR",
+    sort_order: str = "desc"
 ):
     start_time = time.perf_counter()  # Pornim cronometrul
 
@@ -144,7 +151,8 @@ async def search_sklearn(
         page=page,
         page_size=page_size,
         mode="sklearn",
-        search_logic=logic
+        search_logic=logic,
+        sort_order=sort_order
     )
 
     end_time = time.perf_counter()
@@ -163,7 +171,8 @@ async def search_compare(
     page: int = 1,
     page_size: int = 5,
     mode: str = "custom",
-    logic: str = "OR"
+    logic: str = "OR",
+    sort_order: str = "desc"
 ):
     start_time = time.perf_counter()  # Pornim cronometrul
 
@@ -176,7 +185,8 @@ async def search_compare(
         ranking_method="bm25",
         k1=k1,
         b=b,
-        search_logic=logic
+        search_logic=logic,
+        sort_order=sort_order
     )
 
     # Preprocesăm query-ul o singură dată
@@ -214,6 +224,7 @@ async def search_compare(
         "total": base_results["total"],
         "page": base_results["page"],
         "page_size": base_results["page_size"],
+        "sort_order": sort_order,
         "execution_time_ms": execution_time_ms,  # Trimitem timpul către frontend
         "results": compare_results
     }

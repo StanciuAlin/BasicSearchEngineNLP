@@ -15,7 +15,7 @@
     --card-margin: 1rem;
     --card-padding: 1rem;
     --transition-speed: 0.3s;
-    --section-spacing: 3rem;
+    --section-spacing: 2rem;
     --element-spacing: 1rem;
     font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
@@ -340,10 +340,10 @@ card-body {
 .btn-search {
     /* 
     width: 9.4rem; */
-    height: 2.1rem;
+    height: 2.4rem;
     /* border: 1px solid var(--btn-green); */
     border: none;
-    border-radius: 16px;
+    border-radius: 20px;
     /* background-color: var(--primary-green); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     color: white;
@@ -362,10 +362,10 @@ card-body {
 .btn-apply {
     /* height: 1.7rem;
     width: 7rem; */
-    height: 2.1rem;
+    height: 2.4rem;
     /* border: 1px solid var(--btn-blue); */
     border: none;
-    border-radius: 16px;
+    border-radius: 20px;
     /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     color: white;
@@ -383,11 +383,11 @@ card-body {
 
 
 .btn-compare {
-    height: 2.1rem;
+    height: 2.4rem;
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     /* Un gradient profesional */
     /* border: 1px solid var(--btn-blue); */
-    border-radius: 16px;
+    border-radius: 20px;
     color: white;
     border: none;
     padding: 0px 20px;
@@ -404,11 +404,11 @@ card-body {
 }
 
 .btn-reset {
-    height: 2.1rem;
+    height: 2.4rem;
     text-align: center;
     /* border: 1px solid var(--btn-blue); */
     border: none;
-    border-radius: 16px;
+    border-radius: 20px;
     /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-blue));
     color: white;
@@ -426,9 +426,9 @@ card-body {
 }
 
 .btn-pagination {
-    height: 1.3rem;
+    height: 1.4rem;
     border: 1px solid var(--primary-blue);
-    border-radius: 12px;
+    border-radius: 16px;
     background-color: white;
     color: var(--btn-green);
     font-weight: bold;
@@ -468,16 +468,65 @@ card-body {
 .container-cron {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     font-size: 1rem;
+    font-weight: 600;
     font-family: 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 8px 0px;
 }
 
 #cron {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 12px;
+    font-size: 1rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: 20px;
     background-color: white;
     border: 1px solid #ced4da;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin: 0px 20px;
+    /* margin: 0px 20px; */
+}
+
+.sort-controls {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* Stilizarea butonului Toggle */
+.sort-toggle-btn {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid #ced4da;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sort-toggle-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sort-toggle-btn:active {
+    transform: translateY(0);
+    background-color: var(--primary-blue);
+}
+
+.sort-toggle-btn i {
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* Stare activă pentru când sortarea este ascendentă (opțional) */
+.sort-active-asc {
+    background-color: var(--primary-blue);
+    border-color: var(--btn-blue);
 }
