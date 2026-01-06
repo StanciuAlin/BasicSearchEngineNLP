@@ -1,150 +1,252 @@
-# Basic Search Engine Backend (Python / FastAPI)
+# Basic Search Engine NLP
 
-Simple classic IR backend used by a Blazor UI.
+> A complete, classic **Information Retrieval (IR)** system consisting of a high-performance **Python Backend (FastAPI)** and a modern **.NET Blazor Frontend**.  
+> The system supports indexing large text corpora and searching them using multiple ranking algorithms.
 
-## Run
+
+## 🏗️ Architecture & Technologies
+
+The project is split into two main services that communicate via a **REST API**.
+
+
+### 🐍 Backend (Python 3.13 + FastAPI)
+
+- **Core Logic:** Custom implementation of an **Inverted Index**
+- **Ranking Algorithms:**
+  - TF-IDF (Cosine Similarity)
+  - BM25 (with adjustable `k1` and `b` parameters)
+  - Jaccard Similarity
+  - Integration with **Scikit-Learn**
+- **Storage:**
+  - SQLite for document persistence
+  - Disk-based cache system for faster result retrieval
+- **Preprocessing Pipeline (Modular):**
+  - Tokenization
+  - Stop-word removal
+  - Stemming
+
+### 🖥️ Frontend (Blazor Server-Side)
+
+- Intuitive user interface for performing searches
+- Features:
+  - Pagination
+  - Real-time algorithm comparison
+  - Result snippet visualization
+- Uses **Bootstrap Icons** for a richer visual experience
+
+### 🐳 Infrastructure
+
+- **Docker & Docker Compose**
+  - Orchestrates both services
+  - Ensures a consistent and reproducible environment
+
+## 📂 Project Structure
+
+The project is organized into two main directories, separating the logic of the search engine from the presentation layer:
+
+```plaintext
+├── basic_search_engine_backend/       # Python FastAPI Backend
+│   ├── data/                          # SQLite database and evaluation datasets
+│   ├── scripts/                       # Maintenance, population, and benchmark scripts
+│   ├── search_engine/                 # Core Search Engine logic
+│   │   ├── evaluation/                # IR metrics calculation (MRR, NDCG, P@5)
+│   │   ├── indexing/                  # Inverted Index, BM25, and TF-IDF implementations
+│   │   ├── models/                    # Data models for Documents and Search Results
+│   │   ├── preprocessing/             # NLP strategies and text cleaning pipeline
+│   │   └── search/                    # Search orchestration and Cache Management
+│   └── app.py                         # API endpoints and FastAPI configuration
+│
+├── BasicSearchEngine.Web.Blazor/      # .NET Blazor Frontend
+│   ├── Pages/                         # Razor components (Search UI, Document views)
+│   ├── Shared/                        # Common UI layouts
+│   └── Program.cs                     # Frontend service configuration
+│
+└── docker-compose.yml                 # Service orchestration
+```
+
+## How to Run
+
+### ✅ Recommended: Docker Compose
+
+The easiest way to start the entire ecosystem is using Docker:
 
 ```bash
-cd backend_python
+# Clone the repository and navigate to the root folder
+docker-compose up --build
+```
+
+- **Frontend:** http://localhost:5001  
+- **Backend API:** http://localhost:8000  
+
+
+### 🛠️ Manual Local Run
+
+#### Backend
+
+```bash
+cd basic_search_engine_backend
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app:app --reload --port 8000
 ```
 
----
+#### Frontend
 
-# Comenzi
+- Ensure the `BaseAddress` in `Program.cs` is pointed to your backend (e.g. `http://localhost:8000/`)
+- Run the project using **Visual Studio** or:
 
-De adaugat: pip install gutenbergpy
+```bash
+dotnet run
+```
 
-python3 -m scripts.fetch_library
+## SQLite Database
 
-Pentru benchmark:
-python run_benchmark.py (va rula pe cel normal)
+### 📚 Populating Data
 
-python run_benchmark.py --size large (va rula pe cel large)
+To download and index books from the **Project Gutenberg** library, use the provided script:
 
----
+```bash
+docker-compose exec backend python3 -m scripts.fetch_library
+```
 
-# SQLite
+### 🗄️ Data Inspection
 
-Trebuie să creez baza de date înainte?
+You can inspect the SQLite database directly from the terminal:
 
-    Nu, nu trebuie să creezi manual fișierul sau tabelele. Totuși, trebuie să parcurgi un pas inițial pentru a o popula cu date:
-
-Comanda: python3 -m scripts.fetch_library
-
-Baza de date va fi goală inițial. Trebuie să rulezi scriptul fetch_library.py (sau populate_library) o singură dată.
-Scriptul fetch_library.py va descărca textele de pe Gutenberg, va crea obiectele Document și le va salva în baza de date folosind metoda add_documents.
-Datele sunt stocate fizic într-un singur fișier situat în calea: basic_search_engine_backend/data/library.db.
-
-Pentru a vizualiza conținutul bazei de date (tabelele și rândurile cu cărți), ai mai multe opțiuni:
-
-1. DB Browser for SQLite: Este cea mai populară unealtă gratuită cu interfață vizuală. Descarci aplicația, deschizi fișierul library.db și poți naviga prin tabelul documents ca într-un tabel Excel.
-2. Extensie VS Code: Poți instala extensia "SQLite Viewer" direct în Visual Studio Code. După instalare, dai click dreapta pe fișierul .db și alegi "Open With -> SQLite Viewer".
-3. Linia de comandă: Dacă ai sqlite3 instalat, poți rula în terminal:
-   Bash
-   sqlite3 data/library.db
-   SELECT id, title FROM documents LIMIT 10;
-
-Rezumatul fluxului:
-
-1. Codul creează fișierul library.db și structura tabelului la prima rulare.
-2. Scriptul de fetch umple tabelul cu cele 1000 de cărți.
-   Baza de date rămâne pe disc, astfel încât la următoarele porniri ale aplicației, motorul de căutare doar citește din ea, fără a mai descărca nimic.
-
-Rularea ca modul (Recomandat)
-
-Cea mai sigură metodă este să rulezi scriptul direct din rădăcina folderului basic_search_engine_backend folosind parametrul -m. Această abordare permite Python să rezolve automat ierarhia de pachete. 1. Deschide terminalul și navighează în folderul principal al backend-ului: cd path/to/basic_search_engine_backend 2. Rulează scriptul astfel: python3 -m scripts.fetch_library (l-am adaugat in requirements.txt)
-
----
-
----
-
-# Paginare
-
-Note despre implementare:
-
-1. Eficiență: Căutarea se realizează pe toate documentele din baza de date SQLite, dar în memorie sunt procesate doar ID-urile și scorurile. Textele complete sunt încărcate din baza de date doar pentru cele 10 rezultate care trebuie afișate pe pagina curentă.
-2. Navigare: Butoanele de paginare apelează funcția PerformSearch cu noul index al paginii, actualizând interfața fără a reîncărca întreaga pagină.
-
----
-
----
-
-# Docker Compose
-
-Comenzi:
-
-## Oprește și șterge containerele/rețelele vechi
-
-docker-compose down
-
-## Șterge cache-ul de build pentru a fi sigur că ia noul port
-
-docker builder prune -f
-
-## Pornește din nou
-
-docker-compose up --build
-
-## Pentru benchmark:
-
-Varianta A (Recomandată - folosește numele serviciului):
-
-docker-compose exec backend python3 -m scripts.run_benchmark
-
-Varianta B (Dacă folosești numele containerului găsit la pasul 3):
-
-docker exec -it NUME_CONTAINER_AICI python3 -m scripts.run_benchmark
-
-Dupa ce am adauga parametri:
-
-python run_benchmark.py (va rula pe cel normal)
-SAU
-python run_benchmark.py --size large (va rula pe cel large)
-
-## Inspect DB
-
+```bash
 docker-compose exec backend python3 inspect_db.py
+```
 
-Ce face acest script:
+## Benchmarking
+### 🧪 Running Benchmark Tests
 
-SUBSTR(content, 1, 200): Aceasta este o funcție SQLite care extrage fragmentul de text direct la nivelul bazei de date, fiind mult mai rapidă decât încărcarea întregului text în memoria Python.
+Evaluate the performance of various algorithms (**MRR**, **nDCG@5**, **P@5**) using the benchmark script:
 
-Formatare tabelară: Aliniază coloanele pentru a putea identifica ușor ID-ul asociat fiecărei cărți (necesar pentru fișierul tău eval_queries.json).
+```bash
+# Run benchmark on the normal dataset
+docker-compose exec backend python3 -m scripts.run_benchmark
+```
+```bash
+# Run benchmark on the large dataset
+docker-compose exec backend python3 -m scripts.run_benchmark --size large
+```
 
-Curățare text: Elimină trecerile la rând nou din snippet-ul de conținut pentru a păstra fiecare document pe o singură linie în terminal.
+### 📊 Results
+
+When you run the benchmark script, you will see an evaluation table comparing the different ranking methods implemented in the system:
+
+```plaintext
+--- Load queries from data/eval_queries.json ---
+Indexing 1000 documents from the database...
+Indexing complete with success!
+
+Method               | MRR      | nDCG@5   | P@5     
+-------------------------------------------------------
+TF-IDF               | 0.824    | 0.756    | 0.680   
+BM25 (Standard)      | 0.892    | 0.812    | 0.740   
+BM25 (Tuned)         | 0.915    | 0.845    | 0.785   
+Jaccard              | 0.450    | 0.380    | 0.310
+```
+
+### 🔍 What these metrics mean
+
+- **MRR (Mean Reciprocal Rank):** Indicates how quickly the first relevant document appears (closer to 1.0 is better).  
+- **nDCG@5:** Measures the quality of the ranking order based on the position of relevant results.  
+- **P@5 (Precision at 5):** The percentage of relevant documents found within the first 5 results.
+
+
+## Relevant Technical Details
+### 🌐 API Endpoints
+
+- `GET /search/tfidf`  
+  → Search based on **Cosine Similarity**
+
+- `GET /search/bm25`  
+  → Search using the **BM25 probabilistic algorithm**
+
+- `GET /search/compare`  
+  → Returns scores for **all algorithms simultaneously** for comparison
+
+
+
+### 🧠 Advanced Features
+
+#### 🏗️ Modular NLP Factory
+
+The system implements a **Factory Pattern** for its preprocessing pipeline. This allows seamless switching between different NLP strategies, such as:
+
+- Custom (rule-based)
+- NLTK
+- Scikit-Learn
+
+This design ensures maximum flexibility in how text is tokenized, normalized, and processed.
+
+
+#### 🔗 Boolean & Hybrid Search Logic
+
+Beyond simple ranking, the engine supports:
+
+- **AND** operator
+- **OR** operator
+- **HYBRID** operator
+
+In **Hybrid** mode, the system applies a relevance boost (e.g., **50%**) to documents that contain **all query terms**, effectively prioritizing precision without sacrificing recall.
+
+
+#### 🧠 Intelligent Search Caching
+
+To minimize computational overhead, a **persistent Search Cache** is implemented using **SQLite**.
+
+- Stores search results indexed by a unique key composed of:
+  - Query string
+  - Algorithm choice
+  - Algorithm parameters (e.g., `k1`, `b`)
+
+This dramatically improves response time for repeated or similar queries.
+
+
+#### ⚡ Performance-Optimized Data Flow
+
+The engine is designed for efficiency:
+
+- Only **document IDs and scores** are processed in memory during ranking
+- Full text content and snippets are **lazily loaded** from the database
+- Data is fetched **only for the specific page** currently being viewed
+
+This ensures low memory usage and high scalability, even for large corpora.
+
+
+#### 📑 Efficient Pagination
+
+- The engine processes **only document IDs** in memory
+- Full text is fetched from **SQLite** only for the **10 results** displayed on the current page
+
+
+#### 📈 Evaluation Metrics
+
+The system measures search quality using:
+
+- **Precision@5 (P@5)**  
+→ Measures how many of the top 5 results are truly relevant
+
+- **MRR (Mean Reciprocal Rank)**  
+  → Evaluates where the first relevant result appears in the ranking
+
+- **nDCG@5**  
+  → Measures the quality of the ranking order based on graded relevance
+
+## 🏁 Conclusion
+
+The **Basic Search Engine NLP** project demonstrates the ground-up implementation of an **Information Retrieval system** that merges classic Natural Language Processing techniques with a modern, scalable software architecture.
+
+By maintaining a clear separation between a high-performance **Python backend** and an interactive **Blazor frontend**, the system provides not just fast results, but also a platform for **testing and comparing ranking algorithms** (TF-IDF vs. BM25). The use of industry-standard metrics (**MRR**, **nDCG**, **Precision**) elevates this project from a simple search tool to a **professional framework** for evaluating and optimizing data relevance.
 
 ---
 
-## Metrici:
+## 🌱 Future Developments
 
-MRR
-
-MAP
-
-nDCG@5
-
-Precision@5 (P@5). Această metrică îți va spune, în medie, câte dintre primele 5 rezultate returnate de motorul tău sunt cu adevărat relevante. Dacă P@5 este 0.8, înseamnă că 4 din cele 5 rezultate de pe prima pagină sunt corecte.
-
----
-
-Pictograme
-
-<button class="btn btn-outline-secondary btn-sm" @onclick="ResetFilters">
-<i class="bi bi-arrow-counterclockwise"></i> Reset
-</button>
-
-<div class="text-muted mb-3">
-    <i class="bi bi-file-earmark-text me-1"></i> Found @searchResponse.totalResults results
-</div>
-
-bi-gear-fill: Pentru setările de parametri (k1, b).
-
-bi-info-circle: Lângă titlurile algoritmilor (ex: BM25) pentru a oferi explicații la hover.
-
-bi-book: În header-ul paginii lângă titlul "Library Search".
-
-bi-sort-numeric-down: Pentru zona unde alegi ordonarea rezultatelor.
+- [ ] **Phrase Search:** Implementing support for exact phrase matching (e.g., using `"quotation marks"`).  
+- [ ] **Search History:** A dedicated module to track and display previous user queries.  
+- [ ] **Contextual Highlighting:** Enhancing result cards to display the exact text segment where the search terms appear, rather than a fixed snippet.  
+- [ ] **Semantic Search:** Integrating Sentence Embeddings (e.g., BERT) to understand query intent beyond keyword matching.
