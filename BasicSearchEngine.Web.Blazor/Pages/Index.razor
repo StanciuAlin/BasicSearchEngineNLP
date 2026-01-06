@@ -38,26 +38,27 @@
                             </div>
                         
                             <div class="filter-item mb-3">
-                                <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
+                                <label class="form-label small fw-bold text-uppercase text-muted">Preprocessing Mode</label>
                                 <select class="form-select form-select-sm" 
                                         value="@selectedMode" 
                                         disabled="@isCompareMode"
-                                        @onchange="@(async (e) => await SaveSetting(ModeKey, e.Value.ToString()))">
-                                    <option value="custom">Educational</option>
+                                        @onchange="@(async (e) => { selectedMode = e.Value?.ToString() ?? "custom"; await SaveSetting(RankingKey, selectedMode); })">
+                                    <option value="custom">Edu (Regex)</option>
                                     <option value="nltk">NLTK Strategy</option>
+                                    <option value="spacy">SpaCy Strategy</option>
                                     <option value="sklearn">Sklearn Strategy</option>
                                 </select>
                             </div>
 
                             <div class="filter-item mb-3">
-                                <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
+                                <label class="form-label small fw-bold text-uppercase text-muted">Ranking Algorithm</label>
                                 <select class="form-select form-select-sm" 
                                         value="@selectedRanking" 
                                         disabled="@isCompareMode"
-                                        @onchange="@(async (e) => await SaveSetting(RankingKey, e.Value.ToString()))">
+                                        @onchange="@(async (e) => { selectedRanking = e.Value?.ToString() ?? "bm25"; await SaveSetting(RankingKey, selectedRanking); })">
                                     <option value="bm25">BM25 Ranking</option>
-                                    <option value="cosine">Cosine Similarity</option>
-                                    <option value="jaccard">Jaccard Index</option>
+                                    <option value="cosine">TF-IDF & Cosine</option>
+                                    <option value="jaccard">TF-IDF & Jaccard</option>
                                 </select>
                             </div>
                         </div>
@@ -517,7 +518,8 @@
         // 2. Resetăm valorile de căutare și parametri
         query = "";
         searchLogic = "OR";
-        selectedRanking = "bm25"; // sau default-ul tău
+        selectedRanking = "bm25";
+        selectedMode = "custom";
         bm25K1 = 1.5;
         bm25B = 0.75;
         currentPage = 1;

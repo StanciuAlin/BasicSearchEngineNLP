@@ -1,5 +1,6 @@
 from .strategies.custom_strategy import CustomPreprocessor
 from .strategies.nltk_strategy import NLTKPreprocessor
+from .strategies.spacy_strategy import SpacyPreprocessor
 
 
 class PreprocessorFactory:
@@ -7,7 +8,8 @@ class PreprocessorFactory:
         # Cache pentru instanțe (Eficiență: nu re-inițializăm NLTK la fiecare query)
         self._instances = {
             "custom": CustomPreprocessor(),
-            "pro": NLTKPreprocessor()
+            "pro": NLTKPreprocessor(),
+            "spacy": SpacyPreprocessor()
         }
 
     def get_preprocessor(self, mode: str):
