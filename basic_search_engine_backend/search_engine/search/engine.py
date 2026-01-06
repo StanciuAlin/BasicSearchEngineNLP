@@ -8,6 +8,7 @@ from ..indexing.inverted_index import InvertedIndex
 from ..indexing.tfidf import TfIdfWeighter
 from ..indexing.bm25 import BM25Weighter
 from ..preprocessing.factory import factory
+from .cache_manager import SearchCache
 
 
 class SearchEngine:
@@ -20,6 +21,7 @@ class SearchEngine:
         self.weighter = TfIdfWeighter(self.index)
         self.bm25_weighter = BM25Weighter(self.index)  # Inițializare BM25
         self.preprocessor = factory.get_preprocessor("custom")
+        self.cache = SearchCache("data/library.db")
 
     def index_corpus(self, folder: str = "data/docs") -> None:
         """ Sincronise the document store with files from disk (without duplicates)
@@ -93,6 +95,15 @@ class SearchEngine:
                b: float = 0.75,
                sort_order: str = "desc",
                search_logic: str = "OR") -> dict:
+
+        cache_key = f"{query}|{mode}|{ranking_method}|{k1}|{b}|{search_logic}|{sort_order}|{page}|{page_size}"
+
+        # Încercăm să luăm din cache
+        cached_res = self.cache.get(cache_key)
+        if cached_res:
+            print(f"DEBUG: Cache Hit for: {query}")
+            return cached_res
+
         self.set_mode(mode)
 
         # Actualizăm parametrii BM25
@@ -105,7 +116,15 @@ class SearchEngine:
             return {"total": 0, "results": []}
 
         if mode == "sklearn":
-            all_hits = self.sklearn_engine.search(query)
+            # all_hits = self.sklearn_engine.search(query)
+            # sklearn_engine.search returns (doc_id, score)
+            hits_raw = self.sklearn_engine.search(query)
+            
+            # Transform (doc_id, score) in (doc_id, score, matches_info)
+            all_hits = []
+            for doc_id, score in hits_raw:
+                # Pentru sklearn nu avem matches_info calculat la fel, punem "N/A" sau calculăm separat
+                all_hits.append((doc_id, score, "N/A"))
         else:
             # Obținem postings pentru fiecare termen separat
             term_sets = []
@@ -173,13 +192,26 @@ class SearchEngine:
             # Trimitem matches_info către _create_result
             results.append(self._create_result(doc, score, matches_info))
 
-        return {
+        # Transformăm lista de obiecte SearchResult în listă de dicționare pentru JSON
+        results_as_dicts = [r.to_dict() for r in results]
+
+        final_response = {
             "total": total_results,
             "page": page,
             "page_size": page_size,
-            "results": results,
+            "results": results_as_dicts,  # Salvăm dicționarele, nu obiectele
             "sort_order": sort_order
         }
+
+        self.cache.set(cache_key, final_response)
+        return final_response
+        # return {
+        #     "total": total_results,
+        #     "page": page,
+        #     "page_size": page_size,
+        #     "results": results,
+        #     "sort_order": sort_order
+        # }
 
     def set_mode(self, mode: str):
         self.preprocessor = factory.get_preprocessor(mode)

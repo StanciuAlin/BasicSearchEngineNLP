@@ -161,19 +161,19 @@
                 <div class="col-12 d-flex gap-5">
                     <div class="legend-item">
                         <div class="legend-square square-bm25"></div>
-                        <span class="text-muted">BM25 similarity</span>
+                        <span class="text-muted">BM25 ranking score</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-square square-cosine"></div>
-                        <span class="text-muted">Cosine similarity</span>
+                        <span class="text-muted">TF-IDF & Cosine similarity score</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-square square-jaccard"></div>
-                        <span class="text-muted">Jaccard similarity</span>
+                        <span class="text-muted">TF-IDF & Jaccard similarity score</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-square square-combined"></div>
-                        <span class="text-muted">Combined search</span>
+                        <span class="text-muted">Multi-term search score</span>
                     </div>
                 </div>
             </div>
@@ -332,18 +332,6 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        @* if (firstRender)
-        {
-            // Citim starea salvată la prima încărcare a paginii
-            var savedState = await JSRuntime.InvokeAsync<string>("localStorage.getItem", StorageKey);
-            
-            if (!string.IsNullOrEmpty(savedState))
-            {
-                isSettingsExpanded = bool.Parse(savedState);
-                StateHasChanged(); // Forțăm re-randarea pentru că suntem în OnAfterRender
-            }
-        } *@
-
         if (firstRender)
         {
             // Această linie pornește fundalul abstract
@@ -354,23 +342,43 @@
         }
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        //await LoadSettings();
+        // Dacă după încărcare variabila e goală, forțăm valoarea default
+        if (string.IsNullOrEmpty(selectedRanking))
+        {
+            selectedRanking = "bm25";
+        }
+        
+        // Dacă ai deja un query salvat, poți rula căutarea automat sau doar să-l afișezi
+        if (!string.IsNullOrEmpty(query))
+        {
+            // await PerformSearch(1); // Opțional
+        }
+    }
+
     private async Task LoadSettings()
     {
         // 0. Search bar
-        var savedQuery = await JSRuntime.InvokeAsync<string>("localStorage.getItem", QueryKey);
-        if (!string.IsNullOrEmpty(savedQuery)) query = savedQuery;
+        //var savedQuery = await JSRuntime.InvokeAsync<string>("localStorage.getItem", QueryKey);
+        //if (!string.IsNullOrEmpty(savedQuery)) query = savedQuery;
         // 1. Starea panoului (Expand/Collapse)
         var expanded = await JSRuntime.InvokeAsync<string>("localStorage.getItem", SettingsExpandedKey);
         if (!string.IsNullOrEmpty(expanded)) isSettingsExpanded = bool.Parse(expanded);
 
         // 2. Metoda de Ranking (TF-IDF, BM25, etc.)
         var ranking = await JSRuntime.InvokeAsync<string>("localStorage.getItem", RankingKey);
-        if (!string.IsNullOrEmpty(ranking)) selectedRanking = ranking;
-
+        if (!string.IsNullOrEmpty(ranking))
+        { 
+            selectedRanking = ranking;
+        }
         // 3. Modul (Custom, NLTK, Sklearn)
         var mode = await JSRuntime.InvokeAsync<string>("localStorage.getItem", ModeKey);
-        if (!string.IsNullOrEmpty(mode)) selectedMode = mode;
-
+        if (!string.IsNullOrEmpty(mode)) 
+        { 
+            selectedMode = mode;
+        }
         // 4. Logica Booleană (AND, OR, HYBRID)
         var logic = await JSRuntime.InvokeAsync<string>("localStorage.getItem", LogicKey);
         if (!string.IsNullOrEmpty(logic)) searchLogic = logic;
