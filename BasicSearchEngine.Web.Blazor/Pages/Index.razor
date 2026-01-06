@@ -17,151 +17,156 @@
                     <button class="btn btn-success btn-search fw-bold btn-lg" disabled="@isCompareMode" @onclick="() => PerformSearch(1)">
                         <i class="bi bi-lightning-charge-fill me-2"></i> Search
                     </button>
+                    <button class="btn btn-pagination btn-outline-secondary" @onclick="() => isSettingsExpanded = !isSettingsExpanded">
+                        <i class="bi @(isSettingsExpanded ? "bi-chevron-up" : "bi-gear")"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <div class="search-settings-container p-3 border rounded bg-light shadow-sm mb-4 @(isCompareMode ? "compare-locked" : "")">
-            <div class="row">
-                <div class="col-md-6 border-end">
-                    <div class="form-control-group-dropdowns mb-4">
-                        <div>
-                            <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-sliders2 me-1"></i>Algoritm & Mod</h3>
-                        </div>
-                    
-                        <div class="filter-item mb-3">
-                            <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
-                            <select class="form-select form-select-sm" @bind="selectedMode" disabled="@isCompareMode">
-                                <option value="custom">Educational</option>
-                                <option value="nltk">NLTK Strategy</option>
-                                <option value="sklearn">Sklearn Strategy</option>
-                            </select>
-                        </div>
-
-                        <div class="filter-item mb-3">
-                            <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
-                            <select class="form-select form-select-sm" @bind="selectedRanking" disabled="@isCompareMode">
-                                <option value="bm25">BM25 Ranking</option>
-                                <option value="cosine">Cosine Similarity</option>
-                                <option value="jaccard">Jaccard Index</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    @* Panoul de parametri BM25 integrat în coloana 1 *@
-                    @if (selectedRanking == "bm25")
-                    {
-                        <div class="bm25-control-panel p-2 border rounded bg-white animate-fade-in">
+        <div class="settings-panel @(isSettingsExpanded ? "expanded" : "collapsed")">
+            <div class="search-settings-container p-3 border rounded bg-light shadow-sm mb-4 @(isCompareMode ? "compare-locked" : "")">
+                <div class="row">
+                    <div class="col-md-6 border-end">
+                        <div class="form-control-group-dropdowns mb-4">
                             <div>
-                                <h3 id="title-bm25"><i class="bi bi-gear-fill me-1"></i>BM25 Params</h3>
+                                <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-sliders2 me-1"></i>Algoritm & Mod</h3>
                             </div>
-                            <div class="param-input-group d-flex align-items-center gap-2 mb-2">
-                                <div class="flex-grow-1">
-                                    <label id="bm25-k1-label" class="small text-muted">K1</label>
-                                    <input type="number" step="0.1" @bind="bm25K1" @bind:event="oninput"
-                                        class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                        
+                            <div class="filter-item mb-3">
+                                <label class="form-label small fw-bold text-uppercase text-muted">Processing Mode</label>
+                                <select class="form-select form-select-sm" @bind="selectedMode" disabled="@isCompareMode">
+                                    <option value="custom">Educational</option>
+                                    <option value="nltk">NLTK Strategy</option>
+                                    <option value="sklearn">Sklearn Strategy</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-item mb-3">
+                                <label class="form-label small fw-bold text-uppercase text-muted">Similarity Metric</label>
+                                <select class="form-select form-select-sm" @bind="selectedRanking" disabled="@isCompareMode">
+                                    <option value="bm25">BM25 Ranking</option>
+                                    <option value="cosine">Cosine Similarity</option>
+                                    <option value="jaccard">Jaccard Index</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        @* Panoul de parametri BM25 integrat în coloana 1 *@
+                        @if (selectedRanking == "bm25")
+                        {
+                            <div class="bm25-control-panel p-2 border rounded bg-white animate-fade-in">
+                                <div>
+                                    <h3 id="title-bm25"><i class="bi bi-gear-fill me-1"></i>BM25 Params</h3>
                                 </div>
-                                <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[1.2 - 2.0]</span>
-                            </div>
-
-                            <div class="param-input-group d-flex align-items-center gap-2 mb-2">
-                                <div class="flex-grow-1">
-                                    <label id="bm25-b-label" class="small text-muted">B</label>
-                                    <input type="number" step="0.05" @bind="bm25B" @bind:event="oninput"
-                                        class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                <div class="param-input-group d-flex align-items-center gap-2 mb-2">
+                                    <div class="flex-grow-1">
+                                        <label id="bm25-k1-label" class="small text-muted">K1</label>
+                                        <input type="number" step="0.1" @bind="bm25K1" @bind:event="oninput"
+                                            class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                    </div>
+                                    <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[1.2 - 2.0]</span>
                                 </div>
-                                <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideal 0.75</span>
+
+                                <div class="param-input-group d-flex align-items-center gap-2 mb-2">
+                                    <div class="flex-grow-1">
+                                        <label id="bm25-b-label" class="small text-muted">B</label>
+                                        <input type="number" step="0.05" @bind="bm25B" @bind:event="oninput"
+                                            class="form-control form-control-bm25 form-control-sm" disabled="@isCompareMode" />
+                                    </div>
+                                    <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideal 0.75</span>
+                                </div>
+
+                                <div id="btn-apply-container" class="d-flex align-items-end">
+                                    <button class="btn btn-sm btn-primary btn-apply align-self-end"
+                                        @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm" disabled="@isCompareMode">
+                                        <i class="bi bi-check-circle-fill me-2"></i> Apply
+                                    </button>
+                                </div>
                             </div>
-
-                            <div id="btn-apply-container" class="d-flex align-items-end">
-                                <button class="btn btn-sm btn-primary btn-apply align-self-end"
-                                    @onclick="() => PerformSearch(1)" title="Update parameters to BM25 Algorithm" disabled="@isCompareMode">
-                                    <i class="bi bi-check-circle-fill me-2"></i> Apply
-                                </button>
-                            </div>
-                        </div>
-                    }
-                </div>
-
-                <div class="col-md-6 ps-4">
-                    <div>
-                        <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-gear-fill me-1"></i>Multi-term search</h3>
-                    </div>                    
-                    <div class="search-logic-group d-flex flex-column gap-3">
-                        <div class="form-check custom-radio-indigo">
-                            <input class="form-check-input bm25-form-check-input" type="radio" name="searchLogic" id="logicOr" 
-                                value="OR" @onchange="@(() => searchLogic = "OR")" 
-                                checked="@(searchLogic == "OR")" disabled="@isCompareMode">
-                            <label class="form-check-label" for="logicOr">
-                                <strong>OR</strong> - Cel puțin un cuvânt prezent
-                            </label>
-                        </div>
-
-                        <div class="form-check custom-radio-indigo">
-                            <input class="form-check-input" type="radio" name="searchLogic" id="logicAnd" 
-                                value="AND" @onchange="@(() => searchLogic = "AND")" 
-                                checked="@(searchLogic == "AND")" disabled="@isCompareMode">
-                            <label class="form-check-label" for="logicAnd">
-                                <strong>AND</strong> - Toate cuvintele prezente
-                            </label>
-                        </div>
-
-                        <div class="form-check custom-radio-indigo">
-                            <input class="form-check-input" type="radio" name="searchLogic" id="logicHybrid" 
-                                value="HYBRID" @onchange="@(() => searchLogic = "HYBRID")" 
-                                checked="@(searchLogic == "HYBRID")" disabled="@isCompareMode">
-                            <label class="form-check-label" for="logicHybrid">
-                                <strong>Hibrid</strong> - Prioritizează potrivirile multiple
-                            </label>
-                        </div>
+                        }
                     </div>
 
-                    @if (query.Trim().Contains(" "))
-                    {
-                        <div class="mt-4 p-2 rounded bg-indigo-light text-indigo border border-indigo animate-fade-in">
-                            <i class="bi bi-intersect me-2"></i>
-                            <strong>Combined Search Active:</strong> Folosind logica <u>@searchLogic</u> pentru termenii detectați.
+                    <div class="col-md-6 ps-4">
+                        <div>
+                            <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-gear-fill me-1"></i>Multi-term search</h3>
+                        </div>                    
+                        <div class="search-logic-group d-flex flex-column gap-3">
+                            <div class="form-check custom-radio-indigo">
+                                <input class="form-check-input bm25-form-check-input" type="radio" name="searchLogic" id="logicOr" 
+                                    value="OR" @onchange="@(() => searchLogic = "OR")" 
+                                    checked="@(searchLogic == "OR")" disabled="@isCompareMode">
+                                <label class="form-check-label" for="logicOr">
+                                    <strong>OR</strong> - Cel puțin un cuvânt prezent
+                                </label>
+                            </div>
+
+                            <div class="form-check custom-radio-indigo">
+                                <input class="form-check-input" type="radio" name="searchLogic" id="logicAnd" 
+                                    value="AND" @onchange="@(() => searchLogic = "AND")" 
+                                    checked="@(searchLogic == "AND")" disabled="@isCompareMode">
+                                <label class="form-check-label" for="logicAnd">
+                                    <strong>AND</strong> - Toate cuvintele prezente
+                                </label>
+                            </div>
+
+                            <div class="form-check custom-radio-indigo">
+                                <input class="form-check-input" type="radio" name="searchLogic" id="logicHybrid" 
+                                    value="HYBRID" @onchange="@(() => searchLogic = "HYBRID")" 
+                                    checked="@(searchLogic == "HYBRID")" disabled="@isCompareMode">
+                                <label class="form-check-label" for="logicHybrid">
+                                    <strong>Hibrid</strong> - Prioritizează potrivirile multiple
+                                </label>
+                            </div>
                         </div>
-                    }
+
+                        @if (query.Trim().Contains(" "))
+                        {
+                            <div class="mt-4 p-2 rounded bg-indigo-light text-indigo border border-indigo animate-fade-in">
+                                <i class="bi bi-intersect me-2"></i>
+                                <strong>Combined Search Active:</strong> Folosind logica <u>@searchLogic</u> pentru termenii detectați.
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-12 d-flex gap-5">
-                <div class="legend-item">
-                    <div class="legend-square square-bm25"></div>
-                    <span class="text-muted">BM25 similarity</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square square-cosine"></div>
-                    <span class="text-muted">Cosine similarity</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square square-jaccard"></div>
-                    <span class="text-muted">Jaccard similarity</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square square-combined"></div>
-                    <span class="text-muted">Combined search</span>
+            <div class="row">
+                <div class="col-12 d-flex gap-5">
+                    <div class="legend-item">
+                        <div class="legend-square square-bm25"></div>
+                        <span class="text-muted">BM25 similarity</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-square square-cosine"></div>
+                        <span class="text-muted">Cosine similarity</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-square square-jaccard"></div>
+                        <span class="text-muted">Jaccard similarity</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-square square-combined"></div>
+                        <span class="text-muted">Combined search</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mt-3">
-            <div class="col-12 d-flex gap-2 extra-buttons-container">
-                @* Butonul Compare - se dezactivează dacă deja suntem în compare mode *@
-                <button class="btn btn-compare shadow-sm" 
-                        @onclick="ExecuteCompareSearch"
-                        disabled="@isCompareMode"
-                        title="Compare all 3 methods. Ranking is based on BM25.">
-                    <i class="bi bi-columns-gap me-2"></i> Compare Metrics
-                </button>
+            <div class="row mt-3">
+                <div class="col-12 d-flex gap-2 extra-buttons-container">
+                    @* Butonul Compare - se dezactivează dacă deja suntem în compare mode *@
+                    <button class="btn btn-compare shadow-sm" 
+                            @onclick="ExecuteCompareSearch"
+                            disabled="@isCompareMode"
+                            title="Compare all 3 methods. Ranking is based on BM25.">
+                        <i class="bi bi-columns-gap me-2"></i> Compare Metrics
+                    </button>
 
-                @* Butonul Reset - vizibil mereu sau doar în compare mode *@
-                <button class="btn btn-reset shadow-sm" @onclick="ResetToDefault">
-                    <i class="bi bi-arrow-counterclockwise me-2"></i> Reset
-                </button>
+                    @* Butonul Reset - vizibil mereu sau doar în compare mode *@
+                    <button class="btn btn-reset shadow-sm" @onclick="ResetToDefault">
+                        <i class="bi bi-arrow-counterclockwise me-2"></i> Reset
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -282,6 +287,7 @@
     private double bm25B = 0.75;
     private bool isLoading = false;
     private bool isCompareMode = false;
+    private bool isSettingsExpanded = false;
     private bool hasSearched = false;
     private int currentPage = 1;
     private int pageSize = 5;

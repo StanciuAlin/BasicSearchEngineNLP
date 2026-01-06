@@ -93,8 +93,8 @@ select:disabled {
     border-radius: 16px;
     border: 1px solid var(--btn-green);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    min-width: 35rem;
-    max-width: 35rem;
+    min-width: 36rem;
+    max-width: 36rem;
     /* height: 10rem; */
 }
 
@@ -176,8 +176,8 @@ select:disabled {
     border-radius: 12px;
     margin-bottom: var(--card-margin);
     padding: var(--card-padding);
-    min-width: 35rem;
-    max-width: 35rem;
+    min-width: 36rem;
+    max-width: 36rem;
     background: var(--panel-green);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
@@ -427,17 +427,20 @@ card-body {
 
 .btn-pagination {
     height: 1.4rem;
-    border: 1px solid var(--primary-blue);
+    border: none;
     border-radius: 16px;
-    background-color: white;
-    color: var(--btn-green);
+    background: linear-gradient(45deg, #2c3e50, var(--btn-green));
+    color: white;
     font-weight: bold;
     transition: background-color var(--transition-speed), color var(--transition-speed);
+    padding: 0px 10px;
 }
 
 .btn-pagination:hover {
-    background-color: var(--btn-green);
-    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--btn-green);
+    color: black; */
 }
 
 .bg-indigo {
@@ -529,4 +532,28 @@ card-body {
 .sort-active-asc {
     background-color: var(--primary-blue);
     border-color: var(--btn-blue);
+}
+
+.settings-panel {
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+}
+
+.settings-panel.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0 !important;
+    pointer-events: none;
+}
+
+.settings-panel.expanded {
+    max-height: 650px;
+    /* O valoare suficient de mare pentru conținut */
+    opacity: 1;
+    /* margin-bottom: 1rem; */
+}
+
+/* Stil pentru butonul de gear când este activ */
+.btn-outline-secondary i {
+    transition: transform 0.3s ease;
 }
