@@ -1,17 +1,26 @@
 import json
+import argparse
 import numpy as np
 from search_engine.search.engine import SearchEngine
 from search_engine.evaluation.evaluator import IREvaluator
 
 
-def run_benchmark():
+def run_benchmark(dataset_size):
     engine = SearchEngine()
-    engine.index_corpus("data/docs")  # Asigură-te că indexul e gata
+    engine.index_corpus("data/docs")
 
-    with open("data/eval_queries.json", "r") as f:
+    # Select the file based on dataset type
+    if dataset_size == "large":
+        file_path = "data/eval_queries_large.json"
+    else:
+        file_path = "data/eval_queries.json"
+
+    print(f"--- Load queries from {file_path} ---")
+
+    with open(file_path, "r") as f:
         queries = json.load(f)
 
-    # Configurări de testat
+    # Configs for benchmarking
     configs = [
         {"name": "TF-IDF", "method": "cosine", "params": {}},
         {"name": "BM25 (Standard)", "method": "bm25",
@@ -33,11 +42,11 @@ def run_benchmark():
 
             rel_ids = [int(k) for k in q_data["relevant_map"].keys()]
 
+            # Compute IR metrics
             mrr_scores.append(IREvaluator.calculate_mrr(found_ids, rel_ids))
             ap_scores.append(IREvaluator.calculate_ap(found_ids, rel_ids))
             ndcg_scores.append(IREvaluator.calculate_ndcg(
                 found_ids, q_data["relevant_map"], k=5))
-            # Adăugăm P@5
             p5_scores.append(IREvaluator.calculate_precision_at_k(
                 found_ids, rel_ids, k=5))
 
@@ -56,5 +65,22 @@ def run_benchmark():
             f"{r['Metoda']:<20} | {r['MRR']:.3f}    | {r['nDCG@5']:.3f}    | {r['P@5']:.3f}")
 
 
+def main():
+    # Define termainl arguments
+    parser = argparse.ArgumentParser(
+        description="Runner for Benchmark on Search Engine")
+    parser.add_argument(
+        "--size",
+        choices=["normal", "large"],
+        default="normal",
+        help="Choose between 'normal' and 'large' evaluation datasets."
+    )
+
+    args = parser.parse_args()
+
+    # Sent the read value to the run_benchmark function
+    run_benchmark(args.size)
+
+
 if __name__ == "__main__":
-    run_benchmark()
+    main()

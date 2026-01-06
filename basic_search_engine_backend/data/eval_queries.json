@@ -6,7 +6,7 @@
         }
     },
     {
-        "query": "bill of rights ten original amendments",
+        "query": "ten original amendments",
         "relevant_map": {
             "2": 3
         }
@@ -24,7 +24,7 @@
         }
     },
     {
-        "query": "mayflower compact november 1620",
+        "query": "november 1620",
         "relevant_map": {
             "7": 3
         }
@@ -43,27 +43,27 @@
         }
     },
     {
-        "query": "alice adventures in wonderland rabbit hole",
+        "query": "alice adventures in wonderland",
         "relevant_map": {
             "11": 3,
             "12": 1
         }
     },
     {
-        "query": "through the looking glass mirror chess",
+        "query": "mirror",
         "relevant_map": {
             "12": 3,
             "11": 1
         }
     },
     {
-        "query": "hunting of the snark lewis carroll",
+        "query": "lewis carroll",
         "relevant_map": {
             "13": 3
         }
     },
     {
-        "query": "cia world factbook international data",
+        "query": "international data",
         "relevant_map": {
             "14": 3,
             "25": 3
@@ -115,7 +115,7 @@
         }
     },
     {
-        "query": "roget thesaurus english words phrases",
+        "query": "thesaurus",
         "relevant_map": {
             "22": 3
         }

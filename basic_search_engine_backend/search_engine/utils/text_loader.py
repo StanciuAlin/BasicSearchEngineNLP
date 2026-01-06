@@ -4,6 +4,8 @@ from ..models.document import Document
 
 
 def load_documents_from_folder(folder: str) -> List[Document]:
+    """Loads text documents from the specified folder."""
+
     docs: List[Document] = []
     doc_id = 0
     for fname in sorted(os.listdir(folder)):

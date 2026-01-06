@@ -20,7 +20,10 @@ De adaugat: pip install gutenbergpy
 
 python3 -m scripts.fetch_library
 
----
+Pentru benchmark:
+python run_benchmark.py (va rula pe cel normal)
+
+python run_benchmark.py --size large (va rula pe cel large)
 
 ---
 
@@ -95,6 +98,12 @@ docker-compose exec backend python3 -m scripts.run_benchmark
 Varianta B (Dacă folosești numele containerului găsit la pasul 3):
 
 docker exec -it NUME_CONTAINER_AICI python3 -m scripts.run_benchmark
+
+Dupa ce am adauga parametri:
+
+python run_benchmark.py (va rula pe cel normal)
+SAU
+python run_benchmark.py --size large (va rula pe cel large)
 
 ## Inspect DB
 

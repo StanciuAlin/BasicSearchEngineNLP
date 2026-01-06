@@ -1,2 +1,0 @@
-Python is often used to build prototypes for information retrieval systems.
-FastAPI can expose a search API that is consumed by a web frontend.

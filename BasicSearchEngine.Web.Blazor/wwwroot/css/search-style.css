@@ -340,7 +340,7 @@ card-body {
 .btn-search {
     /* 
     width: 9.4rem; */
-    height: 2rem;
+    height: 2.1rem;
     /* border: 1px solid var(--btn-green); */
     border: none;
     border-radius: 16px;
@@ -362,10 +362,10 @@ card-body {
 .btn-apply {
     /* height: 1.7rem;
     width: 7rem; */
-    height: 2rem;
+    height: 2.1rem;
     /* border: 1px solid var(--btn-blue); */
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     color: white;
@@ -383,11 +383,11 @@ card-body {
 
 
 .btn-compare {
-    height: 2rem;
+    height: 2.1rem;
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     /* Un gradient profesional */
     /* border: 1px solid var(--btn-blue); */
-    border-radius: 14px;
+    border-radius: 16px;
     color: white;
     border: none;
     padding: 0px 20px;
@@ -404,11 +404,11 @@ card-body {
 }
 
 .btn-reset {
-    height: 2rem;
+    height: 2.1rem;
     text-align: center;
     /* border: 1px solid var(--btn-blue); */
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-blue));
     color: white;

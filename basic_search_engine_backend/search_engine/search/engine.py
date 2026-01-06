@@ -1,3 +1,4 @@
+import os
 from typing import List, Dict, Any
 from ..models.search_result import SearchResult
 from ..utils.text_loader import load_documents_from_folder
@@ -10,6 +11,8 @@ from ..preprocessing.factory import factory
 
 
 class SearchEngine:
+    """The main class for the search engine."""
+
     def __init__(self):
         self.doc_store = DocumentStore()
         self.sklearn_engine = SklearnTfIdf()
@@ -18,32 +21,68 @@ class SearchEngine:
         self.bm25_weighter = BM25Weighter(self.index)  # Inițializare BM25
         self.preprocessor = factory.get_preprocessor("custom")
 
-    def index_corpus(self, folder: str) -> None:
-        # 1. Încărcăm documentele din SQLite dacă există, altfel din folder
-        all_docs = []
+    def index_corpus(self, folder: str = "data/docs") -> None:
+        """ Sincronise the document store with files from disk (without duplicates)
+                and rebuild the in-memory index.
+
+            Args:
+             folder (str): Path to the folder containing documents to index.
+
+            Notes:
+                Manages duplicates by checking existing document IDs in the database.
+                Flexible to add new documents without re-indexing existing ones.
+                Efficiently builds the in-memory index for fast searching.
+        """
+
+        # 1. Sincronise: Add documents from folder that are not already in DB
+        if folder and os.path.exists(folder):
+
+            # Load the documents from disk
+            docs_from_disk = load_documents_from_folder(folder)
+
+            # Verify what is already in the database to avoid duplicates
+            existing_metadata = self.doc_store.get_metadata_list()
+            existing_ids = {m[0] for m in existing_metadata}
+
+            # Filter only new documents
+            new_docs = [
+                d for d in docs_from_disk if d.doc_id not in existing_ids]
+
+            if new_docs:
+                print(
+                    f"There are found {len(new_docs)} new documents in '{folder}'. Adding to SQLite...")
+                self.doc_store.add_documents(new_docs)
+            else:
+                print(
+                    f"The datebase is up to date with files from '{folder}'.")
+
+        # 2. Load: We fetch ALL documents from SQLite for in-memory indexing
         metadata = self.doc_store.get_metadata_list()
+        all_docs = []
 
-        if not metadata and folder:
-            print("Populăm baza de date din folder...")
-            all_docs = load_documents_from_folder(folder)
-            self.doc_store.add_documents(all_docs)
-        else:
+        if not metadata:
             print(
-                f"Încărcăm {len(metadata)} documente din SQLite pentru indexare...")
-            for row in metadata:
-                all_docs.append(self.doc_store.get(row[0]))
+                "Attention: No documents found in the database nor in folder to index.")
 
-        if not all_docs:
-            print("Atenție: Nu există documente de indexat!")
             return
 
-        # 2. Construim indexul manual (pentru modurile Custom/Pro)
+        print(f"Indexing {len(metadata)} documents from the database...")
+        for row in metadata:
+            try:
+                all_docs.append(self.doc_store.get(row[0]))
+            except KeyError:
+                continue
+
+        # 3. Building search structures (In-Memory)
+        # Rebuild the inverted index manually (Custom)
         self.index.build(all_docs)
         self.weighter.build_doc_vectors(all_docs)
 
-        # 3. Construim/Încărcăm indexul Sklearn
+        # Rebuild/Load Sklearn index
         if not self.sklearn_engine.load_index():
             self.sklearn_engine.build_index(all_docs)
+
+        print("Indexing complete with success!")
 
     def search(self, query: str,
                page: int = 1,
