@@ -15,8 +15,14 @@
             <div class="col-12">
                 @* <label class="form-label small fw-bold text-uppercase tracking-wider">Query</label> *@
                 <div class="input-group input-group-lg search-input-group">
-                    <input @bind="query" @bind:event="oninput" @onkeyup="HandleKeyUp" class="form-control" disabled="@isCompareMode"
-                        placeholder="Enter query..." />
+                    <input @ref="searchBarReference"
+                        value="@query"
+                        @oninput="@(async (e) => { query = e.Value?.ToString() ?? string.Empty; await SaveSetting(QueryKey, query); })"
+                        @onclick="SelectAllText"
+                        @onkeyup="HandleKeyUp" 
+                        class="form-control" 
+                        disabled="@isCompareMode"
+                        placeholder="Type query..." />
                     <button class="btn btn-success btn-search fw-bold btn-lg" disabled="@isCompareMode" @onclick="() => PerformSearch(1)">
                         <i class="bi bi-lightning-charge-fill me-2"></i> Search
                     </button>
@@ -308,6 +314,7 @@
     private bool isLoading = false;
     private bool isCompareMode = false;
     private bool isSettingsExpanded;
+    private const string QueryKey = "search_query_text";
     private const string StorageKey = "searchSettingsExpanded";
     private const string SettingsExpandedKey = "search_settings_expanded";
     private const string RankingKey = "search_method";
@@ -319,6 +326,7 @@
     private int currentPage = 1;
     private int pageSize = 5;
     private SearchResponseDto? searchResponse;
+    private ElementReference searchBarReference;
 
     private int TotalPages => searchResponse != null ? (int)Math.Ceiling((double)searchResponse.total / pageSize) : 0;
 
@@ -348,6 +356,9 @@
 
     private async Task LoadSettings()
     {
+        // 0. Search bar
+        var savedQuery = await JSRuntime.InvokeAsync<string>("localStorage.getItem", QueryKey);
+        if (!string.IsNullOrEmpty(savedQuery)) query = savedQuery;
         // 1. Starea panoului (Expand/Collapse)
         var expanded = await JSRuntime.InvokeAsync<string>("localStorage.getItem", SettingsExpandedKey);
         if (!string.IsNullOrEmpty(expanded)) isSettingsExpanded = bool.Parse(expanded);
@@ -387,7 +398,21 @@
 
     private async Task HandleKeyUp(KeyboardEventArgs e)
     {
-        if (e.Key == "Enter") await PerformSearch(1);
+        if (e.Key == "Enter") 
+        {
+            // 1. Pornim căutarea
+            await PerformSearch(1);
+
+            // 2. Scoatem focusul de pe bara de căutare
+            try 
+            {
+                await JSRuntime.InvokeVoidAsync("blurElement", searchBarReference);
+            }
+            catch 
+            {
+                // Fail-safe
+            }
+        }
     }
 
     private async Task OnFilterChanged()
@@ -401,6 +426,9 @@
     private async Task PerformSearch(int page)
     {
         if (string.IsNullOrWhiteSpace(query)) return;
+
+        await SaveSetting(QueryKey, query);
+
         isLoading = true;
         hasSearched = true;
         currentPage = page;
@@ -498,6 +526,18 @@
         }
     }
 
+    private async Task SelectAllText()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("selectText", searchBarReference);
+        }
+        catch
+        {
+            // Ignore JS errors
+        }
+    }
+
     private async Task ToggleSortOrder()
     {
         // Change sort order
@@ -517,6 +557,9 @@
         
         // 2. Resetăm valorile de căutare și parametri
         query = "";
+        // Delete from localStorage
+        _ = SaveSetting(QueryKey, "");
+
         searchLogic = "OR";
         selectedRanking = "bm25";
         selectedMode = "custom";
