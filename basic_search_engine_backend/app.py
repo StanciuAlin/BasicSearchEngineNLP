@@ -195,9 +195,9 @@ async def search_compare(
 
     compare_results = []
     # base_results["results"] conține obiecte SearchResult, nu dicționare
-    for res in base_results["results"]:
+    for res in base_results.get("results", []):
         # Accesăm atributele folosind punct (.)
-        doc_id = res.doc_id
+        doc_id = res["doc_id"]
 
         # Calculăm restul scorurilor
         doc_vector = engine.weighter.doc_vectors.get(doc_id, {})
@@ -205,15 +205,19 @@ async def search_compare(
             query_vector, doc_vector)
         jaccard_val = engine.weighter.jaccard_similarity(query_terms, doc_id)
 
+        # Preluăm scorul Sklearn (0.0 dacă nu a fost găsit)
+        # sklearn_val = sklearn_scores.get(doc_id, 0.0)
+
         compare_results.append({
             "doc_id": doc_id,
-            "title": res.title,
-            "snippet": res.snippet,
-            "score": res.score,
-            "bm25_score": res.score,
+            "title": res["title"],
+            "snippet": res["snippet"],
+            "score": res["score"],
+            "bm25_score": res["score"],
             "cosine_score": round(float(cosine_val), 4),
             "jaccard_score": round(float(jaccard_val), 4),
-            "matches": res.matches  # Păstrăm informația despre potriviri
+            # "sklearn_score": round(float(sklearn_val), 4),
+            "matches": res.get("matches", "")
         })
 
     end_time = time.perf_counter()

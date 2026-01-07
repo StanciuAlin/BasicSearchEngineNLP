@@ -80,6 +80,15 @@ class SearchEngine:
         self.index.build(all_docs)
         self.weighter.build_doc_vectors(all_docs)
 
+        # Extragem textele tuturor documentelor pentru a face "fit" pe vectorizer-ul Sklearn
+        corpus_texts = [d.content for d in all_docs]
+        sklearn_proc = factory.get_preprocessor("sklearn")
+
+        # Verificăm dacă preprocesorul are metoda 'fit' (specifică strategiei Sklearn)
+        if hasattr(sklearn_proc, 'fit'):
+            print("Fitting Sklearn Preprocessor with current corpus...")
+            sklearn_proc.fit(corpus_texts)
+
         # Rebuild/Load Sklearn index
         if not self.sklearn_engine.load_index():
             self.sklearn_engine.build_index(all_docs)
@@ -110,7 +119,14 @@ class SearchEngine:
         self.bm25_weighter.k1 = k1
         self.bm25_weighter.b = b
 
+        # 1. Calculăm numărul de tokeni din query-ul original (brut)
+        # Folosim o separare simplă sau regex pentru acuratețe
+        raw_query_tokens = query.split()
+        total_q_raw = len(raw_query_tokens)
+
+        # 2. Obținem termenii procesați (fără stop-words, lematizați etc.)
         q_terms = self.preprocessor.process(query)
+        total_q_processed = len(q_terms)
 
         if not q_terms:
             return {"total": 0, "results": []}
@@ -119,12 +135,26 @@ class SearchEngine:
             # all_hits = self.sklearn_engine.search(query)
             # sklearn_engine.search returns (doc_id, score)
             hits_raw = self.sklearn_engine.search(query)
-            
-            # Transform (doc_id, score) in (doc_id, score, matches_info)
+
+            # Obținem seturile de documente pentru fiecare termen din query folosind indexul manual
+            # pentru a putea calcula matches_count
+            term_sets = []
+            for term in q_terms:
+                if term in self.index.index:
+                    term_sets.append(
+                        {p.doc_id for p in self.index.index[term]})
+                else:
+                    term_sets.append(set())
+
             all_hits = []
             for doc_id, score in hits_raw:
-                # Pentru sklearn nu avem matches_info calculat la fel, punem "N/A" sau calculăm separat
-                all_hits.append((doc_id, score, "N/A"))
+                # Calculăm matches_count verificând prezența doc_id în seturile fiecărui termen
+                matches_count = sum(
+                    1 for term_set in term_sets if doc_id in term_set)
+                matches_info = f"{matches_count}/{total_q_processed}/{total_q_raw}"
+
+                if score > 0:
+                    all_hits.append((doc_id, score, matches_info))
         else:
             # Obținem postings pentru fiecare termen separat
             term_sets = []
@@ -153,7 +183,7 @@ class SearchEngine:
                 # Calculăm câți termeni din query se află în acest document
                 matches_count = sum(
                     1 for term_set in term_sets if doc_id in term_set)
-                matches_info = f"{matches_count}/{len(q_terms)}"
+                matches_info = f"{matches_count}/{total_q_processed}/{total_q_raw}"
                 # Calculăm scorul folosind metodele existente
                 if ranking_method == "cosine":
                     q_vec = self.weighter.make_query_vector(q_terms)

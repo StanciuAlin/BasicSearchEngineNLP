@@ -25,20 +25,17 @@
 
 .compare-active-bg {
     background-color: #fbfbe6;
-    /* Un albastru-gri foarte deschis */
     transition: background-color 0.5s ease;
     border-radius: 16px;
     border: 1px solid #e1e1ca;
 }
 
-/* Dezactivarea vizuală a elementelor */
 input:disabled,
 select:disabled {
     background-color: #e9ecef !important;
     cursor: not-allowed;
 }
 
-/* Container principal */
 .search-dashboard {
     max-width: 800px;
     margin: var(--section-spacing) auto;
@@ -51,13 +48,11 @@ select:disabled {
     justify-content: space-between;
 }
 
-/* Stiluri pentru Legendă */
 .legend-item {
     display: flex;
     align-items: center;
     gap: 10px;
     padding-bottom: 3px;
-    /* Spațiu între pătrat și text */
     font-style: italic;
 }
 
@@ -65,7 +60,6 @@ select:disabled {
     width: 32px;
     height: 16px;
     border-radius: 12px;
-    /* Pătrat cu colțuri foarte ușor rotunjite */
 }
 
 .square-cosine {
@@ -84,12 +78,10 @@ select:disabled {
     background-color: var(--combined-color);
 }
 
-/* Ajustări pentru panoul de filtre */
 .filter-panel {
     margin-bottom: var(--section-spacing);
     padding: var(--card-padding);
     padding-bottom: 0px;
-    /* Mai mult spațiu în interiorul cardului de control */
     background: var(--panel-green-glass) !important;
     backdrop-filter: blur(8px);
     border-radius: 16px;
@@ -97,7 +89,6 @@ select:disabled {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     min-width: 36rem;
     max-width: 36rem;
-    /* height: 10rem; */
 }
 
 .filter-panel .row {
@@ -120,21 +111,16 @@ select:disabled {
     margin-top: var(--section-spacing);
 }
 
-/* Badge-uri rezultate */
 .metric-badge {
     padding: 0.3em 0.6em;
     border-radius: 12px;
-    /* Formă rectangulară similară legendei */
     font-weight: bold;
     font-size: 0.8rem;
 }
 
-/* Cel mai relevant rezultat (Gold Highlight) */
 .best-result {
     border: 3px solid #ffd700 !important;
-    /* Bordură aurie */
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-    /* Efect de strălucire */
     transform: scale(1.01);
     background: linear-gradient(180deg, #fffdf5 0%, var(--panel-green) 100%) !important;
 }
@@ -162,7 +148,6 @@ select:disabled {
     background-color: var(--combined-color);
 }
 
-/* Badge-uri mai mari pentru Compare Mode */
 .badge-bm25,
 .badge-cosine,
 .badge-jaccard,
@@ -172,7 +157,6 @@ select:disabled {
     margin: 0 10px 0 0;
 }
 
-/* Cardurile de rezultate */
 .result-card {
     border: 1px solid var(--btn-green);
     border-radius: 12px;
@@ -208,7 +192,6 @@ card-body {
     overflow: auto;
 }
 
-/* Paginare centrată */
 .pagination-wrap {
     display: flex;
     justify-content: center;
@@ -263,9 +246,7 @@ card-body {
 
 #title-bm25 i {
     font-size: 1rem;
-    /* Face pictograma puțin mai mare decât textul */
     margin-right: 5px;
-    /* Spațiu între pictogramă și text */
 }
 
 .bm25-control-panel {
@@ -273,12 +254,11 @@ card-body {
     color: black;
     font-weight: 500;
     padding: var(--card-padding);
-    /* Accent verde */
     transition: all 0.3s ease;
 }
 
 .form-control-bm25 {
-    width: 50px;
+    width: 62px;
     height: 20px;
     font-size: 1rem;
     margin: 0px 30px;
@@ -296,7 +276,6 @@ card-body {
 .bm25-badge {
     font-size: 0.9rem;
     font-weight: 500;
-    font-style: italic;
     padding: 0rem 0.4rem;
 }
 
@@ -340,13 +319,9 @@ card-body {
 }
 
 .btn-search {
-    /* 
-    width: 9.4rem; */
     height: 2.4rem;
-    /* border: 1px solid var(--btn-green); */
     border: none;
     border-radius: 20px;
-    /* background-color: var(--primary-green); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     color: white;
     padding: 0px 20px;
@@ -358,17 +333,12 @@ card-body {
 .btn-search:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: var(--btn-green); */
 }
 
 .btn-apply {
-    /* height: 1.7rem;
-    width: 7rem; */
     height: 2.4rem;
-    /* border: 1px solid var(--btn-blue); */
     border: none;
     border-radius: 20px;
-    /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
     color: white;
     padding: 0px 20px;
@@ -380,15 +350,12 @@ card-body {
 .btn-apply:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: var(--btn-blue); */
 }
 
 
 .btn-compare {
     height: 2.4rem;
     background: linear-gradient(45deg, #2c3e50, var(--btn-green));
-    /* Un gradient profesional */
-    /* border: 1px solid var(--btn-blue); */
     border-radius: 20px;
     color: white;
     border: none;
@@ -401,17 +368,13 @@ card-body {
 .btn-compare:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: var(--btn-blue); */
-    /* color: #ffd700; /* Textul devine auriu la hover */
 }
 
 .btn-reset {
     height: 2.4rem;
     text-align: center;
-    /* border: 1px solid var(--btn-blue); */
     border: none;
     border-radius: 20px;
-    /* background-color: var(--primary-blue); */
     background: linear-gradient(45deg, #2c3e50, var(--btn-blue));
     color: white;
     padding: 0px 20px;
@@ -422,9 +385,7 @@ card-body {
 
 .btn-reset:hover {
     transform: translateY(-2px);
-    /* Un mic efect vizual de "reset" */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: var(--btn-blue); */
 }
 
 .btn-pagination {
@@ -441,8 +402,6 @@ card-body {
 .btn-pagination:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: var(--btn-green);
-    color: black; */
 }
 
 .bg-indigo {
@@ -496,7 +455,6 @@ card-body {
     align-items: center;
 }
 
-/* Stilizarea butonului Toggle */
 .sort-toggle-btn {
     display: flex;
     align-items: center;
@@ -530,7 +488,6 @@ card-body {
     color: black;
 }
 
-/* Stare activă pentru când sortarea este ascendentă (opțional) */
 .sort-active-asc {
     background-color: var(--primary-blue);
     border-color: var(--btn-blue);
@@ -550,12 +507,9 @@ card-body {
 
 .settings-panel.expanded {
     max-height: 650px;
-    /* O valoare suficient de mare pentru conținut */
     opacity: 1;
-    /* margin-bottom: 1rem; */
 }
 
-/* Stil pentru butonul de gear când este activ */
 .btn-outline-secondary i {
     transition: transform 0.3s ease;
 }
@@ -580,15 +534,12 @@ card-body {
     top: 0;
     left: 0;
     z-index: -1;
-    /* Trimite fundalul în spatele textului */
     background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
 }
 
 .search-container {
     background: rgba(255, 255, 255, 0.8);
-    /* Face panoul de căutare ușor transparent */
     backdrop-filter: blur(10px);
-    /* Efect de sticlă înghețată */
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);

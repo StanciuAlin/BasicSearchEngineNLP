@@ -97,7 +97,7 @@
                                             disabled="@isCompareMode" 
                                             @oninput="@(async (e) => { if(double.TryParse(e.Value?.ToString(), out var val)) { bm25B = Math.Round(val, 2); await SaveSetting(BKey, e.Value.ToString()); } })" />
                                     </div>
-                                    <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideal 0.75</span>
+                                    <span class="bm25-badge bg-primary mt-3" style="min-width: 40px;">[0 - 1], ideally 0.75</span>
                                 </div>
 
                                 <div id="btn-apply-container" class="d-flex align-items-end">
@@ -112,7 +112,7 @@
 
                     <div class="col-md-6 ps-4">
                         <div>
-                            <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-gear-fill me-1"></i>Multi-term search</h3>
+                            <h3 class="title-bm25 text-secondary mb-3"><i class="bi bi-gear-fill me-1"></i>Multi-term Search</h3>
                         </div>                    
                         <div class="search-logic-group d-flex flex-column gap-3">
                             <div class="form-check custom-radio-indigo">
@@ -121,7 +121,7 @@
                                     disabled="@isCompareMode" 
                                     @onchange="@(async (e) => { searchLogic = "OR"; await SaveSetting(LogicKey, "OR"); })" />
                                 <label class="form-check-label" for="logicOr">
-                                    <strong>OR</strong> - Cel puțin un cuvânt prezent
+                                    <strong>OR</strong> - At least one word present
                                 </label>
                             </div>
 
@@ -131,7 +131,7 @@
                                     disabled="@isCompareMode" 
                                     @onchange="@(async (e) => { searchLogic = "AND"; await SaveSetting(LogicKey, "AND"); })" />
                                 <label class="form-check-label" for="logicAnd">
-                                    <strong>AND</strong> - Toate cuvintele prezente
+                                    <strong>AND</strong> - All words present
                                 </label>
                             </div>
 
@@ -141,7 +141,7 @@
                                     disabled="@isCompareMode"
                                     @onchange="@(async (e) => { searchLogic = "HYBRID"; await SaveSetting(LogicKey, "HYBRID"); })" />
                                 <label class="form-check-label" for="logicHybrid">
-                                    <strong>Hibrid</strong> - Prioritizează potrivirile multiple
+                                    <strong>Hibrid</strong> - Prioritize multiple matches
                                 </label>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                         {
                             <div class="mt-4 p-2 rounded bg-indigo-light text-indigo border border-indigo animate-fade-in">
                                 <i class="bi bi-intersect me-2"></i>
-                                <strong>Combined Search Active:</strong> Folosind logica <u>@searchLogic</u> pentru termenii detectați.
+                                <strong>Multi-term Search Active:</strong> <u>@searchLogic</u> logic is used.
                             </div>
                         }
                     </div>
@@ -173,7 +173,7 @@
                     </div>
                     <div class="legend-item">
                         <div class="legend-square square-combined"></div>
-                        <span class="text-muted">Multi-term search score</span>
+                        <span class="text-muted">Multi-term matching info</span>
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                 <div class="sort-controls">
                     <button class="sort-toggle-btn @(currentSortOrder == "asc" ? "sort-active-asc" : "")" 
                             @onclick="ToggleSortOrder" 
-                            title="Schimbă ordinea sortării după scor">
+                            title="Sort by score">
                         @if (currentSortOrder == "desc")
                         {
                             <i class="bi bi-sort-numeric-down-alt"></i>
@@ -268,7 +268,7 @@
                                     @if (query.Trim().Contains(" "))
                                     {
                                         <span class="metric-badge bg-indigo p-2 shadow-sm animate-fade-in" 
-                                            title="Logica @searchLogic: @r.matches termeni găsiți">
+                                            title="Multi-term search @searchLogic: @r.matches (Original Tokens/Processed Tokens/Found Tokens)">
                                             <i class="bi bi-intersect me-1"></i> 
                                             @r.matches Match (@searchLogic)
                                         </span>
