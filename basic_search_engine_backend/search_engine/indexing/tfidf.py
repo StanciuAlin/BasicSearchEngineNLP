@@ -5,8 +5,6 @@ from sklearn.metrics.pairwise import cosine_similarity as sklearn_cosine
 from .inverted_index import InvertedIndex
 from ..models.document import Document
 
-# TODO: Add Jaccard or Okapi BM25 weighting schemes later.
-
 
 class TfIdfWeighter:
     def __init__(self, index: InvertedIndex):

@@ -1,16 +1,16 @@
-# Etapa de Build
+# Build step
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copiem fișierul de proiect și restaurăm dependențele
+# Copy project file and remake the dependencies
 COPY ["SearchEngine.Web.csproj", "."]
 RUN dotnet restore "SearchEngine.Web.csproj"
 
-# Copiem restul fișierelor și publicăm aplicația
+# Copy the remaining files and publish the application
 COPY . .
 RUN dotnet publish "SearchEngine.Web.csproj" -c Release -o /app/publish
 
-# Etapa finală (Runtime)
+# Final step (Runtime)
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 ENV ASPNETCORE_URLS=http://+:80

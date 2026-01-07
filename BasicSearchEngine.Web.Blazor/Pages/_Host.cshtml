@@ -25,12 +25,11 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-        // Funcție pe care o vom apela din Blazor pentru a porni animația
         window.initParticles = () => {
             particlesJS('particles-js', {
                 "particles": {
                     "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#6366f1" }, // O culoare indigo care se potrivește cu tema ta
+                    "color": { "value": "#6366f1" },
                     "shape": { "type": "circle" },
                     "opacity": { "value": 0.3 },
                     "size": { "value": 3 },
@@ -54,7 +53,6 @@
         window.selectText = (element) => {
             element.select();
         };
-        // Funcția pentru a scoate focusul
         window.blurElement = (element) => {
             element.blur();
         };

@@ -4,21 +4,17 @@
     --btn-green: #0fcd3b;
 }
 
-/* Aliniere butoane paginare */
 .pagination-btn {
     width: 130px;
-    /* Lățime fixă pentru Previous/Next */
     font-weight: 500;
 }
 
-/* Stil pentru indicatorul de pagină */
 .page-indicator {
     min-width: 150px;
     text-align: center;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075);
 }
 
-/* Badge-uri rotunjite pentru scor */
 .badge {
     padding: 0.3em 0.7em;
     border-radius: 50rem;
@@ -26,7 +22,6 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Efect de hover pe rezultate */
 .result-card {
     transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -36,7 +31,6 @@
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-/* Asigură că label-urile nu se rup pe linii noi */
 label {
     white-space: nowrap;
 }
@@ -81,22 +75,18 @@ body {
     text-decoration: none;
     font-size: 1.2rem;
     color: #374151;
-    /* sau culoarea meniului tău */
     padding: 0.5rem 1rem;
     transition: all 0.2s;
 }
 
 .nav-links a i {
     font-size: 1.4rem;
-    /* Face pictograma puțin mai mare decât textul */
     margin-right: 8px;
-    /* Spațiu între pictogramă și text */
 }
 
 .nav-links a:hover {
     transform: translateY(-2px);
     color: #0dbb36;
-    /* Efect gold la hover peste tot elementul */
 }
 
 main {

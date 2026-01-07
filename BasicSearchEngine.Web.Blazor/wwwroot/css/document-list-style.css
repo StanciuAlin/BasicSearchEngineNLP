@@ -11,7 +11,6 @@
     color: #111827;
 }
 
-/* Buton Flotant Back to Top */
 .btn-floating {
     position: fixed;
     bottom: 30px;
@@ -19,9 +18,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* Cerc perfect */
     background-color: var(--primary-green);
-    /* Gold */
     color: #000;
     border: 2px solid var(--btn-green);
     display: flex;
@@ -30,7 +27,6 @@
     font-size: 24px;
     font-weight: bold;
     z-index: 1000;
-    /* Se asigură că stă deasupra textului */
     transition: all 0.3s ease;
     cursor: pointer;
 }

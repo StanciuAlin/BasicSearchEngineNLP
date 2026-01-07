@@ -10,5 +10,3 @@ def simple_stem(token: str) -> str:
     return token
 
 # More advanced stemmer implementations can be added here.
-# TODO: Replace with a more advanced stemmer if needed, e.g., PorterStemmer from NLTK
-#       or SnowballStemmer, WordNetLemmatizer from SpaCy, etc.
