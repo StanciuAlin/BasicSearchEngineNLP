@@ -11,29 +11,49 @@ from ..preprocessing.factory import factory
 from .cache_manager import SearchCache
 
 
+"""
+Module: engine.py
+Description: Acts as the central orchestration layer of the Information Retrieval system. 
+It integrates the document store, indexing engines, weighting models, and caching 
+mechanisms to provide a unified search interface.
+"""
+
+
 class SearchEngine:
-    """The main class for the search engine."""
+    """
+    The core coordinator of the search system.
+
+    This class manages the lifecycle of document indexing and query execution. 
+    It supports multiple ranking algorithms (TF-IDF, BM25, Jaccard, Sklearn) 
+    and handles results pagination, snippet generation, and persistence.
+    """
 
     def __init__(self):
+        """
+        Initializes the search engine components and dependencies.
+        """
         self.doc_store = DocumentStore()
         self.sklearn_engine = SklearnTfIdf()
         self.index = InvertedIndex()
         self.weighter = TfIdfWeighter(self.index)
-        self.bm25_weighter = BM25Weighter(self.index)  # Inițializare BM25
+        self.bm25_weighter = BM25Weighter(self.index)
         self.preprocessor = factory.get_preprocessor("custom")
         self.cache = SearchCache("data/library.db")
 
     def index_corpus(self, folder: str = "data/docs") -> None:
-        """ Sincronise the document store with files from disk (without duplicates)
-                and rebuild the in-memory index.
+        """
+        Synchronizes the document store with files from the disk and builds the in-memory index.
 
-            Args:
-             folder (str): Path to the folder containing documents to index.
+        This method avoids duplicates by checking existing document IDs in the SQLite 
+        database and allows for incremental updates to the index without re-processing 
+        the entire corpus.
 
-            Notes:
-                Manages duplicates by checking existing document IDs in the database.
-                Flexible to add new documents without re-indexing existing ones.
-                Efficiently builds the in-memory index for fast searching.
+        Args:
+            folder (str): Path to the directory containing text documents (.txt).
+
+        Complexity:
+            O(N * M) for loading, plus O(T) for index construction, where T is the 
+            total number of terms in the corpus.
         """
 
         # 1. Sincronise: Add documents from folder that are not already in DB
@@ -80,11 +100,11 @@ class SearchEngine:
         self.index.build(all_docs)
         self.weighter.build_doc_vectors(all_docs)
 
-        # Extragem textele tuturor documentelor pentru a face "fit" pe vectorizer-ul Sklearn
+        # Extract text from all documents to fit with Sklearn vectorizer
         corpus_texts = [d.content for d in all_docs]
         sklearn_proc = factory.get_preprocessor("sklearn")
 
-        # Verificăm dacă preprocesorul are metoda 'fit' (specifică strategiei Sklearn)
+        # Check if the preprocessor has 'fit' method for Sklearn strategy
         if hasattr(sklearn_proc, 'fit'):
             print("Fitting Sklearn Preprocessor with current corpus...")
             sklearn_proc.fit(corpus_texts)
@@ -104,27 +124,47 @@ class SearchEngine:
                b: float = 0.75,
                sort_order: str = "desc",
                search_logic: str = "OR") -> dict:
+        """
+        Executes a ranked search query based on the specified IR model and parameters.
 
+        This method checks the cache before performing calculations. It supports 
+        different ranking methods and applies boolean logic (AND/OR/Hybrid) to 
+        filter and score results.
+
+        Args:
+            query (str): The search input.
+            page (int): Current results page.
+            page_size (int): results per page.
+            mode (str): NLP strategy (custom, nltk, spacy).
+            algorithm (str): Ranking model (tfidf, bm25, jaccard, sklearn).
+            k1 (float): BM25 saturation parameter.
+            b (float): BM25 length normalization parameter.
+            logic (str): Boolean logic for term matching.
+            sort_order (str): Result ordering (asc/desc).
+
+        Returns:
+            Dict[str, Any]: A dictionary containing total matches, paginated 
+                            results as dictionaries, and metadata.
+        """
+
+        # Generate a unique key for caching based on all input parameters
         cache_key = f"{query}|{mode}|{ranking_method}|{k1}|{b}|{search_logic}|{sort_order}|{page}|{page_size}"
 
-        # Încercăm să luăm din cache
         cached_res = self.cache.get(cache_key)
         if cached_res:
             print(f"DEBUG: Cache Hit for: {query}")
             return cached_res
 
+        # Configure the NLP strategy and BM25 parameters for the current session
         self.set_mode(mode)
-
-        # Actualizăm parametrii BM25
         self.bm25_weighter.k1 = k1
         self.bm25_weighter.b = b
 
-        # 1. Calculăm numărul de tokeni din query-ul original (brut)
-        # Folosim o separare simplă sau regex pentru acuratețe
+        # 1. Calculate the token count from the original (raw) query for metadata purposes
         raw_query_tokens = query.split()
         total_q_raw = len(raw_query_tokens)
 
-        # 2. Obținem termenii procesați (fără stop-words, lematizați etc.)
+        # 2. Obtain processed terms (after stop-word removal, lemmatization, etc.)
         q_terms = self.preprocessor.process(query)
         total_q_processed = len(q_terms)
 
@@ -132,12 +172,10 @@ class SearchEngine:
             return {"total": 0, "results": []}
 
         if mode == "sklearn":
-            # all_hits = self.sklearn_engine.search(query)
-            # sklearn_engine.search returns (doc_id, score)
+            # Baseline search using the Scikit-Learn TF-IDF implementation
             hits_raw = self.sklearn_engine.search(query)
 
-            # Obținem seturile de documente pentru fiecare termen din query folosind indexul manual
-            # pentru a putea calcula matches_count
+            # Retrieve document sets for each query term from the manual index to calculate matches
             term_sets = []
             for term in q_terms:
                 if term in self.index.index:
@@ -148,7 +186,7 @@ class SearchEngine:
 
             all_hits = []
             for doc_id, score in hits_raw:
-                # Calculăm matches_count verificând prezența doc_id în seturile fiecărui termen
+                # Calculate match count by verifying presence of doc_id in term sets
                 matches_count = sum(
                     1 for term_set in term_sets if doc_id in term_set)
                 matches_info = f"{matches_count}/{total_q_processed}/{total_q_raw}"
@@ -156,7 +194,7 @@ class SearchEngine:
                 if score > 0:
                     all_hits.append((doc_id, score, matches_info))
         else:
-            # Obținem postings pentru fiecare termen separat
+            # Retrieve postings (document IDs) for each individual term
             term_sets = []
             for term in q_terms:
                 if term in self.index.index:
@@ -165,26 +203,25 @@ class SearchEngine:
                 else:
                     term_sets.append(set())
 
-            # Aplicăm logica booleană pentru a determina documentele relevante
+            # Apply Boolean logic to determine the initial set of relevant document IDs
             if search_logic == "AND":
                 relevant_doc_ids = set.intersection(
                     *term_sets) if term_sets else set()
             elif search_logic == "OR":
                 relevant_doc_ids = set.union(
                     *term_sets) if term_sets else set()
-            else:  # HYBRID (Logică de Boost)
+            else:  # HYBRID (Logic with relevance boosting)
                 relevant_doc_ids = set.union(
                     *term_sets) if term_sets else set()
-                # Documentele care conțin toți termenii primesc un identificator de relevanță (opțional)
 
             all_hits = []
             for doc_id in relevant_doc_ids:
                 score = 0.0
-                # Calculăm câți termeni din query se află în acest document
+                # Calculate how many query terms are present in this specific document
                 matches_count = sum(
                     1 for term_set in term_sets if doc_id in term_set)
                 matches_info = f"{matches_count}/{total_q_processed}/{total_q_raw}"
-                # Calculăm scorul folosind metodele existente
+                # Compute relevance score based on the requested ranking method
                 if ranking_method == "cosine":
                     q_vec = self.weighter.make_query_vector(q_terms)
                     doc_vec = self.weighter.doc_vectors.get(doc_id, {})
@@ -194,15 +231,15 @@ class SearchEngine:
                 elif ranking_method == "bm25":
                     score = self.bm25_weighter.calculate_score(q_terms, doc_id)
 
-                # Bonus Hibrid: dacă documentul conține toți termenii (AND), mărim scorul
+                # Hybrid Boost: If the document satisfies the AND condition, boost the score
                 if search_logic == "HYBRID" and term_sets:
                     if doc_id in set.intersection(*term_sets):
-                        score *= 1.5  # Boost de 50% pentru potrivire completă
+                        score *= 1.5  # 50% score multiplier for full matches
 
                 if score > 0:
                     all_hits.append((doc_id, score, matches_info))
 
-        # Sorting
+        # Sort results based on score and the requested sort order
         # reverse=True for 'desc' to have highest scores first
         # reverse=False for 'asc' to have lowest scores first
         is_reverse = True if sort_order == "desc" else False
@@ -210,46 +247,64 @@ class SearchEngine:
 
         total_results = len(all_hits)
 
-        # Calculăm slice-ul pentru pagină
+        # Apply pagination slicing
         start = (page - 1) * page_size
         end = start + page_size
         paged_hits = all_hits[start:end]
 
         results = []
         for hit in paged_hits:
-            doc_id, score, matches_info = hit  # Despachetăm cele 3 valori
+            doc_id, score, matches_info = hit
             doc = self.doc_store.get(doc_id)
-            # Trimitem matches_info către _create_result
+            # Pass matching metadata to the result formatter
             results.append(self._create_result(doc, score, matches_info))
 
-        # Transformăm lista de obiecte SearchResult în listă de dicționare pentru JSON
+        # Serialize SearchResult objects to dictionaries for JSON compatibility
         results_as_dicts = [r.to_dict() for r in results]
 
         final_response = {
             "total": total_results,
             "page": page,
             "page_size": page_size,
-            "results": results_as_dicts,  # Salvăm dicționarele, nu obiectele
+            "results": results_as_dicts,  # Save dictionaries, not objects
             "sort_order": sort_order
         }
 
+        # Update the search cache with the newly calculated results
         self.cache.set(cache_key, final_response)
         return final_response
-        # return {
-        #     "total": total_results,
-        #     "page": page,
-        #     "page_size": page_size,
-        #     "results": results,
-        #     "sort_order": sort_order
-        # }
 
     def set_mode(self, mode: str):
+        """
+        Switches the active NLP preprocessing strategy in the factory.
+
+        Args:
+            mode (str): The strategy identifier (custom, nltk, spacy, sklearn).
+        """
+
         self.preprocessor = factory.get_preprocessor(mode)
 
     def list_documents(self):
+        """
+        Retrieves a summary of all indexed documents for corpus inspection.
+
+        Returns:
+            list: A collection of dictionaries containing doc_id and title.
+        """
+
         return [{"doc_id": r[0], "title": r[1]} for r in self.doc_store.get_metadata_list()]
 
     def get_document(self, doc_id: int):
+        """
+        Fetches the complete content of a specific document.
+
+        Args:
+            doc_id (int): Unique identifier for the document.
+
+        Returns:
+            dict: Document details or None if retrieval fails.
+        """
+
         try:
             d = self.doc_store.get(doc_id)
             return {"doc_id": d.doc_id, "title": d.title, "content": d.content}
@@ -257,10 +312,25 @@ class SearchEngine:
             return None
 
     def _create_result(self, doc, score, matches_info=""):
-        # Găsim conținutul fără newline-uri
+        """
+        Helper method to format a raw document into a SearchResult with a text snippet.
+
+        This method cleans the text of newlines and generates a fixed-length snippet, 
+        ensuring words are not split mid-character.
+
+        Args:
+            doc (Document): The source document object.
+            score (float): The calculated relevance score.
+            matches_info (str): Metadata regarding term matching ratios.
+
+        Returns:
+            SearchResult: A formatted result object ready for UI display.
+        """
+
+        # Remove newlines to ensure a clean snippet presentation
         text = doc.content.replace("\n", " ")
 
-        # Limităm la 220 caractere, dar tăiem la ultimul spațiu pentru a nu fragmenta cuvinte
+        # Limit snippet to 220 characters, trimming at the last space to prevent word fragmentation
         limit = 220
         if len(text) <= limit:
             snippet = text

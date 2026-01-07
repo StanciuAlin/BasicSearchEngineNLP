@@ -2,23 +2,54 @@ import sqlite3
 import os
 from ..models.document import Document
 
+"""
+Module: document_store.py
+Description: Implements a persistent storage layer for documents using SQLite. 
+This module ensures that the indexed corpus is saved on disk, allowing for 
+incremental updates and efficient metadata retrieval without loading full text into memory.
+"""
+
 
 class DocumentStore:
-    """A simple document store using SQLite for persistence."""
+    """
+    A persistent repository for managing document data.
+
+    The DocumentStore acts as a Bridge between the local file system and the 
+    Inverted Index. By utilizing an embedded SQLite database, it provides 
+    efficient CRUD operations and allows the search engine to retrieve 
+    document titles and snippets quickly during query execution.
+    """
 
     def __init__(self, db_path="data/library.db"):
+        """
+        Initializes the document store and prepares the underlying database.
+
+        Args:
+            db_path (str): The file path to the SQLite database.
+        """
+
         self.db_path = db_path
         self._setup_db()
 
     def get_document_count(self) -> int:
-        """Returns the total number of documents in the database."""
+        """
+        Retrieves the total volume of documents currently stored in the repository.
+
+        Returns:
+            int: Total number of records in the 'documents' table.
+        """
 
         with sqlite3.connect(self.db_path) as conn:
             res = conn.execute("SELECT COUNT(*) FROM documents").fetchone()
             return res[0] if res else 0
 
     def _setup_db(self):
-        """Creates the documents table if it doesn't exist."""
+        """
+        Initializes the database schema if it is not already present.
+
+        Ensures the existence of the directory structure and creates the 
+        'documents' table with primary keys and text fields for content and metadata.
+        """
 
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
         with sqlite3.connect(self.db_path) as conn:
@@ -32,7 +63,16 @@ class DocumentStore:
             """)
 
     def add_documents(self, documents: list[Document]):
-        """Adds a list of documents to the database."""
+        """
+        Performs a bulk insertion or update of documents in the database.
+
+        This method uses an 'INSERT OR REPLACE' strategy to ensure that 
+        documents with existing IDs are updated with new content, preventing 
+        duplicates while allowing for corpus synchronization.
+
+        Args:
+            documents (list[Document]): A list of Document model instances to be persisted.
+        """
 
         with sqlite3.connect(self.db_path) as conn:
             conn.executemany(
@@ -41,13 +81,33 @@ class DocumentStore:
             )
 
     def get_metadata_list(self):
-        """Returns document IDs and titles without loading the heavy text."""
+        """
+        Retrieves high-level metadata for all indexed documents.
+
+        This method is optimized for UI listing and selection, as it only 
+        fetches IDs and titles, avoiding the memory overhead of loading 
+        large text blocks.
+
+        Returns:
+            list: A list of tuples containing (id, title).
+        """
 
         with sqlite3.connect(self.db_path) as conn:
             return conn.execute("SELECT id, title FROM documents").fetchall()
 
     def get(self, doc_id: int) -> Document:
-        """Loads a single document from the database."""
+        """
+        Retrieves a complete Document object by its unique identifier.
+
+        Args:
+            doc_id (int): The unique ID of the document to load.
+
+        Returns:
+            Document: An instance of the Document model populated with database data.
+
+        Raises:
+            KeyError: If the requested document ID does not exist in the store.
+        """
 
         with sqlite3.connect(self.db_path) as conn:
             res = conn.execute(

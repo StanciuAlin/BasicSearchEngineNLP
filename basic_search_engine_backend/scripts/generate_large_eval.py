@@ -1,7 +1,14 @@
 import json
 import random
 
-# Liste extinse pentru diversificare maximă
+"""
+Module: query_generator.py
+Description: A synthetic data generation utility used to create large-scale 
+test sets for Search Engine evaluation. It employs a combinatorial approach 
+to simulate diverse user search behaviors across various linguistic structures.
+"""
+
+# Categorized lexicons for diversifying query generation
 subiecte = [
     "whale", "ship", "sea", "captain", "ocean", "harpoon", "adventure",
     "navigation", "storm", "crew", "vessel", "whaleboat", "anchor", "deck",
@@ -36,12 +43,12 @@ locatii = [
 
 queries = []
 
-# Generăm 1000 de combinații cu structuri variate
+# Generate 1000 combinations with varied structural complexity
+# This mimics different user intents, from simple keyword lookups to full-sentence questions.
 for i in range(1, 1001):
-    # Inițializăm q_text cu un șir vid sau o valoare default
     q_text = ""
 
-    # Alegem aleatoriu un tip de query pentru diversitate structurală
+    # Randomly select a query structure to ensure structural diversity in the evaluation set
     structura = random.choice([
         "keyword", "description", "person_action", "full_sentence", "geographic"
     ])
@@ -66,8 +73,8 @@ for i in range(1, 1001):
         # Ex: "Storm in the South Seas"
         q_text = f"{random.choice(subiecte).capitalize()} in the {random.choice(locatii)}"
 
-    # Adăugăm query-ul în listă doar dacă q_text a fost populat
     if q_text:
+        # Construct the query object with metadata for complexity analysis
         queries.append({
             "id": i,
             "query": q_text,
@@ -77,14 +84,15 @@ for i in range(1, 1001):
             }
         })
 
-# Salvăm în folderul data
+# Persist the generated evaluation set to the data directory
 output_path = 'data/eval_queries_large.json'
 try:
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(queries, f, indent=2)
     print(
-        f"Succes! S-a generat fișierul '{output_path}' cu {len(queries)} query-uri.")
+        f"Success! Generated '{output_path}' with {len(queries)} evaluation queries.")
 except FileNotFoundError:
+    # Fallback to local directory if the data/ folder is not present
     with open('eval_queries_large.json', 'w', encoding='utf-8') as f:
         json.dump(queries, f, indent=2)
-    print("Fișierul a fost salvat local (data/ nu a fost găsit).")
+    print("File saved locally (data/ folder not found).")
